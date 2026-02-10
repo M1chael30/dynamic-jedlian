@@ -4,6 +4,7 @@ import { navLinks, ourStory } from "../../lib/data";
 import MobileNavLinks from "./mobile-nav-links";
 import { NavigationMenuComponent } from "./navigation-menu-component";
 import { Link } from "@inertiajs/react";
+import logo from "/public/images/HOLDINGS-LOGO2.png";
 
 export default function Nav() {
 
@@ -13,7 +14,7 @@ export default function Nav() {
     {/* logo */}
     <Link href={route("home")}>
      <img
-      src="storage/images/HOLDINGS-LOGO2.png"
+      src={logo }
       alt=""
       className="w-33 h-10 object-cover select-none"
      />
