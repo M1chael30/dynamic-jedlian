@@ -20,7 +20,7 @@ export default function JedlianBusinessesSection() {
 
    {/* buttons with logo clickable */}
    <motion.div
-    variants={containerVariants}
+    // variants={containerVariants}
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.2 }}

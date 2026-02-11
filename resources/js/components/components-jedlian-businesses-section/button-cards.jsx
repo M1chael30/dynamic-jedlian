@@ -4,7 +4,10 @@ import { cn } from "../../lib/utils";
 
 export default function ButtonCards({ img, alt, onClick, className }) {
  return (
-  <motion.div variants={itemVariants} onClick={onClick}>
+  <motion.div
+   // variants={'itemVariants'}
+   onClick={onClick}
+  >
    <div
     className={cn(
      "rounded-lg overflow-hidden border-2 cursor-pointer transition-transform duration-300 ease-out hover:scale-105",
