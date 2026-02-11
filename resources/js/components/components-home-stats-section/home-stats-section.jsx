@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import HomeStatsButton from "./home-stats-button";
 import HomeStatsCards from "./home-stats-cards";
 import { HomeStatsCardMobile } from "./home-stats-card-mobile";

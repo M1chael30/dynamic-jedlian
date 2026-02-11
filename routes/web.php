@@ -10,3 +10,5 @@ Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 require __DIR__ . '/contactUs.php';
 require __DIR__ . '/achievements.php';
+require __DIR__ . '/corporateGovernance.php';
+require __DIR__ . '/aboutUs.php';

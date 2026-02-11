@@ -1,6 +1,6 @@
 import Navlink from "./nav-link";
 import { navLinks, ourStory } from "../../lib/data";
-// import { jedlianBusinessesData } from "@/lib/homePageData";
+import { jedlianBusinessesData } from "@/lib/homePageData";
 import MobileNavLinks from "./mobile-nav-links";
 import { NavigationMenuComponent } from "./navigation-menu-component";
 import { Link } from "@inertiajs/react";
@@ -26,7 +26,7 @@ export default function Nav() {
      />
      <NavigationMenuComponent
       navigationMenuTitle="Our Business"
-     // dropdownMenuItem={jedlianBusinessesData}
+     dropdownMenuItem={jedlianBusinessesData}
      />
      {navLinks.map((link, i) => (
       <Navlink

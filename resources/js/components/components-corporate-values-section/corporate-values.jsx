@@ -6,7 +6,6 @@ import CorporateValuesContent from "./corporate-values-content";
 import { containerVariants } from "../../lib/animations";
 import { motion } from "motion/react";
 
-import bgCasa from "images/bg-casa-jedliana.png";
 
 export default function CorporateValues() {
   const [active, setActive] = useState(0);
@@ -36,20 +35,18 @@ export default function CorporateValues() {
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-        className="grid grid-cols-2 items-center justify-center gap-x-40">
+          className="grid grid-cols-2 items-center justify-center gap-x-40">
           {corporateValuesButtonsData.map((item, index) => (
             <CorporateValuesButton
               key={item.id}
               customClassName={`
-                ${
-                  expand && active === index
-                    ? "bg-gradient-to-b from-amber-400 to-yellow-100 scale-125"
-                    : "bg-gradient-to-b from-yellow-600 to-yellow-200"
+                ${expand && active === index
+                  ? "bg-gradient-to-b from-amber-400 to-yellow-100 scale-125"
+                  : "bg-gradient-to-b from-yellow-600 to-yellow-200"
                 }
-                ${
-                  item.id === 2
-                     ? "col-span-2 place-self-center"
-                     : ""
+                ${item.id === 2
+                  ? "col-span-2 place-self-center"
+                  : ""
                 }
                 `}
               // {
@@ -110,10 +107,10 @@ export default function CorporateValues() {
           ))}
         </motion.div>
         */}
-         <CorporateValuesContent
-           objects={corporateValuesButtonsData}
-           item={activeItem}
-           expand={expand}
+        <CorporateValuesContent
+          objects={corporateValuesButtonsData}
+          item={activeItem}
+          expand={expand}
         />
       </div>
     </section>

@@ -52,9 +52,8 @@ const jedlianBusinessesData = [
         descriptionTwo:
             'Jedlian Communications made significant strides in the Telecommunication sector by providing state-of-the-art communication solutions year 2008. Today, Jedlian Communications continues to expand its presence and enhance connectivity in the communities it serves, further solidifying its role as a leading provider in the industry.',
         descriptionThree:
-            'At the core of Jedlian Communications is the belief that technology has the power to connect, empower, and transform lives. We strive to bridge gaps through innovation, inspire confidence through reliability, and uplift communities through access to information.',
-        descriptionFour:
-            'We envision a future where every Filipino community—whether urban or rural—is seamlessly connected to opportunities, knowledge, and progress. As we grow, Jedlian Communications aims to lead in smart, efficient, and people-driven communication solutions that shape a more connected and inclusive tomorrow.',
+            'Our Mission is to provide innovative, reliable and quality installation and repair services while consistently exceeding our customers expectations for them to have the best internet experience.',
+        descriptionFour: "Our vision is to become the leader in providing a complete and full range of services to meet our customer's requirements.",
         img: jedlianCommunicationLogo,
         imgBanner: bannerCommunication,
         imgCircleBanner: circleJedlianCommunication,
@@ -78,9 +77,9 @@ const jedlianBusinessesData = [
         descriptionTwo:
             'Jedlian Construction provides reliable construction solutions specializing in commercial and residential projects, housing developments, repair and renovation works, and solar renewable energy systems. We are committed to delivering quality craftsmanship, efficient project execution, and sustainable building solutions that meet our clients’ needs.',
         descriptionThree:
-            'We believe in building with integrity, quality, and responsibility. Our approach focuses on safety, innovation, and sustainable practices while maintaining strong partnerships with our clients and communities.',
+            'To build structures that stand the test of time by combining expert craftsmanship and innovation, while creating developments that meet evolving needs and uphold a consistent commitment to quality and responsibility.',
         descriptionFour:
-            'To become a trusted leader in construction and renewable energy by creating durable, sustainable, and future-ready developments that contribute to long-term community growth.',
+            'Jedlian Construction envisions becoming a trusted leader in the industry, recognized for excellence, innovation, and reliability. We aim to deliver impactful projects that support communities and reflect a lasting standard of quality.',
         img: jedlianConstructionLogo,
         imgBanner: bannerConstruction,
         imgCircleBanner: circleJedlianConstruction,
@@ -98,9 +97,8 @@ const jedlianBusinessesData = [
         descriptionTwo:
             'Jedlian Gasoline provides reliable and high-quality fuel solutions designed to meet the daily transportation and business needs of our communities. We are committed to safe operations, efficient service, and dependable fuel supply that customers can trust.',
         descriptionThree:
-            'We believe in delivering value through integrity, safety, and operational excellence. Our philosophy centers on honest service, responsible practices, and building long-term trust with our customers and partners.',
-        descriptionFour:
-            'To become a trusted fuel and energy provider known for reliability, efficiency, and customer-focused service while supporting sustainable growth for the future.',
+            'To deliver high-quality fuel products and dependable service that help keep vehicles and machinery running efficiently, while upholding strict safety and quality standards for the communities we serve.',
+        descriptionFour: 'To contribute to community progress by providing quality fuel services delivered with integrity and professionalism.',
         img: jedlianGasolineLogo,
         imgBanner: bannerGasoline,
         imgCircleBanner: circleJedlianGasoline,
@@ -118,9 +116,9 @@ const jedlianBusinessesData = [
         descriptionTwo:
             'Jedlian Drugstore is a community-focused pharmacy dedicated to providing accessible, affordable, and reliable healthcare products. We serve our customers with professionalism, care, and a strong commitment to quality and trust.',
         descriptionThree:
-            'We believe that healthcare should be accessible and dependable. Our operations are guided by integrity, ethical business practices, and genuine concern for the well-being of the communities we serve.',
+            'To deliver more than pharmaceutical products by serving with care, professionalism, and purpose—seeking to make a positive difference in the everyday lives of the community.',
         descriptionFour:
-            'To become a trusted and expanding drugstore brand that improves community health by delivering quality medicines, excellent service, and sustainable growth for the future.',
+            'To be Generika’s preferred franchisee by providing consistent service and being recognized for excellence in operations, while fostering a reliable and hospitable for the communities we serve.',
         img: jedlianDrugstoreLogo,
         imgBanner: bannerDrugStore,
         imgCircleBanner: circleJedlianDrugStore,
@@ -138,7 +136,7 @@ const jedlianBusinessesData = [
         descriptionTwo:
             'Embracing its Spanish-inspired motto "Mi Casa Es Tu Casa," Casa Jedliana Hotel and Resort is a haven where guests are embraced as family, now standing proudly as a symbol of luxury and tranquility in the heart of Nueva Ecija. Devoted to delivering premium accommodations and a range of amenities, Casa Jedliana remains connected to its origins, deeply entrenched in the verdant rice fields that characterize this picturesque region',
         descriptionThree:
-            'Casa Jedliana is dedicated to crafting a haven where extraordinary memories find a home, passionately striving for unparalleled excellence to ensure that every celebration and stay becomes an enduring and exceptional experience, forever etched in the heart',
+            'Casa Jedliana is dedicated to crafting a haven where extraordinary memories find a home, passionately striving for unparalleled excellence to ensure that every celebration and stay becomes an enduring and exceptional experience, forever etched in the heart.',
         descriptionFour:
             'Casa Jedliana warmly envisions becoming the cherished and leading hotel in the region, beckoning guests to experience an inviting extension of their homes, where every stay unfolds with personal stories and inspirations, creating a unique haven in the heart of hospitality.',
         img: casaJedlianaLogo,
