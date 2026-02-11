@@ -1,6 +1,6 @@
 import FooterList from "./footer-list";
-import { footerQuickLinks } from "@/lib/data";
-import { footerContactUs } from "@/lib/data";
+import { footerQuickLinks } from "../../lib/data";
+import { footerContactUs } from "../../lib/data";
 
 export default function FooterTopSection() {
  return (

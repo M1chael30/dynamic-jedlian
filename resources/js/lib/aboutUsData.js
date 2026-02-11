@@ -1,9 +1,9 @@
-import banner1 from "@/public/images/ceoLabel.png"
-import banner2 from "@/public/images/cooLabel.png"
-import ceo from "@/public/images/ceoImage.png"
-import coo from "@/public/images/cooImage.png"
-import ceoMobile from "@/public/images/maamEdithaMobile.png"
-import cooMobile from "@/public/images/sirChristianMobile.png"
+// import banner1 from "images/ceoLabel.png"
+// import banner2 from "images/cooLabel.png"
+// import ceo from "images/ceoImage.png"
+// import coo from "images/cooImage.png"
+// import ceoMobile from "images/maamEdithaMobile.png"
+// import cooMobile from "images/sirChristianMobile.png"
 
 
 const companyLeadersData = [
@@ -14,7 +14,7 @@ const companyLeadersData = [
     name: "Editha Galang",
     position: "CEO/President",
     textContent: "Jedlian Holdings Inc. is a diversified parent company that oversees and strategically manages five thriving business enterprises, each contributing to the organization's continued growth and reputation for excellence: Jedlian Communication, Jedlian Construction, Jedlian Gasoline, Jedlian Drugstore, and Casa Jedliana Hotel and Resort.",
-    banner: banner1
+    // banner: banner1
   },
   {
     id: 1,
@@ -23,7 +23,7 @@ const companyLeadersData = [
     name: "Christian Galang",
     position: "COO/Co-founder",
     textContent: "Built on a strong foundation in telecommunications, the company expanded into construction, hospitality, energy, and healthcare—delivering quality, innovation, and value across industries. United by a commitment to excellence, Jedlian Holdings continues to drive sustainable growth and long-term impact.",
-    banner: banner2
+    // banner: banner2
   },
 ];
 

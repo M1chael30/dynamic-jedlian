@@ -2,44 +2,44 @@ import { PiTargetFill } from "react-icons/pi";
 import { BsEyeFill } from "react-icons/bs";
 
 //logo imports
-import customerFocusedLogo from "@/public/images/logos-corporate-values/icons/customer-focused.png";
-import innovativeLogo from "@/public/images/logos-corporate-values/icons/innovative.png";
-import godCenteredLogo from "@/public/images/logos-corporate-values/icons/god-centered.png";
-import integrityLogo from "@/public/images/logos-corporate-values/icons/integrity.png";
-import teamworkLogo from "@/public/images/logos-corporate-values/icons/teamwork.png";
+// import customerFocusedLogo from "images/logos-corporate-values/icons/customer-focused.png";
+// import innovativeLogo from "images/logos-corporate-values/icons/innovative.png";
+// import godCenteredLogo from "images/logos-corporate-values/icons/god-centered.png";
+// import integrityLogo from "images/logos-corporate-values/icons/integrity.png";
+import teamworkLogo from "images/logos-corporate-values/icons/teamwork.png";
 
 const corporateValuesButtonsData = [
  {
   id: 0,
   title: "customer-focused",
   description: "Our Top Priority Is Our Customer, Serving Them Above All",
-  logo: customerFocusedLogo,
+//   logo: customerFocusedLogo,
  },
  {
   id: 1,
   title: "Integrity",
   description:
    "Highly Values the Sense of Honesty and Accountability in All Our Actions",
-  logo: integrityLogo,
+//   logo: integrityLogo,
  },
  {
   id: 2,
   title: "God-Centered",
   description: "God at the Center of Everything We Do",
-  logo: godCenteredLogo,
+//   logo: godCenteredLogo,
  },
  {
   id: 3,
   title: "Innovative",
   description: "To Innovate and Adapt Opportunities to Changes",
-  logo: innovativeLogo,
+//   logo: innovativeLogo,
  },
  {
   id: 4,
   title: "Teamwork",
   description:
    "We Build a Customer-Oriented Team That Delivers Quality Service",
-  logo: teamworkLogo,
+//   logo: teamworkLogo,
  },
 ];
 

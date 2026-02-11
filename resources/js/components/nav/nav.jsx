@@ -4,17 +4,16 @@ import { navLinks, ourStory } from "../../lib/data";
 import MobileNavLinks from "./mobile-nav-links";
 import { NavigationMenuComponent } from "./navigation-menu-component";
 import { Link } from "@inertiajs/react";
-import logo from "/public/images/HOLDINGS-LOGO2.png";
 
 export default function Nav() {
 
  return (
   <header className="sticky top-0 z-50">
-   <div className="flex h-16 shrink-0 items-center px-4 mx-auto max-w-7xl w-full">
+   <div className="flex h-16 shrink-0 bg-background items-center px-4 mx-auto max-w-7xl w-full">
     {/* logo */}
     <Link href={route("home")}>
      <img
-      src={logo }
+      src={"images/HOLDINGS-LOGO2.png"}
       alt=""
       className="w-33 h-10 object-cover select-none"
      />

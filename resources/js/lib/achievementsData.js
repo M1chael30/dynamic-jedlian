@@ -1,4 +1,4 @@
-import sample from "@/public/images/achievementSampleSquare.png";
+import sample from "images/achievementSampleSquare.png";
 
 export const achievementsData = [
  {
