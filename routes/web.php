@@ -5,7 +5,7 @@ use App\Http\Controllers\Home\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 //render home page
-Route::get('/', [HomePageController::class, 'index'])->middleware('guest')->name('home');
+Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 
 require __DIR__ . '/contactUs.php';

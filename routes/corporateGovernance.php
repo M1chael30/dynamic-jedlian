@@ -6,7 +6,5 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
-Route::middleware('guest')->group(function () {
     Route::get('/corporate-governance', [CorporateGovernanceController::class, 'index'])
         ->name('corporate.governance.index');
-});
