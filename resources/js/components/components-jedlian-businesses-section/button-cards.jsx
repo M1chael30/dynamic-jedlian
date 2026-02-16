@@ -5,7 +5,7 @@ import { cn } from "../../lib/utils";
 export default function ButtonCards({ img, alt, onClick, className }) {
  return (
   <motion.div
-   // variants={'itemVariants'}
+   variants={itemVariants}
    onClick={onClick}
   >
    <div

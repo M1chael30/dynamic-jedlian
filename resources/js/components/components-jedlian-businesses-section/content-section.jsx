@@ -8,7 +8,7 @@ export default function ContentSection({ item }) {
   <AnimatePresence mode="wait">
    <motion.section
     key={item.id}
-    // variants={sectionVariants}
+    variants={sectionVariants}
     initial="hidden"
     animate="show"
     exit="exit"
@@ -16,7 +16,7 @@ export default function ContentSection({ item }) {
    >
     {/* Image */}
     <motion.div
-     // variants={fadeRightVariants}
+     variants={fadeRightVariants}
      className="w-full md:w-1/2"
     >
      <img src={item.img} alt={item.alt} className="object-cover rounded-xl" />
@@ -25,21 +25,21 @@ export default function ContentSection({ item }) {
     {/* Content */}
     <div className="w-full md:w-1/2 space-y-4 h-70">
      <motion.h1
-      // variants={fadeRightVariants}
+      variants={fadeRightVariants}
       className="text-title font-bold max-w-[15ch]"
      >
       {item.title}
      </motion.h1>
 
      <motion.p
-      // variants={fadeRightVariants}
+      variants={fadeRightVariants}
       className="text-description text-muted-foreground"
      >
       {item.description}
      </motion.p>
 
      <motion.div
-     // variants={fadeRightVariants}
+     variants={fadeRightVariants}
      >
       <CustomButton
        icon={<ArrowRight size={18} />}
