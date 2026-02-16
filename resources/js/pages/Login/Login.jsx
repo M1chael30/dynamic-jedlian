@@ -16,7 +16,7 @@ export default function Login() {
 
     const submit = (e) => {
         e.preventDefault()
-        post(route('login'), {
+        post(route('admin.login'), {
             preserveScroll: true,
             onFinish: () => reset('password'),
             onSuccess: () => toast.success('User login successfully.'),
