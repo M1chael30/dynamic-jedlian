@@ -9,4 +9,11 @@ class Period extends Model
 {
     /** @use HasFactory<\Database\Factories\Achievements\PeriodFactory> */
     use HasFactory;
+
+    protected $fillable = ['year'];
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
 }
