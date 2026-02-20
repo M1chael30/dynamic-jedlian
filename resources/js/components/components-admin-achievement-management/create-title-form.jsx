@@ -16,7 +16,7 @@ export default function CreateTitleForm({ periods }) {
     const submitAchievement = (e) => {
         e.preventDefault();
 
-        post(route('achievement.store'), {
+        post(route('achievement.store.title'), {
             preserveScroll: true,
             onFinish: () => reset(),
             onSuccess: () => {

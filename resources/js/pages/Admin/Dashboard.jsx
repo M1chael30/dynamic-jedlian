@@ -17,36 +17,6 @@ export default function Dashboard({pages}) {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {/* <TableRow>
-                                <TableCell>Home</TableCell>
-                                <TableCell>
-                                    <Link>View</Link>
-                                </TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell>About Us</TableCell>
-                                <TableCell>
-                                    <Link>View</Link>
-                                </TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell>Corporate Governance</TableCell>
-                                <TableCell>
-                                    <Link>View</Link>
-                                </TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell>Our Businesses</TableCell>
-                                <TableCell>
-                                    <Link>View</Link>
-                                </TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell>Achievements</TableCell>
-                                <TableCell>
-                                    <Link>View</Link>
-                                </TableCell>
-                            </TableRow> */}
                             {pages.map((page, index)=>(
                             <TableRow key={index}>
                                 <TableCell>{page.name}</TableCell>

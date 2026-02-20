@@ -11,12 +11,36 @@ use Inertia\Inertia;
 class AchievementManagementController extends Controller
 {
     //
-    public function index()
+    public function index() {
+        $achievements = Achievement::select('id', 'title', 'period_id')->with(['period:id,year'])->latest()->get();
+        return Inertia::render('Admin/Achievements/AchievementManagement', [
+            'achievements' => $achievements
+        ]);
+    }
+
+    /////////////////////////show/////////////////////////////
+
+    public function show(Achievement $achievement) {
+        $achievement->select('id', 'title', 'period_id');
+        $period = $achievement->period()->first();
+        $description = $achievement->achievement_descriptions()->latest()->get();
+
+        return Inertia::render('Admin/Achievements/ShowAchievement', [
+            'achievement'=> $achievement,
+            'period' => $period,
+            'descriptions'=> $description
+        ]);
+    }
+
+
+    /////////////////////////create/////////////////////////////
+
+    public function create()
     {
         $periods = Period::select('id', 'year')->get();
         $titles = Achievement::select('id','title')->get();
 
-        return Inertia::render("Admin/Achievements/AchievementManagement", [
+        return Inertia::render("Admin/Achievements/CreateAchievement", [
             "periods" => $periods,
             "titles" => $titles
         ]);
@@ -25,7 +49,7 @@ class AchievementManagementController extends Controller
     public function storePeriod(Request $request)
     {
         $fields = $request->validate([
-            "year" => ["required", "max:4", "min:4"],
+            "year" => ["required", "max:4", "min:4","unique:periods"],
         ]);
 
         Period::create($fields);
@@ -55,5 +79,11 @@ class AchievementManagementController extends Controller
         AchievementDescription::create($fields);
 
         return redirect()->route('achievement.management');
+    }
+
+    /////////////////////////update/////////////////////////////
+
+    public function updateAchievementDescription(Request  $request){
+        
     }
 }

@@ -29,7 +29,6 @@ export default function CreateDescriptionForm({ titles }) {
     return (
         <Card>
             <CardHeader>
-                {/* <CardTitle>Create achievement description ni geronie</CardTitle> */}
                 <CardTitle>Create achievement description</CardTitle>
             </CardHeader>
             <CardContent>
