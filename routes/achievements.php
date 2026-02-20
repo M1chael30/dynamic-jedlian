@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AchievementController as AchievementManagementController;
+use App\Http\Controllers\AchievementManagementController;
 use App\Http\Controllers\Home\AchievementController as AchievementPageController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,4 +9,12 @@ Route::get('/achievements', [AchievementPageController::class, 'index'])->name('
 
 
 // achivement management
-Route::resource('achievements_management', AchievementManagementController::class)->middleware('auth');
+Route::prefix('admin')
+    ->middleware(['auth'])
+    ->controller(AchievementManagementController::class)
+    ->group(function () {
+        Route::get('/achievement-management', 'index')->name('achievement.management');
+        Route::post('/achievement-management/period', 'storePeriod')->name('achievement.store.period');
+        Route::post('/achievement-management/achievement', 'storeAchievement')->name('achievement.store');
+        Route::post('/achievement-management/achievement/description', 'storeAchievementDescription')->name('achievement.store.description');
+    });

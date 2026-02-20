@@ -9,4 +9,13 @@ class AchievementImage extends Model
 {
     /** @use HasFactory<\Database\Factories\Achievements\AchievementImageFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        "image_filename",
+    ];
+
+    public function achievement()
+    {
+        return $this->belongsTo(Achievement::class);
+    }
 }

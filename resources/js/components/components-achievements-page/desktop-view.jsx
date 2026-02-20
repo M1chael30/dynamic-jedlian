@@ -1,8 +1,7 @@
 import { motion } from 'motion/react';
-import { achievementsData } from '../../lib/achievementsData';
 import { containerVariants, fadeVariants } from '../../lib/animations';
 
-export default function DesktopView() {
+export default function DesktopView({ achievements }) {
     return (
         <div className="w-full py-12 md:py-20">
             <motion.div variants={containerVariants} initial="hidden" whileInView="show" className="relative ml-3">
@@ -14,7 +13,7 @@ export default function DesktopView() {
                     className="absolute top-4 bottom-0 left-0 border-l-2 bg-yellow-600"
                 />
 
-                {achievementsData.reverse().map(({ description, period, title, image }, index) => (
+                {achievements.map((achievement, index) => (
                     <motion.div
                         variants={fadeVariants}
                         initial="hidden"
@@ -28,29 +27,34 @@ export default function DesktopView() {
                         {/* Content */}
                         <div className="space-y-3">
                             <div className="flex items-center justify-center gap-2.5 bg-[radial-gradient(circle_at_50%,#c89116,#c89116,#cfceaa)] bg-clip-text text-transparent md:justify-normal">
-                                <span className="text-3xl font-semibold md:text-5xl">{period}</span>
+                                <span className="text-3xl font-semibold md:text-5xl">{achievement.year}</span>
                             </div>
                             <div className="flex justify-center md:block md:justify-normal">
-                                <img
+                                {/* <img
                                     src={image}
                                     alt="nakamit mo"
                                     className="block h-45 w-65 rounded-xl border border-yellow-400 select-none md:hidden"
                                     draggable="false"
-                                />
+                                /> */}
                             </div>
-
-                            <div className="flex flex-col items-center justify-center py-3 md:items-start">
-                                <h3 className="text-lg font-semibold tracking-[-0.01em] md:text-xl">{title}</h3>
-                                <p className="text-muted-foreground text-center text-sm text-pretty sm:text-base md:text-left">{description}</p>
-                            </div>
+                            {achievement.achievements.map(({ id, title, achievement_descriptions }) => (
+                                <div key={id} className="flex flex-col items-center justify-center space-y-3 py-3 md:items-start">
+                                    <h3 className="text-lg font-semibold tracking-[-0.01em] md:text-xl">{title}</h3>
+                                    <ul className="text-muted-foreground list-disc space-y-3 text-center text-sm text-pretty sm:text-base md:text-left">
+                                        {achievement_descriptions.map(({ id, description_text }) => (
+                                            <li key={id}>{description_text}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
                         </div>
                         <div className="hidden items-center justify-center md:flex">
-                            <img
+                            {/* <img
                                 src={image}
                                 alt="nakamit mo"
                                 className="h-60 w-90 rounded-xl border border-yellow-400 select-none"
                                 draggable="false"
-                            />
+                            /> */}
                         </div>
                     </motion.div>
                 ))}
