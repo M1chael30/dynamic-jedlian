@@ -83,7 +83,24 @@ class AchievementManagementController extends Controller
 
     /////////////////////////update/////////////////////////////
 
-    public function updateAchievementDescription(Request  $request){
-        
+    public function updateDescription(Request  $request, AchievementDescription $description){
+        // dd($description);
+
+        $request->validate([
+            'description_text' => 'required|string'
+        ]);
+
+        $description->update(['description_text' => $request->description_text]);
+
+        return back()->with('success', 'Description updated successfully.');
+    }
+
+    //////////////////////delete///////////////////////////////
+
+    public function deleteDescription(Request $request, AchievementDescription $description) {
+        $description->delete();
+
+        return back()->with('success','Description deleted.');
+
     }
 }
