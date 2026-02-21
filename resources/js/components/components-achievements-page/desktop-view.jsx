@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { containerVariants, fadeVariants } from '../../lib/animations';
 
 export default function DesktopView({ achievements }) {
+    console.log(achievements)
     return (
         <div className="w-full py-12 md:py-20">
             <motion.div variants={containerVariants} initial="hidden" whileInView="show" className="relative ml-3">
@@ -29,14 +30,17 @@ export default function DesktopView({ achievements }) {
                             <div className="flex items-center justify-center gap-2.5 bg-[radial-gradient(circle_at_50%,#c89116,#c89116,#cfceaa)] bg-clip-text text-transparent md:justify-normal">
                                 <span className="text-3xl font-semibold md:text-5xl">{achievement.year}</span>
                             </div>
-                            <div className="flex justify-center md:block md:justify-normal">
-                                {/* <img
-                                    src={image}
-                                    alt="nakamit mo"
-                                    className="block h-45 w-65 rounded-xl border border-yellow-400 select-none md:hidden"
-                                    draggable="false"
-                                /> */}
-                            </div>
+                            {
+                                achievement?.achievement_image && (
+                                    <div className="flex justify-center md:block md:justify-normal">
+                                        <img
+                                            src={`storage/${achievement?.achievement_image.image_filename}`}
+                                            alt="nakamit mo"
+                                            className="block h-45 w-65 rounded-xl border border-yellow-400 select-none md:hidden"
+                                        />
+                                    </div>
+                                )
+                            }
                             {achievement.achievements.map(({ id, title, achievement_descriptions }) => (
                                 <div key={id} className="flex flex-col items-center justify-center space-y-3 py-3 md:items-start">
                                     <h3 className="text-lg font-semibold tracking-[-0.01em] md:text-xl">{title}</h3>
@@ -49,12 +53,15 @@ export default function DesktopView({ achievements }) {
                             ))}
                         </div>
                         <div className="hidden items-center justify-center md:flex">
-                            {/* <img
-                                src={image}
-                                alt="nakamit mo"
-                                className="h-60 w-90 rounded-xl border border-yellow-400 select-none"
-                                draggable="false"
-                            /> */}
+                            {
+                                achievement?.achievement_image && (
+                                    <img
+                                        src={`storage/${achievement?.achievement_image.image_filename}`}
+                                        alt="nakamit mo"
+                                        className="h-60 w-90 rounded-xl border border-yellow-400 select-none"
+                                    />
+                                )
+                            }
                         </div>
                     </motion.div>
                 ))}

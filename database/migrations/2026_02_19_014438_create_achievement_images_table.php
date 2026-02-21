@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('achievement_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('achievement_id')->constrained('achievements')->cascadeOnDelete();
+            $table->foreignId('period_id')->constrained('periods')->cascadeOnDelete();
             $table->string('image_filename')->nullable();
             $table->timestamps();
         });
