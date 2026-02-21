@@ -11,11 +11,12 @@ class AchievementImage extends Model
     use HasFactory;
 
     protected $fillable = [
+        "achievement_id",
         "image_filename",
     ];
 
-    public function achievement()
+    public function period()
     {
-        return $this->belongsTo(Achievement::class);
+        return $this->belongsTo(Period::class);
     }
 }
