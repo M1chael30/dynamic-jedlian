@@ -36,7 +36,7 @@ export default function DesktopView({ achievements }) {
                                 {achievement.year}
                             </h1>
 
-                            <div className="gap-6 grid lg:grid-cols-2">
+                            <div className="gap-6 grid lg:grid-cols-2 w-full max-w-7xl">
                                 {achievement.achievements.map(({ id, title, achievement_descriptions }) => (
                                     <div key={id} className="flex flex-col items-center justify-center space-y-3 py-3 md:items-start">
                                         <h3 className="text-lg font-semibold tracking-[-0.01em] md:text-xl">{title}</h3>

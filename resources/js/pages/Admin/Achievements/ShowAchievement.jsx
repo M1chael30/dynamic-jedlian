@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@headlessui/react';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { useState } from 'react';
+import { toast } from 'sonner';
 import {
     Dialog,
     DialogClose,
@@ -13,12 +15,10 @@ import {
 } from '../../../components/ui/dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table';
 import AdminLayout from '../../../layouts/admin-layout';
-import { useState } from 'react';
-import { toast } from 'sonner';
+import FormError from '../../../components/form-error';
 
 export default function ShowAchievement({ achievement, period, descriptions }) {
-
-    const [openEdit, setOpenEdit] = useState(false)
+    const [openEdit, setOpenEdit] = useState(false);
 
     const {
         data,
@@ -38,8 +38,8 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
 
         put(route('achievement.update.description', data.id), {
             onSuccess: () => {
-            toast.success('Description updated successfully')
-            }
+                toast.success('Description updated successfully');
+            },
         });
     };
 
@@ -53,11 +53,13 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
             <section className="mx-auto w-full max-w-3xl space-y-5 px-4 py-5">
                 <div className="flex items-center justify-between rounded-sm border p-4 text-sm">
                     <div>
-                    <h1>Period: {period.year}</h1>
-                    <h1>Title: {achievement.title}</h1>
+                        <h1>Period: {period.year}</h1>
+                        <h1>Title: {achievement.title}</h1>
                     </div>
                     <div>
-                    <Link className="text-sm hover:underline" href={route('achievement.create.description', achievement.id)}>Add Description?</Link>
+                        <Link className="text-sm hover:underline" href={route('achievement.create.description', achievement.id)}>
+                            Add Description?
+                        </Link>
                     </div>
                 </div>
                 <div className={`rounded-sm border`}>
@@ -83,8 +85,8 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
                                         })}
                                     </TableCell>
                                     <TableCell>
-                                            <div className="flex justify-center gap-2">
-                                        <Dialog>
+                                        <div className="flex justify-center gap-2">
+                                            <Dialog>
                                                 <DialogTrigger asChild>
                                                     <Button
                                                         variant="outline"
@@ -110,6 +112,8 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
                                                             value={data.description_text}
                                                             onChange={(e) => setData('description_text', e.target.value)}
                                                         />
+                                                        <FormError message={errors.description_text} />
+
                                                         <DialogFooter>
                                                             <DialogClose asChild>
                                                                 <Button variant="outline">Cancel</Button>
@@ -118,9 +122,9 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
                                                         </DialogFooter>
                                                     </form>
                                                 </DialogContent>
-                                        </Dialog>
+                                            </Dialog>
 
-                                        <Dialog>
+                                            <Dialog>
                                                 <DialogTrigger asChild>
                                                     <Button
                                                         size="sm"
@@ -134,25 +138,22 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
                                                 <DialogContent className="sm:max-w-sm">
                                                     <DialogHeader>
                                                         <DialogTitle>Are you sure?</DialogTitle>
-                                                        <DialogDescription>
-                                                            Are you sure you want to delete this description?
-                                                        </DialogDescription>
+                                                        <DialogDescription>Are you sure you want to delete this description?</DialogDescription>
                                                     </DialogHeader>
                                                     <form onSubmit={handleDelete}>
-                                                        <p className=" text-zinc-300 mb-10">
-                                                            {data.description_text}
-                                                        </p>
+                                                        <p className="mb-10 text-zinc-300">{data.description_text}</p>
                                                         <DialogFooter>
                                                             <DialogClose asChild>
                                                                 <Button variant="outline">Cancel</Button>
                                                             </DialogClose>
-                                                            <Button type="submit" variant="destructive">Delete</Button>
+                                                            <Button type="submit" variant="destructive">
+                                                                Delete
+                                                            </Button>
                                                         </DialogFooter>
                                                     </form>
                                                 </DialogContent>
-                                        </Dialog>   
-
-                                            </div>
+                                            </Dialog>
+                                        </div>
                                     </TableCell>
                                 </TableRow>
                             ))}

@@ -51,11 +51,14 @@ class AchievementManagementController extends Controller
         ]);
     }
 
-    public function createDescription(Achievement $achievement){
-        return Inertia::render("Admin/Achievements/CreateAchievementDescription",
-        [
-            'achievement' => $achievement
-            ]);
+    public function createDescription(Achievement $achievement)
+    {
+        return Inertia::render(
+            "Admin/Achievements/CreateAchievementDescription",
+            [
+                'achievement' => $achievement
+            ]
+        );
     }
 
     public function storePeriod(Request $request)
@@ -65,7 +68,8 @@ class AchievementManagementController extends Controller
             "image_filename" => [
                 'mimes:png,jpg',
                 // 'image',
-                'required',
+                // 'required',
+                'nullable',
                 File::image()
                     ->min('1kb')
                     ->max('3mb')
@@ -92,7 +96,12 @@ class AchievementManagementController extends Controller
     {
         $fields = $request->validate([
             'period_id' => ['required', 'exists:periods,id'],
-            "title" => ["required", "max:255"],
+            "title" => [
+                "required",
+                "max:255",
+                'regex:/^\S{0,30}(\s+\S{1,30})*$/'
+            ],
+
         ]);
 
         Achievement::create($fields);
@@ -104,7 +113,12 @@ class AchievementManagementController extends Controller
     {
         $fields = $request->validate([
             'achievement_id' => ['required', 'exists:achievements,id'],
-            "description_text" => ["required", "max:255"],
+            "description_text" => [
+                "required",
+                "max:255",
+                'regex:/^\S{0,30}(\s+\S{1,30})*$/'
+            ],
+
         ]);
 
         AchievementDescription::create($fields);
@@ -114,24 +128,30 @@ class AchievementManagementController extends Controller
 
     /////////////////////////update/////////////////////////////
 
-    public function updateDescription(Request  $request, AchievementDescription $description){
+    public function updateDescription(Request $request, AchievementDescription $description)
+    {
         // dd($description);
 
-        $request->validate([
-            'description_text' => 'required|string'
+        $updated = $request->validate([
+            'description_text' => [
+                'required',
+                'string',
+                'max:255',
+                'regex:/^\S{0,30}(\s+\S{1,30})*$/'
+            ]
         ]);
 
-        $description->update(['description_text' => $request->description_text]);
+        $description->update($updated);
 
         return back()->with('success', 'Description updated successfully.');
     }
 
     //////////////////////delete///////////////////////////////
 
-    public function deleteDescription(Request $request, AchievementDescription $description) {
+    public function deleteDescription(Request $request, AchievementDescription $description)
+    {
         $description->delete();
 
-        return back()->with('success','Description deleted.');
-
+        return back()->with('success', 'Description deleted.');
     }
 }
