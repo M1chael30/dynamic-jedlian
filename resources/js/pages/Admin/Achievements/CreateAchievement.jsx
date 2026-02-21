@@ -4,7 +4,7 @@ import CreatePeriodForm from '../../../components/components-admin-achievement-m
 import CreateTitleForm from '../../../components/components-admin-achievement-management/create-title-form';
 import AdminLayout from '../../../layouts/admin-layout';
 
-export default function CreateAchievement({ periods, titles }) {
+export default function CreateAchievement({ periods }) {
     return (
         <>
             <Head title="Achievement Management" />
@@ -14,9 +14,6 @@ export default function CreateAchievement({ periods, titles }) {
 
                 {/* create title */}
                 <CreateTitleForm periods={periods} />
-
-                {/* create desc */}
-                <CreateDescriptionForm titles={titles} />
             </section>
         </>
     );

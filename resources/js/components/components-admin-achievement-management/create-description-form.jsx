@@ -7,10 +7,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import AchievementSelectInput from './achievement-select-input';
+import AdminLayout from '../../layouts/admin-layout';
 
-export default function CreateDescriptionForm({ titles }) {
+export default function CreateDescriptionForm({ achievement }) {
     const { data, setData, errors, post, reset, processing } = useForm({
-        achievement_id: '',
+        achievement_id: achievement.id,
         description_text: '',
     });
 
@@ -29,18 +30,11 @@ export default function CreateDescriptionForm({ titles }) {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Create achievement description</CardTitle>
+                <CardTitle>Create Achievement Description</CardTitle>
             </CardHeader>
             <CardContent>
                 <form onSubmit={submitAchievementDescription} className="space-y-5">
-                    <AchievementSelectInput
-                        data={titles}
-                        selectLabelTitle={'Title'}
-                        labelTitle={'Title'}
-                        placeholder="Select a title"
-                        value={data.achievement_id}
-                        onValueChange={(value) => setData('achievement_id', Number(value))}
-                    />
+                    <p>Title: {achievement.title}</p>
                     <FormError message={errors.achievement_id && 'The title field is required.'} />
 
                     <div className="space-y-3">

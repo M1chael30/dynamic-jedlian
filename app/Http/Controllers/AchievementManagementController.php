@@ -51,6 +51,13 @@ class AchievementManagementController extends Controller
         ]);
     }
 
+    public function createDescription(Achievement $achievement){
+        return Inertia::render("Admin/Achievements/CreateAchievementDescription",
+        [
+            'achievement' => $achievement
+            ]);
+    }
+
     public function storePeriod(Request $request)
     {
         $fields = $request->validate([

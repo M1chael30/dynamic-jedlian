@@ -13,8 +13,13 @@ import {
 } from '../../../components/ui/dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table';
 import AdminLayout from '../../../layouts/admin-layout';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function ShowAchievement({ achievement, period, descriptions }) {
+
+    const [openEdit, setOpenEdit] = useState(false)
+
     const {
         data,
         setData,
@@ -32,7 +37,9 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
         e.preventDefault();
 
         put(route('achievement.update.description', data.id), {
-            preserveScroll: true,
+            onSuccess: () => {
+            toast.success('Description updated successfully')
+            }
         });
     };
 
@@ -50,7 +57,7 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
                     <h1>Title: {achievement.title}</h1>
                     </div>
                     <div>
-                    <Link className="text-sm hover:underline">Add Description?</Link>
+                    <Link className="text-sm hover:underline" href={route('achievement.create.description', achievement.id)}>Add Description?</Link>
                     </div>
                 </div>
                 <div className={`rounded-sm border`}>
@@ -132,7 +139,7 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
                                                         </DialogDescription>
                                                     </DialogHeader>
                                                     <form onSubmit={handleDelete}>
-                                                        <p className=" text-zinc-300">
+                                                        <p className=" text-zinc-300 mb-10">
                                                             {data.description_text}
                                                         </p>
                                                         <DialogFooter>
