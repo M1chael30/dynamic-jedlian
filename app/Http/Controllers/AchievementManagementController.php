@@ -58,7 +58,7 @@ class AchievementManagementController extends Controller
             "image_filename" => [
                 'mimes:png,jpg',
                 'image',
-                'nullable',
+                'required',
                 File::image()
                     ->min('1kb')
                     ->max('3mb')
