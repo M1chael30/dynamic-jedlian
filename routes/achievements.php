@@ -14,7 +14,12 @@ Route::prefix('admin')
     ->controller(AchievementManagementController::class)
     ->group(function () {
         Route::get('/achievement-management', 'index')->name('achievement.management');
+        Route::get('/achievement-management/create', 'create')->name('achievement.create');
+        Route::get('/achievement-management/show/{achievement}', 'show')->name('achievement.show');
+        
+        Route::put('/achievement-management/update/achievement/description/{description}','updateAchievementDescription')->name('achievement.update.description');
+
         Route::post('/achievement-management/period', 'storePeriod')->name('achievement.store.period');
-        Route::post('/achievement-management/achievement', 'storeAchievement')->name('achievement.store');
+        Route::post('/achievement-management/achievement/title', 'storeAchievement')->name('achievement.store.title');
         Route::post('/achievement-management/achievement/description', 'storeAchievementDescription')->name('achievement.store.description');
     });
