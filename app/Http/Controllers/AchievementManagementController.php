@@ -16,9 +16,12 @@ class AchievementManagementController extends Controller
     //
     public function index()
     {
-        $achievements = Achievement::select('id', 'title', 'period_id')->with(['period:id,year'])->latest()->get();
+        $periods = Period::select('id', 'year')->with(['achievements:id,title,period_id', 'achievements.achievement_descriptions'])->latest()->get();
+        // $achievements = Achievement::select('id','title','period_id')->with(['achievement_descriptions:id,achievement_id,description_text'])->latest()->get();
+        // $descriptions = AchievementDescription::select('id','achievement_id', 'description_text')->latest()->get();
         return Inertia::render('Admin/Achievements/AchievementManagement', [
-            'achievements' => $achievements
+            // 'descriptions' => $descriptions,
+            'periods' => $periods
         ]);
     }
 
