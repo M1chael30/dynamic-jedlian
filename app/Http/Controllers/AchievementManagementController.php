@@ -64,7 +64,7 @@ class AchievementManagementController extends Controller
             "year" => ["required", "max:4", "min:4", "unique:periods"],
             "image_filename" => [
                 'mimes:png,jpg',
-                'image',
+                // 'image',
                 'required',
                 File::image()
                     ->min('1kb')
