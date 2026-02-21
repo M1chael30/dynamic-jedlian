@@ -141,7 +141,7 @@ export default function ShowAchievement({ achievement, period, descriptions }) {
                                                         <DialogDescription>Are you sure you want to delete this description?</DialogDescription>
                                                     </DialogHeader>
                                                     <form onSubmit={handleDelete}>
-                                                        <p className="mb-10 text-zinc-300">{data.description_text}</p>
+                                                        <p className="mb-10 text-zinc-300 text-xs break-all">{data.description_text}</p>
                                                         <DialogFooter>
                                                             <DialogClose asChild>
                                                                 <Button variant="outline">Cancel</Button>
