@@ -13,7 +13,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '../ui/dialog'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
@@ -29,17 +29,24 @@ export default function CreateTitleForm({ period }) {
     const { data, setData, errors, post, reset, processing } = useForm({
         title: '',
         image_filename: null,
-        period_id: period?.id || '',
+        period_id: period?.id,
     });
+
+        // useEffect(() => {
+        //     if (period?.id) {
+        //         setData('period_id', period?.id);
+        //     }
+        // }, [period?.id]);
 
     const [image, setImage] = useState(null);
 
     const submitAchievement = (e) => {
         e.preventDefault();
 
+        setData('period_id', period?.id);
+
         post(route('achievement.store.title'), {
             preserveScroll: true,
-            onFinish: () => reset(),
             onSuccess: () => {
                 reset();
                 toast.success('Achievement Created Successfully');

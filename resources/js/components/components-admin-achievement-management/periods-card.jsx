@@ -8,7 +8,7 @@ export default function PeriodsCard({ period }) {
       <CardHeader>
         <CardTitle className={'text-xl'}>Year: {period?.year}</CardTitle>
         <CardAction className={'space-x-3'}>
-          <CreateTitleForm period={period} />
+          <CreateTitleForm key={period?.id} period={period} />
         </CardAction>
       </CardHeader>
       <CardContent className={'p-0'}>
