@@ -23,4 +23,9 @@ class Achievement extends Model
     {
         return $this->hasMany(AchievementDescription::class);
     }
+
+    public function achievement_image()
+    {
+        return $this->hasOne(AchievementImage::class);
+    }
 }

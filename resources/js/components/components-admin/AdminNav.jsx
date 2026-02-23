@@ -18,7 +18,7 @@ export default function AdminNav() {
                 {/* logo */}
                 <Link href={route("home")}>
                     <img
-                        src={"storage/business_logo/HOLDINGS-LOGO2.png"}
+                        src={"/storage/business_logo/HOLDINGS-LOGO2.png"}
                         alt=""
                         className="w-33 h-10 object-cover select-none"
                     />

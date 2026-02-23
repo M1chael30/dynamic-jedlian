@@ -15,8 +15,8 @@ class AchievementImage extends Model
         "image_filename",
     ];
 
-    public function period()
+    public function achievement()
     {
-        return $this->belongsTo(Period::class);
+        return $this->belongsTo(Achievement::class);
     }
 }

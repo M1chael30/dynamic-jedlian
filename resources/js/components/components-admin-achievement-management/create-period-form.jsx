@@ -4,27 +4,27 @@ import FormError from '../form-error';
 import Loading from '../loading';
 import TextInput from '../text-input';
 import { Button } from '../ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Label } from '../ui/label';
-import { Input } from '../ui/input';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { ImagesIcon, RotateCcwIcon } from 'lucide-react';
-import { cn } from '../../lib/utils'
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    DialogFooter,
+    DialogClose,
+} from '../ui/dialog'
 
 export default function CreatePeriodForm() {
     const currentYear = new Date().getFullYear();
-    const [undoBtn, setUndoBtn] = useState(false);
-    const fileInputRef = useRef(null);
-
+    const [open, setOpen] = useState(false);
 
     const { data, setData, errors, post, reset, processing } = useForm({
         year: '',
         image_filename: '',
     });
 
-    const currentImage = data.image_filename ?? null
-    const [image, setImage] = useState(currentImage);
+
 
     const submitPeriod = (e) => {
         e.preventDefault();
@@ -34,43 +34,24 @@ export default function CreatePeriodForm() {
             onFinish: () => reset(),
             onSuccess: () => {
                 reset();
-                toast.success('Period Created Successfully');
-                setUndoBtn(false);
-                if (fileInputRef.current) {
-                    fileInputRef.current.value = '';
-                }
+                toast.success('Period created successfully');
+                setOpen(false)
             },
         });
     };
 
-    const selectedImage = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            const imagePreview = URL.createObjectURL(e.target.files[0]);
-            setImage(imagePreview);
-            setUndoBtn(true);
-            setData('image_filename', e.target.files[0]);
-        }
-    };
 
-    const handleUndoBtn = (e) => {
-        e.preventDefault();
-        setImage(currentImage);
-        setUndoBtn(false);
-        setData('image_filename', null);
-
-        if (fileInputRef.current) {
-            fileInputRef.current.value = '';
-        }
-    };
 
     return (
-        <Card>
-            <CardHeader>
-                {/* <CardTitle>Create period ni geronie</CardTitle> */}
-                <CardTitle>Create period</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <form onSubmit={submitPeriod} className="space-y-5">
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                <Button>Add Period</Button>
+            </DialogTrigger>
+            <DialogContent>
+                <form onSubmit={submitPeriod} className='space-y-6'>
+                    <DialogHeader>
+                        <DialogTitle>Year Period</DialogTitle>
+                    </DialogHeader>
                     <div className="space-y-3">
                         <TextInput
                             labelTitle={'Year'}
@@ -83,46 +64,19 @@ export default function CreatePeriodForm() {
                         />
                         <FormError message={errors.year} />
                     </div>
-
-                    <div className="space-y-3">
-                        <Label>Upload Image (Max size: 3MB)</Label>
-                        <Label htmlFor="avatar" className={`cursor-pointer`}>
-                            <Input
-                                id="avatar"
-                                hidden
-                                type={'file'}
-                                onChange={selectedImage}
-                                accept="image/*"
-                                ref={fileInputRef}
-                            />
-
-                            <Avatar
-                                className={cn(
-                                    'rounded-md aspect-video w-full h-full',
-                                    errors.image_filename &&
-                                    'ring-offset-background ring-2 ring-red-500 ring-offset-[3px]'
-                                )}>
-                                <AvatarImage className={'rounded-md'} src={image ?? null} />
-                                <AvatarFallback className={'rounded-md'}>
-                                    <ImagesIcon />
-                                </AvatarFallback>
-                            </Avatar>
-                        </Label>
-                        {errors && <FormError message={errors.image_filename} />}
-
-                        {undoBtn && (
-                            <Button type="button" onClick={handleUndoBtn} size="sm" variant="outline">
-                                <RotateCcwIcon />
-                                Undo
-                            </Button>
-                        )}
-                    </div>
-
-                    <Button type="submit" disabled={processing}>
-                        {processing ? <Loading title="Loading" /> : 'Create'}
-                    </Button>
+                    <DialogFooter>
+                        <DialogClose asChild>
+                            <Button variant="outline">Cancel</Button>
+                        </DialogClose>
+                        <Button type="submit" disabled={processing}>
+                            {
+                                processing ? <Loading title={'Loading...'} /> : 'Create'
+                            }
+                        </Button>
+                    </DialogFooter>
                 </form>
-            </CardContent>
-        </Card >
+            </DialogContent>
+        </Dialog>
     );
 }
+

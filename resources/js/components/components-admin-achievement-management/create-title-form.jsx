@@ -4,14 +4,35 @@ import FormError from '../form-error';
 import Loading from '../loading';
 import TextInput from '../text-input';
 import { Button } from '../ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import YearSelectInput from './year-select-input';
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '../ui/dialog'
+import { useRef, useState } from 'react';
+import { Label } from '../ui/label';
+import { Input } from '../ui/input';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { ImagesIcon, RotateCcwIcon } from 'lucide-react';
+import { cn } from '../../lib/utils'
 
-export default function CreateTitleForm({ periods }) {
+
+export default function CreateTitleForm({ period }) {
+    const fileInputRef = useRef(null);
+    const [undoBtn, setUndoBtn] = useState(false);
+    const [open, setOpen] = useState(false);
+
     const { data, setData, errors, post, reset, processing } = useForm({
-        period_id: '',
         title: '',
+        image_filename: null,
+        period_id: period?.id || '',
     });
+
+    const [image, setImage] = useState(null);
 
     const submitAchievement = (e) => {
         e.preventDefault();
@@ -22,29 +43,45 @@ export default function CreateTitleForm({ periods }) {
             onSuccess: () => {
                 reset();
                 toast.success('Achievement Created Successfully');
+                setOpen(false)
+                setUndoBtn(false);
+                setImage(null);
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = '';
+                }
             },
         });
     };
 
+    const selectedImage = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setImage(URL.createObjectURL(e.target.files[0]));
+            setUndoBtn(true);
+            setData('image_filename', e.target.files[0]);
+        }
+    };
+
+    const handleUndoBtn = (e) => {
+        e.preventDefault();
+        setImage(null);
+        setUndoBtn(false);
+        setData('image_filename', null);
+
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
+
     return (
-        <Card>
-            <CardHeader>
-                {/* <CardTitle>Create achievement title ni geronie</CardTitle> */}
-                <CardTitle>Create achievement title</CardTitle>
-            </CardHeader>
-            <CardContent>
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                <Button>Add title</Button>
+            </DialogTrigger>
+            <DialogContent>
                 <form onSubmit={submitAchievement} className="space-y-5">
-                    <div className="space-y-3">
-                        <YearSelectInput
-                            data={periods}
-                            selectLabelTitle={'Period'}
-                            labelTitle={'Period'}
-                            placeholder="Select a period"
-                            value={data.period_id}
-                            onValueChange={(value) => setData('period_id', Number(value))}
-                        />
-                        <FormError message={errors.period_id && 'The period field is required.'} />
-                    </div>
+                    <DialogHeader>
+                        <DialogTitle>Achievement title and image</DialogTitle>
+                    </DialogHeader>
                     <div className="space-y-3">
                         <TextInput
                             labelName={'Title'}
@@ -55,11 +92,59 @@ export default function CreateTitleForm({ periods }) {
                         />
                         <FormError message={errors.title} />
                     </div>
-                    <Button type="submit" disabled={processing}>
-                        {processing ? <Loading title="Loading" /> : 'Create'}
-                    </Button>
+                    <div className="space-y-3">
+                        <Label>Upload Image (Max size: 3MB)</Label>
+                        <Label htmlFor="image_filename" className={`cursor-pointer`}>
+                            <Input
+                                id="image_filename"
+                                hidden
+                                type={'file'}
+                                onChange={selectedImage}
+                                accept="image/*"
+                                ref={fileInputRef}
+                            />
+
+                            <Avatar
+                                className={cn(
+                                    'rounded-md aspect-video w-full h-full',
+                                    errors.image_filename &&
+                                    'ring-offset-background ring-2 ring-red-500 ring-offset-[3px]'
+                                )}>
+                                <AvatarImage className={'rounded-md'} src={image} />
+                                <AvatarFallback className={'rounded-md'}>
+                                    <ImagesIcon />
+                                </AvatarFallback>
+                            </Avatar>
+                        </Label>
+                        {errors &&
+                            <FormError message={
+                                errors.image_filename &&
+                                'The image field is required.'
+                            } />
+                        }
+
+                        {undoBtn && (
+                            <Button
+                                type="button"
+                                onClick={handleUndoBtn}
+                                variant="outline"
+                            >
+                                <RotateCcwIcon /> Undo
+                            </Button>
+                        )}
+                    </div>
+                    <DialogFooter>
+                        <DialogClose asChild>
+                            <Button variant="outline">Cancel</Button>
+                        </DialogClose>
+                        <Button type="submit" disabled={processing}>
+                            {processing ? <Loading title="Loading..." /> : 'Create'}
+                        </Button>
+                    </DialogFooter>
                 </form>
-            </CardContent>
-        </Card>
+            </DialogContent>
+        </Dialog>
     );
 }
+
+

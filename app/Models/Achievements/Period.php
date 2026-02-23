@@ -14,11 +14,6 @@ class Period extends Model
 
     public function achievements()
     {
-        return $this->hasMany(Achievement::class);
-    }
-
-    public function achievement_image()
-    {
-        return $this->hasOne(AchievementImage::class);
+        return $this->hasMany(Achievement::class)->latest();
     }
 }
