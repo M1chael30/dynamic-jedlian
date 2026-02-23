@@ -2,13 +2,13 @@ import AchievementsContentSection from '@/components/components-achievements-pag
 import AchievementsTopSection from '@/components/components-achievements-page/achievements-top-section';
 import { Head } from '@inertiajs/react';
 
-export default function Achievements({ achievements }) {
+export default function Achievements({ periods }) {
     return (
         <>
             <Head title="Achievements" />
             <section className="mx-auto w-full max-w-7xl">
                 <AchievementsTopSection />
-                <AchievementsContentSection achievements={achievements} />
+                <AchievementsContentSection periods={periods} />
             </section>
         </>
     );

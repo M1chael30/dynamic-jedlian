@@ -12,9 +12,9 @@ class AchievementController extends Controller
 {
     public function index()
     {
-        $achievements = Period::select('id', 'year')
+        $periods = Period::select('id', 'year')
             ->with([
-                'achievement_image:id,image_filename,period_id',
+                'achievements.achievement_image:id,image_filename,achievement_id',
                 'achievements:id,period_id,title',
                 'achievements.achievement_descriptions:id,achievement_id,description_text'
             ])
@@ -22,7 +22,7 @@ class AchievementController extends Controller
             ->get();
 
         return Inertia::render('Achievement/Achievement', [
-            'achievements' => $achievements
-        ]);
+            'periods' => $periods
+       ]);
     }
 }
