@@ -32,12 +32,6 @@ export default function CreateTitleForm({ period }) {
         period_id: period?.id,
     });
 
-        // useEffect(() => {
-        //     if (period?.id) {
-        //         setData('period_id', period?.id);
-        //     }
-        // }, [period?.id]);
-
     const [image, setImage] = useState(null);
 
     const submitAchievement = (e) => {

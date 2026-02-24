@@ -12,7 +12,7 @@ import { PenIcon } from 'lucide-react';
 export default function EditDescriptionForm({ description }) {
  const [open, setOpen] = useState(false)
 
- const { data, setData, errors, put, reset, processing } = useForm({
+ const { data, setData, errors, put, processing, isDirty } = useForm({
   description_text: description?.description_text || '',
  });
 
@@ -22,7 +22,6 @@ export default function EditDescriptionForm({ description }) {
   put(route('achievement.update.description', description?.id), {
    preserveScroll: true,
    onSuccess: () => {
-    reset();
     toast.success('Achievement Description Created Successfully');
     setOpen(false);
    },
@@ -56,12 +55,12 @@ export default function EditDescriptionForm({ description }) {
       <DialogClose asChild>
        <Button variant="outline">Cancel</Button>
       </DialogClose>
-      <Button type="submit" disabled={processing}>
+      <Button type="submit" disabled={processing || !isDirty}>
        {processing ? <Loading title="Loading..." /> : 'Update'}
       </Button>
      </DialogFooter>
     </form>
-   </DialogContent>
+   </DialogContent> 
   </Dialog >
  );
 }

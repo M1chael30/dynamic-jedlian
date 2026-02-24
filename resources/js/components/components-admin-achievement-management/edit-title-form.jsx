@@ -30,7 +30,7 @@ export default function EditTitleForm({ achievement }) {
   `/storage/${achievement?.achievement_image.image_filename}` ?? ''
  const [image, setImage] = useState(currentImage);
 
- const { data, setData, errors, post, reset, processing, isDirty } = useForm({
+ const { data, setData, errors, post, processing, isDirty } = useForm({
   title: achievement?.title || '',
   image_filename: '',
   _method: 'PATCH'
@@ -41,9 +41,7 @@ export default function EditTitleForm({ achievement }) {
 
   post(route('achievement.update.title', achievement?.id), {
    preserveScroll: true,
-   onFinish: () => reset(),
    onSuccess: () => {
-    reset();
     toast.success('Achievement updated successfully');
     setOpen(false)
     setUndoBtn(false);
