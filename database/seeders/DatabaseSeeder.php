@@ -23,23 +23,30 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Page::factory()->createMany([
-           [
+            [
                 'name' => 'Home',
+                'route_name' => 'home',
             ],
             [
                 'name' => 'About Us',
-            ],
-            [
-                'name' => 'Corporate Governance',
+                'route_name' => 'home',
+
+
             ],
             [
                 'name' => 'Our Businesses',
+                'route_name' => 'home',
+
             ],
             [
                 'name' => 'Achievements',
+                'route_name' => 'achievement.management',
+
             ],
             [
                 'name' => 'Contact Us',
+                'route_name' => 'home',
+
             ],
         ]);
     }

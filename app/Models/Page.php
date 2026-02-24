@@ -11,6 +11,7 @@ class Page extends Model
     use HasFactory;
 
     protected $fillable = [
-    "name"
+    "name",
+    "route_name"
     ];
 }
