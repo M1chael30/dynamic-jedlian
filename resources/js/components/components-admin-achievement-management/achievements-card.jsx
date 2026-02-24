@@ -46,7 +46,7 @@ export default function AchievementsCard({ achievement }) {
                 <TrashIcon className="size-4" /> Delete
               </Button>
               <Button variant={'ghost'} asChild>
-                <EditDescriptionForm description={description} />
+                <EditDescriptionForm key={description?.id} description={description} />
               </Button>
             </ItemActions>
           </Item>

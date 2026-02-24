@@ -34,11 +34,11 @@ export function AchievementDropdownMenu({ achievement }) {
    </DropdownMenuTrigger>
    <DropdownMenuContent>
     <DropdownMenuItem asChild>
-     <EditTitleForm achievement={achievement} />
+     <EditTitleForm key={achievement?.id} achievement={achievement} />
     </DropdownMenuItem>
     <DropdownMenuSeparator />
     <DropdownMenuItem asChild>
-     <CreateDescriptionForm achievement={achievement} />
+     <CreateDescriptionForm key={achievement?.id} achievement={achievement} />
     </DropdownMenuItem>
     <DropdownMenuItem variant="destructive" onClick={handleDeleteAchievement}>
      Delete

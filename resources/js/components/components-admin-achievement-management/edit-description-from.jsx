@@ -12,14 +12,14 @@ import { PenIcon } from 'lucide-react';
 export default function EditDescriptionForm({ description }) {
  const [open, setOpen] = useState(false)
 
- const { data, setData, errors, post, reset, processing } = useForm({
+ const { data, setData, errors, put, reset, processing } = useForm({
   description_text: description?.description_text || '',
  });
 
  const submitAchievementDescription = (e) => {
   e.preventDefault();
 
-  post(route('achievement.update.description', description?.id), {
+  put(route('achievement.update.description', description?.id), {
    preserveScroll: true,
    onSuccess: () => {
     reset();
