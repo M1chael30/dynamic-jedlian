@@ -21,7 +21,7 @@ export default function Dashboard({pages}) {
                             <TableRow key={index}>
                                 <TableCell>{page.name}</TableCell>
                                 <TableCell>
-                                    <Link href={route('achievement.management')}>View</Link>
+                                    <Link href={route(page.route_name)}>View</Link>
                                 </TableCell>
                             </TableRow>
                             ))}

@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $pages = Page::select('id', 'name')->get();
+        $pages = Page::select('id', 'name','route_name')->get();
         
         return Inertia::render("Admin/Dashboard", [
             "pages" => $pages

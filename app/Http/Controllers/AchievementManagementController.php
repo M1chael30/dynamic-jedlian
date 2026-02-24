@@ -152,10 +152,9 @@ class AchievementManagementController extends Controller
                 ]);
             }
         });
-
+        
         return redirect()->route('achievement.management');
     }
-
     //////////////////////delete///////////////////////////////
     public function deleteDescription(AchievementDescription $description)
     {

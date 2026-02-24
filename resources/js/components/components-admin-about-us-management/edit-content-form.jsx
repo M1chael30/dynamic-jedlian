@@ -9,20 +9,20 @@ import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogT
 import { useState } from 'react';
 import { PenIcon } from 'lucide-react';
 
-export default function EditDescriptionForm({ description }) {
+export default function AboutUsEditContentForm({ content }) {
  const [open, setOpen] = useState(false)
 
  const { data, setData, errors, put, processing, isDirty } = useForm({
-  description_text: description?.description_text || '',
+    content: content.content
  });
 
- const submitAchievementDescription = (e) => {
+ const submitAboutUsContent = (e) => {
   e.preventDefault();
 
-  put(route('achievement.update.description', description?.id), {
+  put(route('update.about_us_content', content?.id), {
    preserveScroll: true,
    onSuccess: () => {
-    toast.success('Achievement Description Updated Successfully');
+    toast.success('Content Updated Successfully');
     setOpen(false);
    },
   });
@@ -31,25 +31,25 @@ export default function EditDescriptionForm({ description }) {
  return (
   <Dialog open={open} onOpenChange={setOpen}>
    <DialogTrigger asChild>
-    <Button variant={'ghost'}>
+    <Button variant={'ghost'} onClick={()=>console.log(content?.id)}>
      <PenIcon className="size-4" /> Edit
     </Button>
    </DialogTrigger>
    <DialogContent>
-    <form onSubmit={submitAchievementDescription} className="space-y-6">
+    <form onSubmit={submitAboutUsContent} className="space-y-6">
      <DialogHeader>
-      <DialogTitle>Achievement Description</DialogTitle>
+      <DialogTitle>About Us Content</DialogTitle>
      </DialogHeader>
      <div className="space-y-3">
-      <Label htmlFor="desc">Description</Label>
+      <Label htmlFor="desc">Content</Label>
       <Textarea
        id="desc"
        className={'w-full'}
        placeholder="ex. 2016 - won something"
-       value={data.description_text}
-       onChange={(e) => setData('description_text', e.target.value)}
+       value={data.content}
+       onChange={(e) => setData('content', e.target.value)}
       />
-      <FormError message={errors.description_text} />
+      <FormError message={errors.content} />
      </div>
      <DialogFooter>
       <DialogClose asChild>
