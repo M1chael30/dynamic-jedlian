@@ -9,12 +9,12 @@ export default function HomeManagement({ stats }) {
   return (
     <>
       <Head title="Manage Home" />
-      <section className="space-y-5 px-4 py-5 w-full mx-auto max-w-5xl">
+      <section className="space-y-5 px-4 py-5 w-full mx-auto max-w-3xl">
         <Button asChild>
           <Link href={route('admin.index')}>Back</Link>
         </Button>
         <div className="flex items-center justify-between">
-          <h1>Manage Home</h1>
+          <h1 className='text-2xl'>Manage Home</h1>
         </div>
         <div className="grid grid-cols-2 gap-4">
           {stats.map((stat, index) => (

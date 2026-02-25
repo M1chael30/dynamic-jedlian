@@ -13,7 +13,7 @@ export default function AchievementManagement({ periods }) {
                     <Link href={route('admin.index')}>Back</Link>
                 </Button>
                 <div className="flex items-center justify-between">
-                    <h1>Manage Achievements</h1>
+                    <h1 className='text-2xl'>Manage Achievements</h1>
                     <CreatePeriodForm />
                 </div>
                 <div className={'flex flex-col gap-6'}>
