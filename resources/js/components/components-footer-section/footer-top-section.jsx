@@ -12,7 +12,7 @@ export default function FooterTopSection() {
     draggable="false"
    />
    <FooterList title="Quick Links" list={footerQuickLinks} />
-   <FooterList title="Contact Us" list={footerContactUs} />
+   {/* <FooterList title="Contact Us" list={footerContactUs} /> */}
   </section>
  );
 }

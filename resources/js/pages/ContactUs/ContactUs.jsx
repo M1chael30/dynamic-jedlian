@@ -2,7 +2,7 @@ import ContactUsSection from "@/components/components-contact-us/contact-us-sect
 import { Head } from "@inertiajs/react";
 import { motion } from "framer-motion";
 
-export default function ContactUs() {
+export default function ContactUs({ contactUsData }) {
         return (
                 <>
                         <Head title="Contact Us" />
@@ -22,7 +22,7 @@ export default function ContactUs() {
                                                 Contact Us
                                         </motion.h1>
                                         <motion.div className="h-1 my-6 w-full bg-[#c89116]" />
-                                        <ContactUsSection />
+                                        <ContactUsSection contactUsData={contactUsData} />
                                 </div>
                         </section>
                 </>

@@ -5,9 +5,9 @@ use App\Http\Controllers\Home\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-    Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.index');
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.index');
 
-    Route::prefix('admin')
+Route::prefix('admin')
     ->middleware(['auth'])
     ->controller(AboutUsContentController::class)
     ->group(function () {
