@@ -8,6 +8,7 @@ import { Button } from '../ui/button';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
+import { PenIcon } from 'lucide-react';
 
 export default function HomeStatsForm({ stat }) {
   const [open, setOpen] = useState(false);
@@ -34,7 +35,9 @@ export default function HomeStatsForm({ stat }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={'link'}>Edit</Button>
+        <Button variant={'ghost'}>
+          <PenIcon />  Edit
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <form onSubmit={submitHomeStatsForm} className="space-y-6">
