@@ -3,6 +3,7 @@ import AdminLayout from "../../../layouts/admin-layout";
 import { Button } from "../../../components/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "../../../components/ui/card";
 import { PenIcon } from "lucide-react";
+import ContactUsEditContentForm from "../../../components/components-admin-contact-us-management/edit-content-form";
 
 export default function ContactUsManagement({ contactUsData }) {
  return (
@@ -24,9 +25,7 @@ export default function ContactUsManagement({ contactUsData }) {
          {item?.title}
         </CardTitle>
         <CardAction>
-         <Button variant={'ghost'}>
-          <PenIcon /> Edit
-         </Button>
+         <ContactUsEditContentForm key={item?.id} item={item} />
         </CardAction>
        </CardHeader>
        <CardContent>

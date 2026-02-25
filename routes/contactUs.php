@@ -14,4 +14,5 @@ Route::prefix('admin')
     ->controller(ContactUsManagementController::class)
     ->group(function () {
         Route::get('/contact_us-management', 'index')->name('contact_us.management');
+        Route::put('/contact_us-management/{contactUs}/update', 'update')->name('contact_us.update');
     });

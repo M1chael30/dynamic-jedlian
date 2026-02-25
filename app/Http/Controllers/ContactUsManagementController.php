@@ -16,4 +16,17 @@ class ContactUsManagementController extends Controller
             'contactUsData' => $contactUsData
         ]);
     }
+
+    public function update(Request $request, ContactUs $contactUs)
+    {
+        $fields = $request->validate([
+            'content' => ['required'],
+        ]);
+
+        $contactUs->update([
+            'content' => $fields['content']
+        ]);
+
+        return redirect()->route('contact_us.management');
+    }
 }
