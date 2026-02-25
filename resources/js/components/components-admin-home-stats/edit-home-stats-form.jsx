@@ -42,17 +42,33 @@ export default function HomeStatsForm({ stat }) {
             <DialogTitle>Edit Statistics</DialogTitle>
           </DialogHeader>
           <div className="space-y-3">
-            <TextInput labelTitle={'Title'} labelName={'title'} value={data.title} onChange={(e) => setData('title', e.target.value)} />
+            <TextInput
+              labelTitle={'Title'}
+              labelName={'title'}
+              placeholder={'ex. Official branches & offices'}
+              value={data.title}
+              onChange={(e) => setData('title', e.target.value)}
+            />
             <FormError message={errors.title} />
+          </div>
 
-            <TextInput labelTitle={'Stats'} labelName={'stats'} value={data.stat} onChange={(e) => setData('stats', e.target.value)} />
+          <div className="space-y-3">
+            <TextInput
+              labelTitle={'Stats'}
+              labelName={'stats'}
+              placeholder={'ex. 20+'}
+              value={data.stat}
+              onChange={(e) => setData('stats', e.target.value)}
+            />
             <FormError message={errors.stat} />
+          </div>
 
+          <div className="space-y-3">
             <Label htmlFor="desc">Description</Label>
             <Textarea
               id="desc"
               className={'w-full'}
-              placeholder="ex. 2016 - won something"
+              placeholder="Stats description"
               value={data.description}
               onChange={(e) => setData('description', e.target.value)}
             />

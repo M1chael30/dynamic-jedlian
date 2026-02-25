@@ -38,14 +38,13 @@ export default function AboutUsEditContentForm({ content }) {
    <DialogContent>
     <form onSubmit={submitAboutUsContent} className="space-y-6">
      <DialogHeader>
-      <DialogTitle>About Us Content</DialogTitle>
+      <DialogTitle>Edit About Us Content</DialogTitle>
      </DialogHeader>
      <div className="space-y-3">
       <Label htmlFor="desc">Content</Label>
       <Textarea
        id="desc"
-       className={'w-full'}
-       placeholder="ex. 2016 - won something"
+       placeholder="Content Something..."
        value={data.content}
        onChange={(e) => setData('content', e.target.value)}
       />
