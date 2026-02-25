@@ -15,13 +15,12 @@ class AboutUsContentController extends Controller
         ]);
     }
 
-    public function update(Request $request, AboutUsContent $aboutUsContent){
+    public function update(Request $request, AboutUsContent $content){
         $updated = $request->validate([
             'content'=> 'required|string|regex:/^\S{0,30}(\s+\S{1,30})*$/',
         ]);
 
-        $aboutUsContent->update($updated);
-        dd($request);
+        $content->update($updated);
         return redirect()->route('about_us.management');
     }
 }
