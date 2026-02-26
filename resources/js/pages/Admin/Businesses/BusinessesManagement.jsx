@@ -1,0 +1,39 @@
+import { Head, Link } from '@inertiajs/react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table';
+import AdminLayout from '../../../layouts/admin-layout';
+
+export default function BusinessesManagement({businesses}) {
+  return (
+         <>
+            <Head title="Dashboard" />
+            <section className="space-y-5 px-4 py-5 mx-auto w-full max-w-3xl">
+                <div className="flex items-center justify-between">
+                    <h1 className='text-2xl'>Manage Businesses Content</h1>
+                </div>
+                <div className={'rounded-sm border-2 p-2'}>
+                    <h1 className="text-center">Businesses</h1>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>Page Name</TableHead>
+                                <TableHead>Action</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {businesses.map((business, index) => (
+                                <TableRow key={index}>
+                                    <TableCell>{business.name}</TableCell>
+                                    <TableCell>
+                                        <Link href={route('business.show', business.id)}>View</Link>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </div>
+            </section>
+        </>
+  );
+}
+
+BusinessesManagement.layout = (page) => <AdminLayout children={page}/>

@@ -5,7 +5,7 @@ import {
        fadeVariants,
 } from "../../lib/animations";
 
-export default function GeoFootPrintSection() {
+export default function GeoFootPrintSection({data}) {
        return (
               <section className="flex flex-col items-center justify-center">
                      <div className="grid py-5 md:grid-cols-2">
@@ -51,11 +51,7 @@ export default function GeoFootPrintSection() {
                                           whileInView="show"
                                           className="text-description text-center md:text-left p-5 "
                                    >
-                                          Our company has successfully achieved major advancements in the ongoing
-                                          development of our projects. As a result, we are proud to have established
-                                          a prominent foothold in various regions in Luzon. This momentum showcases
-                                          our widespread reach and strong presence, proving our capacity to deliver
-                                          impressive results.
+                                         {data[2].content}
                                    </motion.p>
                             </motion.div>
                      </div>

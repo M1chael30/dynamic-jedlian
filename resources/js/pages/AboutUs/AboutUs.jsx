@@ -4,15 +4,15 @@ import GeoFootPrintSection from "@/components/components-about-us-page/geo-footp
 import QuoteSection from "@/components/components-about-us-page/quote-section";
 import { Head } from "@inertiajs/react";
 
-export default function AboutUs() {
+export default function AboutUs({content}) {
  return (
   <>
    <Head title="About Us" />
    <section className="max-w-7xl w-full mx-auto">
     <TopSection />
-    <LeadersSection />
+    <LeadersSection data={content}/>
     <div className="w-full bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] h-3 mt-10" />
-    <GeoFootPrintSection />
+    <GeoFootPrintSection data={content} />
     <QuoteSection />
    </section>
   </>
