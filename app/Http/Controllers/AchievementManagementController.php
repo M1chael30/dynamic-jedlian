@@ -18,7 +18,7 @@ class AchievementManagementController extends Controller
     {
         $periods = Period::select('id', 'year')
             ->with([
-                'achievements:id,title,period_id',
+                'achievements:id,title,period_id,is_visible',
                 'achievements.achievement_descriptions:id,achievement_id,description_text',
                 'achievements.achievement_image:id,achievement_id,image_filename'
             ])
@@ -97,6 +97,15 @@ class AchievementManagementController extends Controller
     }
 
     /////////////////////////update/////////////////////////////
+    function updateAchievementVisibility(Request $request, Achievement $achievementVisiblity)
+    {
+        $achievementVisiblity->update([
+            'is_visible' => !$achievementVisiblity->is_visible
+        ]);
+
+        return redirect()->route('achievement.management');
+    }
+
     public function updateDescription(Request $request, AchievementDescription $description)
     {
         $updated = $request->validate([
@@ -152,7 +161,7 @@ class AchievementManagementController extends Controller
                 ]);
             }
         });
-        
+
         return redirect()->route('achievement.management');
     }
     //////////////////////delete///////////////////////////////

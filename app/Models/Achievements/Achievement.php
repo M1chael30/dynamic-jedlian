@@ -12,6 +12,7 @@ class Achievement extends Model
     protected $fillable = [
         'period_id',
         "title",
+        "is_visible",
     ];
 
     public function period()

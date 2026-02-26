@@ -21,6 +21,9 @@ Route::prefix('admin')
 
         Route::post('/achievement-management/description/store', 'storeAchievementDescription')->name('achievement.store.description');
 
+        Route::put('/achievement-management/{achievementVisiblity}/update', 'updateAchievementVisibility')
+            ->name('achievement.update.visibility');
+
         Route::put('/achievement-management/{description}/update', 'updateDescription')->name('achievement.update.description');
 
         Route::patch('/achievement-management/{achievement}/update', 'updateAchievement')->name('achievement.update.title');

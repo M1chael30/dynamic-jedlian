@@ -3,8 +3,6 @@ import { containerVariants, fadeVariants } from '../../lib/animations';
 import { Fragment } from 'react';
 
 export default function DesktopView({ periods }) {
-    console.log(periods)
-
   return (
     <div className="w-full py-12 md:py-20">
       <motion.div variants={containerVariants} initial="hidden" whileInView="show" className="relative">

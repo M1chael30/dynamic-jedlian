@@ -1,6 +1,8 @@
 import { router } from "@inertiajs/react";
 import { Button } from "../ui/button";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Label } from "../ui/label";
+import { Switch } from "../ui/switch";
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Item, ItemActions, ItemContent, ItemDescription } from "../ui/item";
 import { AchievementDropdownMenu } from "./achievement-dropdown-menu";
 import { TrashIcon } from "lucide-react";
@@ -8,7 +10,6 @@ import { toast } from "sonner";
 import EditDescriptionForm from "./edit-description-from";
 
 export default function AchievementsCard({ achievement }) {
-
   function handleDelete(id) {
     if (confirm('Are you sure you want to delete? ')) {
       router.delete(route('achievement.delete.description', id), {
@@ -20,12 +21,28 @@ export default function AchievementsCard({ achievement }) {
     }
   }
 
+  function handleVisibility() {
+    router.put(route('achievement.update.visibility', achievement?.id), {}, { preserveScroll: true })
+  }
+
   return (
     <Card>
       <CardHeader className={'space-y-4'}>
         <CardTitle className={'text-lg'}>
           Achievement: {achievement?.title}
         </CardTitle>
+        <CardDescription>
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="is_visible"
+              className={'cursor-pointer'}
+              checked={achievement?.is_visible}
+              onCheckedChange={handleVisibility} />
+            <Label htmlFor="is_visible">
+              Visible to public website?
+            </Label>
+          </div>
+        </CardDescription>
         <CardAction className={'space-x-3 flex items-center'}>
           <AchievementDropdownMenu achievement={achievement} />
         </CardAction>

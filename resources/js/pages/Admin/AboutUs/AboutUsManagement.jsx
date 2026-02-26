@@ -5,7 +5,6 @@ import { Button } from "../../../components/ui/button";
 import AboutUsEditContentForm from "../../../components/components-admin-about-us-management/edit-content-form";
 
 export default function AboutUsManagement({ content }) {
-  console.log(content)
   return (
     <>
       <Head title="Manage About Us" />

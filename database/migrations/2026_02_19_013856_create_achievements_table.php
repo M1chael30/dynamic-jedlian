@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('period_id')->constrained('periods')->cascadeOnDelete();
             $table->string('title');
+            $table->boolean('is_visible')->default(true);
             $table->timestamps();
         });
     }

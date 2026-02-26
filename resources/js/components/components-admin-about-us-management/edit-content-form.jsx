@@ -31,7 +31,7 @@ export default function AboutUsEditContentForm({ content }) {
  return (
   <Dialog open={open} onOpenChange={setOpen}>
    <DialogTrigger asChild>
-    <Button variant={'ghost'} onClick={()=>console.log(content?.id)}>
+    <Button variant={'ghost'}>
      <PenIcon className="size-4" /> Edit
     </Button>
    </DialogTrigger>
