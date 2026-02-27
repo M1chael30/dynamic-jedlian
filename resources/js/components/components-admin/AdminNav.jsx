@@ -1,16 +1,14 @@
-// import Navlink from "./nav-link";
-// import { navLinks, ourStory } from "../../lib/data";
-// import { jedlianBusinessesData } from "@/lib/homePageData";
-// import MobileNavLinks from "./mobile-nav-links";
-// import { NavigationMenuComponent } from "./navigation-menu-component";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { Button } from "../ui/button";
 import { router } from "@inertiajs/react";
 
 export default function AdminNav() {
     const handleLogout = () => {
-        router.post('/admin/logout')
+        router.post(route('logout'))
     }
+
+    const page = usePage().component
+    const user = usePage().props.auth.user
 
     return (
         <header className="sticky top-0 z-50">
@@ -23,12 +21,15 @@ export default function AdminNav() {
                         className="w-33 h-10 object-cover select-none"
                     />
                 </Link>
-                <Button className={"bg-black text-white hover:bg-zinc-800"} onClick={handleLogout}>Logout</Button>
-
-                {/* mobile nav links mobile view only*/}
-                {/* <div className="ml-auto items-center gap-2 md:hidden flex">
-     <MobileNavLinks />
-    </div> */}
+                <div className="ml-auto space-x-5">
+                    <Button variant={'ghost'}>Welcome! {user?.name}</Button>
+                    <Button variant={page === 'Admin/Users/UserManagement' ? 'secondary' : 'ghost'} asChild>
+                        <Link href={route('user.index')}>
+                            Manage Users
+                        </Link>
+                    </Button>
+                    <Button variant={'ghost'} onClick={handleLogout}>Logout</Button>
+                </div>
             </div>
         </header>
     );
