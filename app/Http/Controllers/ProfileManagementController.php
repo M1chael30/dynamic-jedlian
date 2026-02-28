@@ -33,7 +33,7 @@ class ProfileManagementController extends Controller
 
         auth()->user()->update($fields);
 
-        return Inertia::render('Admin/Profile/Profile');
+        return redirect()->route('profile.index');
     }
 
     public function updatePassword(Request $request)
@@ -48,6 +48,6 @@ class ProfileManagementController extends Controller
             'password' => Hash::make($fields['password'])
         ]);
 
-        return Inertia::render('Admin/Profile/Profile');
+        return redirect()->route('profile.index');
     }
 }
