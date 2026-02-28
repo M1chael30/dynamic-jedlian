@@ -6,6 +6,7 @@ import AuthLayout from "../../layouts/auth-layout";
 import { useForm } from "@inertiajs/react";
 import Loading from '../../components/loading'
 import FormError from '../../components/form-error'
+import { toast } from "sonner";
 
 export default function Login() {
 
