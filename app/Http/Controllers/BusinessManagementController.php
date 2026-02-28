@@ -64,6 +64,7 @@ class BusinessManagementController extends Controller
         $fields = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
             'address' => 'required|string',
+            'google_map_embed' => 'required',
         ]);
         BusinessBranch::create($fields);
         return redirect()->route('business.management');

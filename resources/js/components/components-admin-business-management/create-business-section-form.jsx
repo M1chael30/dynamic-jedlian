@@ -38,7 +38,7 @@ export default function CreateBusinessSectionForm({ business }) {
             <DialogContent>
                 <form onSubmit={createBusinessSection} className="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Business Page Sections</DialogTitle>
+                        <DialogTitle>Add business page sections</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-3">
                         <TextInput placeholder="Type title here" labelTitle="Section Title" value={data.title} onChange={(e)=> setData('title', e.target.value)}/>

@@ -33,23 +33,24 @@ export default function CreateBusinessBranchForm({ business }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={'ghost'}>Add Section</Button>
+                <Button variant={'ghost'}>Add Branch</Button>
             </DialogTrigger>
             <DialogContent>
                 <form onSubmit={createBusinessBranch} className="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Business Page Sections</DialogTitle>
+                        <DialogTitle>Add business branch</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-3">
                         <TextInput placeholder="Type address here" labelTitle="Section Title" value={data.address} onChange={(e)=> setData('address', e.target.value)}/>
                         <TextInput placeholder="Paste google map embed here" labelTitle="Google Map Embed" value={data.google_map_embed} onChange={(e)=> setData('google_map_embed', e.target.value)}/>
+                            <small className='text-muted-foreground'>Enter only the location code afterpb=(without parentheses). https://www.google.com/maps/embed?pb=(location)</small>
                     </div>
                     <DialogFooter>
                         <DialogClose asChild>
                             <Button variant="outline">Cancel</Button>
                         </DialogClose>
                         <Button type="submit" disabled={processing}>
-                            {processing ? <Loading title="Loading" /> : 'Create'}
+                            {processing ? <Loading title="Loading" /> : 'Add'}
                         </Button>
                     </DialogFooter>
                 </form>

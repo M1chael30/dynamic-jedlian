@@ -40,7 +40,7 @@ export default function EditBusinessSectionForm({ section }) {
             <DialogContent>
                 <form onSubmit={updateBusinessSection} className="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Business Page Sections</DialogTitle>
+                        <DialogTitle>Update business page sections</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-3">
                         <TextInput placeholder="Type title here" labelTitle="Section Title" value={data.title} onChange={(e)=> setData('title', e.target.value)}/>
@@ -61,7 +61,7 @@ export default function EditBusinessSectionForm({ section }) {
                             <Button variant="outline">Cancel</Button>
                         </DialogClose>
                         <Button type="submit" disabled={processing}>
-                            {processing ? <Loading title="Loading" /> : 'Create'}
+                            {processing ? <Loading title="Loading" /> : 'Update'}
                         </Button>
                     </DialogFooter>
                 </form>

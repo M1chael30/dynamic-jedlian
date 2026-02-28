@@ -32,12 +32,12 @@ export default function EditBusinessSocialForm({ social }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={'ghost'}>Edit Social</Button>
+                <Button variant={'ghost'}>Edit</Button>
             </DialogTrigger>
             <DialogContent>
                 <form onSubmit={updateBusinessSocial} className="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Business Page Socials</DialogTitle>
+                        <DialogTitle>Update social media platform</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-3">
                         <TextInput placeholder="Type new platform name here" labelTitle="Section Title"  value={data.platform_name} onChange={(e)=> setData('platform_name', e.target.value)}/>

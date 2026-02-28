@@ -7,7 +7,7 @@ import { Item, ItemActions, ItemContent, ItemDescription } from "../ui/item";
 import { AchievementDropdownMenu } from "./achievement-dropdown-menu";
 import { TrashIcon } from "lucide-react";
 import { toast } from "sonner";
-import EditDescriptionForm from "./edit-description-from";
+import EditDescriptionForm from "./edit-description-form";
 
 export default function AchievementsCard({ achievement }) {
   function handleDelete(id) {

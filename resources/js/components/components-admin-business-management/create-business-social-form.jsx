@@ -38,7 +38,7 @@ export default function CreateBusinessSocialForm({ business }) {
             <DialogContent>
                 <form onSubmit={createBusinessSocial} className="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Business Page Socials</DialogTitle>
+                        <DialogTitle>Add social media platform</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-3">
                         <TextInput placeholder="Type platform name here" labelTitle="Section Title"  value={data.platform_name} onChange={(e)=> setData('platform_name', e.target.value)}/>
@@ -49,7 +49,7 @@ export default function CreateBusinessSocialForm({ business }) {
                             <Button variant="outline">Cancel</Button>
                         </DialogClose>
                         <Button type="submit" disabled={processing}>
-                            {processing ? <Loading title="Loading" /> : 'Create'}
+                            {processing ? <Loading title="Loading" /> : 'Add'}
                         </Button>
                     </DialogFooter>
                 </form>
