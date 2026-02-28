@@ -24,11 +24,11 @@ Route::prefix('admin')
         Route::put('/achievement-management/{achievementVisiblity}/update', 'updateAchievementVisibility')
             ->name('achievement.update.visibility');
 
-        Route::put('/achievement-management/{description}/update', 'updateDescription')->name('achievement.update.description');
+        Route::put('/achievement-management/description/{description}/update', 'updateDescription')->name('achievement.update.description');
 
-        Route::patch('/achievement-management/{achievement}/update', 'updateAchievement')->name('achievement.update.title');
+        Route::patch('/achievement-management/achievement/{achievement}/update', 'updateAchievement')->name('achievement.update.title');
 
-        Route::delete('/achievement-management/{description}/delete', 'deleteDescription')->name('achievement.delete.description');
+        Route::delete('/achievement-management/description/{description}/delete', 'deleteDescription')->name('achievement.delete.description');
 
-        Route::post('/achievement-management/{achievement}/delete', 'deleteAchievement')->name('achievement.delete.title');
+        Route::post('/achievement-management/achievement/{achievement}/delete', 'deleteAchievement')->name('achievement.delete.title');
     });

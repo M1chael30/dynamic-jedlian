@@ -9,22 +9,24 @@ import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogT
 import TextInput from '../text-input'
 import { useState } from 'react';
 
-export default function CreateBusinessSectionForm({ business }) {
+export default function EditBusinessSectionForm({ section }) {
     const [open, setOpen] = useState(false)
 
-    const { data, setData, errors, post, reset, processing } = useForm({
-        business_id: business.id,
-        title: '',
-        content: '',
+    // console.log(section);
+
+    const { data, setData, errors, put, reset, processing } = useForm({
+        business_id: section?.business_id,
+        title: section?.title,
+        content: section?.content,
     });
 
-    const createBusinessSection = (e) => {
+    const updateBusinessSection = (e) => {
         e.preventDefault();
-        post(route('business.store.section', ), {
+        put(route('business.update.section', section?.id), {
             preserveScroll: true,
             onSuccess: () => {
                 // reset();
-                toast.success('Business Section Updated Successfully');
+                toast.success('Business section updated successfully');
                 setOpen(false);
             },
         });
@@ -33,10 +35,10 @@ export default function CreateBusinessSectionForm({ business }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={'ghost'}>Add Section</Button>
+                <Button variant={'ghost'}>Edit Section</Button>
             </DialogTrigger>
             <DialogContent>
-                <form onSubmit={createBusinessSection} className="space-y-6">
+                <form onSubmit={updateBusinessSection} className="space-y-6">
                     <DialogHeader>
                         <DialogTitle>Business Page Sections</DialogTitle>
                     </DialogHeader>

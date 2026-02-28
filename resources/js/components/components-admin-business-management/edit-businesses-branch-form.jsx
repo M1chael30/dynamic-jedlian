@@ -9,22 +9,22 @@ import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogT
 import TextInput from '../text-input'
 import { useState } from 'react';
 
-export default function CreateBusinessSectionForm({ business }) {
+export default function EditBusinessBranchForm({ branch }) {
     const [open, setOpen] = useState(false)
 
-    const { data, setData, errors, post, reset, processing } = useForm({
-        business_id: business.id,
-        title: '',
-        content: '',
+    const { data, setData, errors, put, reset, processing } = useForm({
+        business_id: branch.business_id,
+        address: branch.address,
+        google_map_embed: branch.google_map_embed,
     });
 
-    const createBusinessSection = (e) => {
+    const updateBusinessBranch = (e) => {
         e.preventDefault();
-        post(route('business.store.section', ), {
+        put(route('business.update.branch', branch?.id), {
             preserveScroll: true,
             onSuccess: () => {
                 // reset();
-                toast.success('Business Section Updated Successfully');
+                toast.success('Business Branch Updated Successfully');
                 setOpen(false);
             },
         });
@@ -33,26 +33,16 @@ export default function CreateBusinessSectionForm({ business }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={'ghost'}>Add Section</Button>
+                <Button variant={'ghost'}>Edit Section</Button>
             </DialogTrigger>
             <DialogContent>
-                <form onSubmit={createBusinessSection} className="space-y-6">
+                <form onSubmit={updateBusinessBranch} className="space-y-6">
                     <DialogHeader>
                         <DialogTitle>Business Page Sections</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-3">
-                        <TextInput placeholder="Type title here" labelTitle="Section Title" value={data.title} onChange={(e)=> setData('title', e.target.value)}/>
-                    </div>
-                    <div className="space-y-3">
-                        <Label htmlFor="desc">Content</Label>
-                        <Textarea
-                            id="desc"
-                            className={'w-full'}
-                            placeholder="Type your content here..."
-                            value={data.content}
-                            onChange={(e) => setData('content', e.target.value)}
-                        />
-                        <FormError message={errors.content} />
+                        <TextInput placeholder="Type address here" labelTitle="Section Title" value={data.address} onChange={(e)=> setData('address', e.target.value)}/>
+                        <TextInput placeholder="Paste google map embed here" labelTitle="Google Map Embed" value={data.google_map_embed} onChange={(e)=> setData('google_map_embed', e.target.value)}/>
                     </div>
                     <DialogFooter>
                         <DialogClose asChild>

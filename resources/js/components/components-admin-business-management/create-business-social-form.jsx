@@ -9,22 +9,22 @@ import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogT
 import TextInput from '../text-input'
 import { useState } from 'react';
 
-export default function CreateBusinessSectionForm({ business }) {
+export default function CreateBusinessSocialForm({ business }) {
     const [open, setOpen] = useState(false)
 
     const { data, setData, errors, post, reset, processing } = useForm({
         business_id: business.id,
-        title: '',
-        content: '',
+        platform_name: '',
+        url: '',
     });
 
-    const createBusinessSection = (e) => {
+    const createBusinessSocial = (e) => {
         e.preventDefault();
-        post(route('business.store.section', ), {
+        post(route('business.store.social'), {
             preserveScroll: true,
             onSuccess: () => {
                 // reset();
-                toast.success('Business Section Updated Successfully');
+                toast.success('Business Social Created Successfully');
                 setOpen(false);
             },
         });
@@ -33,26 +33,16 @@ export default function CreateBusinessSectionForm({ business }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={'ghost'}>Add Section</Button>
+                <Button variant={'ghost'}>Add Social</Button>
             </DialogTrigger>
             <DialogContent>
-                <form onSubmit={createBusinessSection} className="space-y-6">
+                <form onSubmit={createBusinessSocial} className="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Business Page Sections</DialogTitle>
+                        <DialogTitle>Business Page Socials</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-3">
-                        <TextInput placeholder="Type title here" labelTitle="Section Title" value={data.title} onChange={(e)=> setData('title', e.target.value)}/>
-                    </div>
-                    <div className="space-y-3">
-                        <Label htmlFor="desc">Content</Label>
-                        <Textarea
-                            id="desc"
-                            className={'w-full'}
-                            placeholder="Type your content here..."
-                            value={data.content}
-                            onChange={(e) => setData('content', e.target.value)}
-                        />
-                        <FormError message={errors.content} />
+                        <TextInput placeholder="Type platform name here" labelTitle="Section Title"  value={data.platform_name} onChange={(e)=> setData('platform_name', e.target.value)}/>
+                        <TextInput placeholder="Paste platform page url here" labelTitle="Page URL"  value={data.url} onChange={(e)=> setData('url', e.target.value)}/>
                     </div>
                     <DialogFooter>
                         <DialogClose asChild>

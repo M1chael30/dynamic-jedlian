@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('business_branches', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
-            $table->string('branch_name');
+            $table->string('address');
+            $table->string('google_map_embed')->nullable();
             $table->timestamps();
         });
     }

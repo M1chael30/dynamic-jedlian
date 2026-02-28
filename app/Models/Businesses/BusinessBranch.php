@@ -8,7 +8,8 @@ class BusinessBranch extends Model
 {
     protected $fillable = [
         "business_id",
-        "branch_name",
+        "address",
+        "google_map_embed",
     ];
 
     public function business()

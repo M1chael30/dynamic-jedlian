@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('business_socials', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
+            $table->string('platform_name');
             $table->string('url');
             $table->timestamps();
         });
