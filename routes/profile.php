@@ -9,5 +9,6 @@ Route::prefix('admin')
  ->group(function () {
   Route::get('/profile', 'index')->name('profile.index');
   Route::post('/profile/update', 'update')->name('profile.update');
-  Route::post('/profile', 'updatePassword')->name('profile.update.password');
+  Route::post('/profile/update-password', 'updatePassword')
+   ->name('profile.update.password');
  });
