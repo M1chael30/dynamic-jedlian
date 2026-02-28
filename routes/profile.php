@@ -8,6 +8,6 @@ Route::prefix('admin')
  ->controller(ProfileManagementController::class)
  ->group(function () {
   Route::get('/profile', 'index')->name('profile.index');
-  Route::post('/profile', 'update')->name('profile.update');
+  Route::post('/profile/update', 'update')->name('profile.update');
   Route::post('/profile', 'updatePassword')->name('profile.update.password');
  });
