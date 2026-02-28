@@ -70,7 +70,7 @@ export default function UploadImageForm({ period }) {
       <DialogContent>
         <form onSubmit={submitAchievement} className="space-y-5">
           <DialogHeader>
-            <DialogTitle>Achievement title and image</DialogTitle>
+            <DialogTitle>Image upload</DialogTitle>
           </DialogHeader>
           <div className="space-y-3">
             <Select className="w-full">
@@ -90,7 +90,6 @@ export default function UploadImageForm({ period }) {
             <Label>Upload Image (Max size: 3MB)</Label>
             <Label htmlFor="image_filename" className={`cursor-pointer`}>
               <Input id="image_filename" hidden type={'file'} onChange={selectedImage} accept="image/*" ref={fileInputRef} />
-
               <Avatar
                 className={cn(
                   'aspect-video h-full w-full rounded-md',
@@ -103,13 +102,6 @@ export default function UploadImageForm({ period }) {
                 </AvatarFallback>
               </Avatar>
             </Label>
-            {/* {errors &&
-                            <FormError message={
-                                errors.image_filename &&
-                                'The image field is required.'
-                            } />
-                        } */}
-
             {undoBtn && (
               <Button type="button" onClick={handleUndoBtn} variant="outline">
                 <RotateCcwIcon /> Undo
