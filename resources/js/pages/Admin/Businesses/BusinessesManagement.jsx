@@ -9,23 +9,21 @@ import EditBusinessForm from '../../../components/components-admin-business-mana
 export default function BusinessesManagement({ businesses }) {
   return (
     <>
-      <Head title="Dashboard" />
+      <Head title="Manage Businesses" />
       <section className="mx-auto w-full max-w-3xl space-y-5 px-4 py-5">
         <Button asChild>
           <Link href={route('admin.index')}>Back</Link>
         </Button>
         <div className="flex items-center justify-between">
           <h1 className="text-2xl">Manage Businesses Content</h1>
+          <AddBusinessForm />
         </div>
-        <div className={'rounded-sm border-2 p-5'}>
-          <div className='flex justify-between px-1'>
+        <div className={'rounded-sm border-2 p-2'}>
           <h1 className="text-center">Businesses</h1>
-          <AddBusinessForm/>
-          </div>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Page Name</TableHead>
+                <TableHead>Name</TableHead>
                 <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
@@ -34,8 +32,10 @@ export default function BusinessesManagement({ businesses }) {
                 <TableRow key={index}>
                   <TableCell>{business.name}</TableCell>
                   <TableCell>
-                    <Link href={route('business.show', business.id)}>View</Link>
-                    <EditBusinessForm key={business.id} business={business}/>
+                    <Button asChild variant={'link'}>
+                      <Link href={route('business.show', business.id)}>View</Link>
+                    </Button>
+                    <EditBusinessForm key={business.id} business={business} />
                   </TableCell>
                 </TableRow>
               ))}

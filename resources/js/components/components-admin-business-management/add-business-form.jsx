@@ -4,6 +4,15 @@ import { toast } from 'sonner';
 import Loading from '../loading';
 import TextInput from '../text-input';
 import { Button } from '../ui/button';
+import { Textarea } from '../ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '../ui/select';
 import {
   Dialog,
   DialogClose,
@@ -13,6 +22,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '../ui/dialog';
+import FormError from '../form-error';
+import { Label } from '../ui/label';
 
 export default function AddBusinessForm() {
   const [open, setOpen] = useState(false);
@@ -39,7 +50,7 @@ export default function AddBusinessForm() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost">Add Business</Button>
+        <Button>Add Business</Button>
       </DialogTrigger>
 
       <DialogContent>
@@ -48,55 +59,48 @@ export default function AddBusinessForm() {
             <DialogTitle>Add Business</DialogTitle>
           </DialogHeader>
 
-          <div className="space-y-4">
-            {/* Name */}
+          <div className="space-y-3">
             <TextInput
               placeholder="Type name here"
               labelTitle="Name"
               value={data.name}
               onChange={(e) => setData('name', e.target.value)}
-              error={errors.name}
+            />
+            <FormError message={errors.name} />
+          </div>
+
+          <div className="space-y-3">
+            <Label htmlFor="select">Category</Label>
+            <Select
+              className="w-full"
+              id="select"
+              value={data.category}
+              onValueChange={(value) => setData('category', value)}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Business Category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value='office'>Office</SelectItem>
+                  <SelectItem value='branches'>Branches</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <FormError message={errors.category} />
+          </div>
+
+          <div className="space-y-3">
+            <Label>Description</Label>
+            <Textarea
+              className="w-full rounded-md border p-2 text-sm"
+              rows="4"
+              placeholder="Write description here..."
+              value={data.description}
+              onChange={(e) => setData('description', e.target.value)}
             />
 
-            {/* Category Radio Buttons */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Category</label>
-
-              <div className="flex gap-6">
-                {['Office', 'Branch'].map((cat) => (
-                  <label key={cat} className="flex items-center gap-2 text-sm">
-                    <input
-                      type="radio"
-                      value={cat}
-                      checked={data.category === cat}
-                      onChange={(e) => setData('category', e.target.value)}
-                    />
-                    {cat}
-                  </label>
-                ))}
-              </div>
-
-              {errors.category && (
-                <p className="text-sm text-red-500">{errors.category}</p>
-              )}
-            </div>
-
-            {/* Description Textarea */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Description</label>
-
-              <textarea
-                className="w-full rounded-md border p-2 text-sm"
-                rows="4"
-                placeholder="Write description here..."
-                value={data.description}
-                onChange={(e) => setData('description', e.target.value)}
-              />
-
-              {errors.description && (
-                <p className="text-sm text-red-500">{errors.description}</p>
-              )}
-            </div>
+            <FormError message={errors.description} />
           </div>
 
           <DialogFooter>
@@ -105,7 +109,7 @@ export default function AddBusinessForm() {
             </DialogClose>
 
             <Button type="submit" disabled={processing}>
-              {processing ? <Loading title="Loading" /> : 'Add'}
+              {processing ? <Loading title="Loading" /> : 'Create'}
             </Button>
           </DialogFooter>
         </form>

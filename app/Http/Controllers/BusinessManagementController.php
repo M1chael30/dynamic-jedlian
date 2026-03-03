@@ -137,7 +137,7 @@ class BusinessManagementController extends Controller
         ]);
 
         $business->update($updated);
-        return redirect()->route('business.show', $request['id']);
+        return redirect()->route('business.management');
     }
 
     public function updateSection(Request $request, BusinessSection $section)
