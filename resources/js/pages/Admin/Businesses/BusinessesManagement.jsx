@@ -2,6 +2,9 @@ import { Head, Link } from '@inertiajs/react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table';
 import AdminLayout from '../../../layouts/admin-layout';
 import { Button } from '../../../components/ui/button';
+import AddBusinessForm from '../../../components/components-admin-business-management/add-business-form';
+import EditBusinessForm from '../../../components/components-admin-business-management/edit-business-form';
+
 
 export default function BusinessesManagement({ businesses }) {
   return (
@@ -14,8 +17,11 @@ export default function BusinessesManagement({ businesses }) {
         <div className="flex items-center justify-between">
           <h1 className="text-2xl">Manage Businesses Content</h1>
         </div>
-        <div className={'rounded-sm border-2 p-2'}>
+        <div className={'rounded-sm border-2 p-5'}>
+          <div className='flex justify-between px-1'>
           <h1 className="text-center">Businesses</h1>
+          <AddBusinessForm/>
+          </div>
           <Table>
             <TableHeader>
               <TableRow>
@@ -29,6 +35,7 @@ export default function BusinessesManagement({ businesses }) {
                   <TableCell>{business.name}</TableCell>
                   <TableCell>
                     <Link href={route('business.show', business.id)}>View</Link>
+                    <EditBusinessForm key={business.id} business={business}/>
                   </TableCell>
                 </TableRow>
               ))}

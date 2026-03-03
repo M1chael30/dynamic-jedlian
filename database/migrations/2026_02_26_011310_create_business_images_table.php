@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
             $table->string('image_type');
             $table->string('image_path');
+            $table->unique(['business_id', 'image_type']);
             $table->timestamps();
         });
     }

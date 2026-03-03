@@ -113,31 +113,32 @@ class DatabaseSeeder extends Seeder
         Business::factory()->createMany([
             [
                 "name"=> "Jedlian Communication",
-                "slug"=> "jedlian-communication",
+                "isVisible"=> true,
                 "description"=> "Specializing in cutting-edge telecommunications technology, JEDLIAN COMMUNICATIONS at the forefront of providing seamless connectivity solutions for businesses and individuals.",
                 "category"=> "offices",
             ],
             [
                 "name"=> "Jedlian Construction",
-                "slug"=> "jedlian-construction",
+                "isVisible"=> true,
                 "description"=> "JEDLIAN Construction is a trusted leader in construction, delivering excellence across residential, commercial, and government projects.",
                 "category"=> "branches",
             ],
             [
                 "name"=> "Jedlian Gasoline",
-                "slug"=> "jedlian-gasoline",
+                "isVisible"=> true,
+
                 "description"=> "Jedlian Gasoline is committed to delivering premium-quality fuel that powers optimal performance and dependable operation for every engine.",
                 "category"=> "branches",
             ],
             [
                 "name"=> "Jedlian Drugstore",
-                "slug"=> "jedlian-drugstore",
+                "isVisible"=> true,
                 "description"=> "Jedlian Drugstore provides a comprehensive range of pharmaceutical products and wellness services, dedicated to supporting the health and well-being of the community.",
                 "category"=> "Branches",
             ],
             [
                 "name"=> "Casa Jedliana",
-                "slug"=> "casa-jedliana",
+                "isVisible"=> true,
                 "description"=> "Nestled in a scenic location, Casa Jedliana Hotel and Resort delivers exceptional hospitality with luxurious accommodations and premium amenities, perfect for both leisure and business travelers.",
                 "category"=> "Branches",
             ],

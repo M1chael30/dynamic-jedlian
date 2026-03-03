@@ -1,28 +1,53 @@
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TabsContent } from '@/components/ui/tabs';
-import UploadImageForm from '../../components-admin-image-management/upload-image-form';
-
+import { router } from '@inertiajs/react';
+import { TrashIcon } from 'lucide-react';
+import UploadImageForm from '../../components-admin-business-management/upload-image-form';
+import { Button } from '../../ui/button';
+import { toast } from 'sonner';
 
 export default function ImagesTabsCard({ business, images }) {
+  function handleDeleteImage(id) {
+    if (confirm('Are you sure you want to delete?')) {
+      router.delete(route('business.delete.image', id), {
+        preserveScroll: true,
+        onSuccess: () => {
+          toast.success('Image deleted successfully');
+        },
+      });
+    }
+  }
+
   return (
     <TabsContent value="images">
-    <Card>
-      <CardHeader className={'space-y-4'}>
-        <CardTitle>
-          Images
-        </CardTitle>
-        <CardAction>
-          <UploadImageForm/>
-        </CardAction>
-      </CardHeader>
-      <CardContent className={'space-y-4'}>
-        <div className="aspect-video w-full rounded-xl bg-muted overflow-hidden">
-          <img
-            // src={`/storage/${achievement?.achievement_image.image_filename}`}
-             alt="achievement imge" className="object-center h-full w-full" />
-        </div>
-      </CardContent>
-    </Card>
+      <Card className="bg-background border-0">
+        <CardHeader className={'space-y-4'}>
+          <CardTitle>Images</CardTitle>
+          <CardAction>
+            <UploadImageForm images={images} business={business} />
+          </CardAction>
+        </CardHeader>
+        <CardContent className={'space-y-4 px-0'}>
+          {images.map((image, index) => (
+            <Card key={index}>
+              <CardHeader>
+                <CardTitle className="capitalize">{image.image_type == 'circle_banner' ? 'Circle Banner' : image.image_type}</CardTitle>
+                <CardAction>
+                  <Button variant="destructive" onClick={() => handleDeleteImage(image?.id)}>
+                    <TrashIcon />
+                    Delete
+                  </Button>
+                </CardAction>
+              </CardHeader>
+              <CardContent>
+                <div key={index} className="bg-muted aspect-video w-full overflow-hidden rounded-xl">
+                  <img src={`/storage/${image.image_path}`} alt="business image" className="h-full w-full object-center" />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </CardContent>
+      </Card>
     </TabsContent>
   );
 }

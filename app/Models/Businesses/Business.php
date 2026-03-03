@@ -15,6 +15,7 @@ class Business extends Model
         'slug',
         'description',
         'category',
+        'isVisible'
     ];
 
     public function business_sections()

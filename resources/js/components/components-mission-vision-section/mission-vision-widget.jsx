@@ -9,7 +9,7 @@ export default function MissionVisionWidget({
   return (
     <motion.div
       variants={missionVisionVariants}
-      className="border border-yellow-400 rounded-4xl p-10"
+      className="border border-yellow-400 rounded-4xl p-10 min-h-100"
     >
       <svg width="0" height="0">
         <defs>

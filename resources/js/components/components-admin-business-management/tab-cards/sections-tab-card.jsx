@@ -8,6 +8,8 @@ import EditBusinessSectionForm from '../edit-business-section-form';
 import CreateBusinessSectionForm from '../create-business-section-form';
 import { Button } from '../../ui/button';
 import { TrashIcon } from 'lucide-react';
+import { router } from '@inertiajs/react';
+import { toast } from 'sonner';
 
 
 export default function SectionsTabCard({sections, business}) {

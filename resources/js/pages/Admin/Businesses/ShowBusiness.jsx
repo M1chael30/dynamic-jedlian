@@ -1,10 +1,8 @@
 import AdminLayout from '../../../layouts/admin-layout';
-import { toast } from 'sonner';
-
+  
+import { Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Link, router } from '@inertiajs/react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import SectionsTabCard from '../../../components/components-admin-business-management/tab-cards/sections-tab-card';
 import BranchesTabsCard from '../../../components/components-admin-business-management/tab-cards/branches-tab-card';
@@ -18,7 +16,7 @@ export default function ShowBusiness({ business }) {
   const branches = business.business_branches;
   const images = business.business_images;
 
-  console.log(branches)
+  console.log(business)
 
 
   return (
@@ -37,7 +35,7 @@ export default function ShowBusiness({ business }) {
         </TabsList>
         <OverviewTabsCard business={business}/>
         <SectionsTabCard sections={sections} business={business}/>
-        <ImagesTabsCard/>
+        <ImagesTabsCard business={business} images={images}/>
         <BranchesTabsCard branches={branches} business={business}/>
         <SocialTabsCard business={business} socials={socials}/>
       </Tabs>
