@@ -14,7 +14,7 @@ export default function EditBusinessSectionForm({ section }) {
 
     // console.log(section);
 
-    const { data, setData, errors, put, reset, processing } = useForm({
+    const { data, setData, errors, put, processing, isDirty } = useForm({
         business_id: section?.business_id,
         title: section?.title,
         content: section?.content,
@@ -25,7 +25,6 @@ export default function EditBusinessSectionForm({ section }) {
         put(route('business.update.section', section?.id), {
             preserveScroll: true,
             onSuccess: () => {
-                // reset();
                 toast.success('Business section updated successfully');
                 setOpen(false);
             },
@@ -35,16 +34,24 @@ export default function EditBusinessSectionForm({ section }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={'ghost'}>Edit Section</Button>
+                <Button variant={'link'}>Edit</Button>
             </DialogTrigger>
             <DialogContent>
                 <form onSubmit={updateBusinessSection} className="space-y-6">
                     <DialogHeader>
                         <DialogTitle>Update business page sections</DialogTitle>
                     </DialogHeader>
+
                     <div className="space-y-3">
-                        <TextInput placeholder="Type title here" labelTitle="Section Title" value={data.title} onChange={(e)=> setData('title', e.target.value)}/>
+                        <TextInput
+                            placeholder="Type title here"
+                            labelTitle="Section Title"
+                            value={data.title}
+                            onChange={(e) => setData('title', e.target.value)}
+                        />
+                        <FormError message={errors.title} />
                     </div>
+
                     <div className="space-y-3">
                         <Label htmlFor="desc">Content</Label>
                         <Textarea
@@ -60,7 +67,7 @@ export default function EditBusinessSectionForm({ section }) {
                         <DialogClose asChild>
                             <Button variant="outline">Cancel</Button>
                         </DialogClose>
-                        <Button type="submit" disabled={processing}>
+                        <Button type="submit" disabled={processing || !isDirty}>
                             {processing ? <Loading title="Loading" /> : 'Update'}
                         </Button>
                     </DialogFooter>

@@ -1,7 +1,6 @@
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TabsContent } from '@/components/ui/tabs';
 import { router } from '@inertiajs/react';
-import { TrashIcon } from 'lucide-react';
 import UploadImageForm from '../../components-admin-business-management/upload-image-form';
 import { Button } from '../../ui/button';
 import { toast } from 'sonner';
@@ -33,15 +32,22 @@ export default function ImagesTabsCard({ business, images }) {
               <CardHeader>
                 <CardTitle className="capitalize">{image.image_type == 'circle_banner' ? 'Circle Banner' : image.image_type}</CardTitle>
                 <CardAction>
-                  <Button variant="destructive" onClick={() => handleDeleteImage(image?.id)}>
-                    <TrashIcon />
+                  <Button
+                    variant="link"
+                    className={'text-destructive-foreground'}
+                    onClick={() => handleDeleteImage(image?.id)}
+                  >
                     Delete
                   </Button>
                 </CardAction>
               </CardHeader>
               <CardContent>
-                <div key={index} className="bg-muted aspect-video w-full overflow-hidden rounded-xl">
-                  <img src={`/storage/${image.image_path}`} alt="business image" className="h-full w-full object-center" />
+                <div className="bg-muted aspect-video w-full overflow-hidden rounded-xl">
+                  <img
+                    src={`/storage/${image.image_path}`}
+                    alt="business image"
+                    className="h-full w-full object-center"
+                  />
                 </div>
               </CardContent>
             </Card>

@@ -8,19 +8,17 @@ use App\Models\Businesses\BusinessImage;
 use App\Models\Businesses\BusinessSection;
 use App\Models\Businesses\BusinessSocial;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Bus;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 
-
 class BusinessManagementController extends Controller
 {
     public function index()
     {
-        $businesses = Business::all();
+        $businesses = Business::select('id', 'name', 'category', 'description')->get();
+
         return Inertia::render('Admin/Businesses/BusinessesManagement', [
             'businesses' => $businesses
         ]);
@@ -28,7 +26,12 @@ class BusinessManagementController extends Controller
 
     public function show(Business $business)
     {
-        $business->load(['business_socials', 'business_sections', 'business_images', 'business_branches']);
+        $business->load([
+            'business_socials',
+            'business_sections',
+            'business_images',
+            'business_branches'
+        ]);
 
         return Inertia::render('Admin/Businesses/ShowBusiness', [
 
@@ -37,16 +40,18 @@ class BusinessManagementController extends Controller
     }
 
     /////////////////////////////Create/////////////////////////////////////
-    public function storeBusiness(Request $request){
+    public function storeBusiness(Request $request)
+    {
         // dd($request);
         $fields = $request->validate([
-            'name' => ['required','string',''],
-            'description' => ['required','string',''],
-            'category' => ['required','string',''],
-            
+            'name' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'category' => ['required', 'string'],
+
         ]);
 
         Business::create($fields);
+
         return redirect()->route('business.management');
     }
 
@@ -54,8 +59,8 @@ class BusinessManagementController extends Controller
     {
         $fields = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'title' => 'required|string',
-            'content' => 'required|string'
+            'title' => ['required', 'string'],
+            'content' => ['required', 'string']
         ]);
 
         BusinessSection::create($fields);
@@ -76,18 +81,13 @@ class BusinessManagementController extends Controller
                     ),
             ],
             'image_path' => [
-                // 'mimes:png,jpg'
+                'mimes:png,jpg',
                 'required',
                 File::image()
                     ->min('1kb')
                     ->max('3mb'),
-
-                // Rule::dimensions();
             ],
         ]);
-
-
-
 
         if ($request->hasFile('image_path')) {
 
@@ -107,8 +107,8 @@ class BusinessManagementController extends Controller
     {
         $fields = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'address' => 'required|string',
-            'google_map_embed' => 'required',
+            'address' => ['required', 'string'],
+            'google_map_embed' => ['nullable', 'string'],
         ]);
         BusinessBranch::create($fields);
         return redirect()->route('business.show', $fields['business_id']);
@@ -116,27 +116,29 @@ class BusinessManagementController extends Controller
 
     public function storeSocial(Request $request)
     {
-        // dd($request);
         $fields = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'platform_name' => 'required|string',
-            'url' => 'required'
+            'platform_name' => ['required', 'string'],
+            'url' => ['required', 'url']
         ]);
 
         BusinessSocial::create($fields);
+
         return redirect()->route('business.show', $fields['business_id']);
     }
 
     /////////////////////////////Update/////////////////////////////////////
 
-    public function updateBusiness(Request $request, Business $business) {
+    public function updateBusiness(Request $request, Business $business)
+    {
         $updated = $request->validate([
-            'name' => ['required','string',''],
-            'description' => ['required','string',''],
-            'category' => ['required','string',''],
+            'name' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'category' => ['required', 'string'],
         ]);
 
         $business->update($updated);
+
         return redirect()->route('business.management');
     }
 
@@ -144,36 +146,34 @@ class BusinessManagementController extends Controller
     {
         $updated = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'title' => "required|string",
-            'content' => "required|string"
+            'title' => ['required', 'string'],
+            'content' => ['required', 'string']
         ]);
 
         $section->update($updated);
 
         return redirect()->route('business.show', $updated['business_id']);
     }
-    public function updateImage(Request $request, $id)
-    {
-        ///
-    }
+
     public function updateBranch(Request $request, BusinessBranch $branch)
     {
         $updated = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'address' => 'required|string',
-            'google_map_embed' => 'required|string'
+            'address' => ['required', 'string'],
+            'google_map_embed' => ['nullable', 'string']
         ]);
 
         $branch->update($updated);
 
         return redirect()->route('business.show', $updated['business_id']);
     }
+
     public function updateSocial(Request $request, BusinessSocial $social)
     {
         $updated = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'platform_name' => "required|string",
-            'url' => "required"
+            'platform_name' => ['required', 'string'],
+            'url' => ['required', 'url']
         ]);
 
         $social->update($updated);
@@ -187,6 +187,7 @@ class BusinessManagementController extends Controller
         $section->delete();
         return back();
     }
+
     public function deleteImage(Request $request, BusinessImage $image)
     {
         if ($image->image_path) {
@@ -197,11 +198,13 @@ class BusinessManagementController extends Controller
 
         return back();
     }
+
     public function deleteBranch(Request $request, BusinessBranch $branch)
     {
         $branch->delete();
         return back();
     }
+
     public function deleteSocial(Request $request, BusinessSocial $social)
     {
         $social->delete();

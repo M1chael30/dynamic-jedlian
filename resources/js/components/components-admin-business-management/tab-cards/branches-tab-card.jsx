@@ -1,5 +1,4 @@
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { TabsContent } from '@/components/ui/tabs';
 import { Button } from '../../ui/button';
 import CreateBusinessBranchForm from '../create-business-branch-form';
@@ -7,6 +6,7 @@ import EditBusinessBranchForm from '../edit-business-branch-form';
 import ViewBusinessBranchCard from '../view-business-branch-card';
 import { router } from '@inertiajs/react';
 import { toast } from 'sonner';
+import { Item, ItemActions, ItemContent, ItemTitle } from '../../ui/item';
 
 export default function BranchesTabsCard({ business, branches }) {
 
@@ -23,36 +23,33 @@ export default function BranchesTabsCard({ business, branches }) {
 
   return (
     <TabsContent value="branches">
-      <Card>
+      <Card className='bg-background border-none'>
         <CardHeader>
-          <CardTitle>Branches</CardTitle>
+          <CardTitle className='capitalize'>{business.category}</CardTitle>
           <CardAction>
             <CreateBusinessBranchForm key={business.id} business={business} />
           </CardAction>
         </CardHeader>
-        <CardContent className="text-muted-foreground text-sm">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Address</TableHead>
-                {/* <TableHead>Page URL</TableHead> */}
-                <TableHead>Action</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {branches.map((branch, index) => (
-                <TableRow key={index}>
-                  <TableCell>{branch.address}</TableCell>
-                  {/* <TableCell>{branch.google_map_embed}</TableCell> */}
-                  <TableCell className="space-x-3">
-                    <ViewBusinessBranchCard branch={branch}/>
-                    <EditBusinessBranchForm branch={branch} />
-                    <Button onClick={(e) => handleDeleteBranch(branch.id)}>Delete</Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+        <CardContent className="p-0 space-y-4">
+          {branches.map((branch, index) => (
+            <Item key={index} variant="outline" size="sm">
+              <ItemContent>
+                <ItemTitle>{branch.address}</ItemTitle>
+              </ItemContent>
+              <ItemActions>
+                <ViewBusinessBranchCard branch={branch} />
+                <EditBusinessBranchForm branch={branch} />
+                <Button
+                  variant={'link'}
+                  className={'text-destructive-foreground'}
+                  onClick={() => handleDeleteBranch(branch.id)}
+                >
+                  Delete
+                </Button>
+              </ItemActions>
+            </Item>
+
+          ))}
         </CardContent>
       </Card>
     </TabsContent>

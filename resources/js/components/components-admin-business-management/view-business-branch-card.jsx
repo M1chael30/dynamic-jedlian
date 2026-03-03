@@ -5,13 +5,13 @@ import { useState } from 'react';
 
 export default function ViewBusinessBranchCard({ branch }) {
 
-        const [open, setOpen] = useState(false)
-    
+  const [open, setOpen] = useState(false)
+
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={'ghost'}>View</Button>
+        <Button variant={'link'}>View</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -21,14 +21,17 @@ export default function ViewBusinessBranchCard({ branch }) {
           <p>{branch.address}</p>
         </div>
         <div className="bg-muted aspect-video w-full overflow-hidden rounded-xl">
-          <iframe
-            src={`https://www.google.com/maps/embed?pb=${branch.google_map_embed}`}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-full w-full"
-            x="true"
-          ></iframe>
+          {
+            branch.google_map_embed &&
+            <iframe
+              src={`https://www.google.com/maps/embed?pb=${branch.google_map_embed}`}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full w-full"
+              x="true"
+            ></iframe>
+          }
         </div>
 
         <DialogFooter>

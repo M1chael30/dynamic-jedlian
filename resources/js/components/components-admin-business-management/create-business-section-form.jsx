@@ -20,10 +20,10 @@ export default function CreateBusinessSectionForm({ business }) {
 
     const createBusinessSection = (e) => {
         e.preventDefault();
-        post(route('business.store.section', ), {
+        post(route('business.store.section',), {
             preserveScroll: true,
             onSuccess: () => {
-                // reset();
+                reset();
                 toast.success('Business Section Updated Successfully');
                 setOpen(false);
             },
@@ -33,16 +33,24 @@ export default function CreateBusinessSectionForm({ business }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant={'ghost'}>Add Section</Button>
+                <Button>Add Section</Button>
             </DialogTrigger>
             <DialogContent>
                 <form onSubmit={createBusinessSection} className="space-y-6">
                     <DialogHeader>
                         <DialogTitle>Add business page sections</DialogTitle>
                     </DialogHeader>
+
                     <div className="space-y-3">
-                        <TextInput placeholder="Type title here" labelTitle="Section Title" value={data.title} onChange={(e)=> setData('title', e.target.value)}/>
+                        <TextInput
+                            placeholder="Type title here"
+                            labelTitle="Section Title"
+                            value={data.title}
+                            onChange={(e) => setData('title', e.target.value)}
+                        />
+                        <FormError message={errors.title} />
                     </div>
+
                     <div className="space-y-3">
                         <Label htmlFor="desc">Content</Label>
                         <Textarea
@@ -54,6 +62,7 @@ export default function CreateBusinessSectionForm({ business }) {
                         />
                         <FormError message={errors.content} />
                     </div>
+
                     <DialogFooter>
                         <DialogClose asChild>
                             <Button variant="outline">Cancel</Button>
