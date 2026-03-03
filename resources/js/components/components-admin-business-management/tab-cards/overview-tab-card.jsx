@@ -1,7 +1,5 @@
-import { Card, CardDescription, CardHeader, CardTitle, CardAction } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { TabsContent } from '@/components/ui/tabs';
-import EditBusinessForm from '../edit-business-form';
 
 export default function OverviewTabsCard({ business }) {
   return (
@@ -9,10 +7,10 @@ export default function OverviewTabsCard({ business }) {
       <Card>
         <CardHeader>
           <CardTitle>Overview</CardTitle>
+          <CardDescription>
+            {business.description}
+          </CardDescription>
         </CardHeader>
-        <CardDescription>
-          <p className="px-3">{business.description}</p>
-        </CardDescription>
       </Card>
     </TabsContent>
   );

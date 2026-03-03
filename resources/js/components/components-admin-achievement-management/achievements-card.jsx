@@ -54,7 +54,6 @@ export default function AchievementsCard({ achievement }) {
               <ItemDescription>{description?.description_text}</ItemDescription>
             </ItemContent>
             <ItemActions>
-              {/* TODO */}
               <Button
                 variant={'ghost'}
                 className={'text-destructive-foreground'}
