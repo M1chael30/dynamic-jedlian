@@ -134,13 +134,13 @@ class DatabaseSeeder extends Seeder
                 "name"=> "Jedlian Drugstore",
                 "isVisible"=> true,
                 "description"=> "Jedlian Drugstore provides a comprehensive range of pharmaceutical products and wellness services, dedicated to supporting the health and well-being of the community.",
-                "category"=> "Branches",
+                "category"=> "branches",
             ],
             [
                 "name"=> "Casa Jedliana",
                 "isVisible"=> true,
                 "description"=> "Nestled in a scenic location, Casa Jedliana Hotel and Resort delivers exceptional hospitality with luxurious accommodations and premium amenities, perfect for both leisure and business travelers.",
-                "category"=> "Branches",
+                "category"=> "branches",
             ],
         ]);
     }

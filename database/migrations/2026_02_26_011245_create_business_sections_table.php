@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('business_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('content');
             $table->timestamps();
         });

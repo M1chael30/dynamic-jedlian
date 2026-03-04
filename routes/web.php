@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 
+
 Route::prefix('admin')
     ->middleware(['auth'])
     ->controller(HomeManagementController::class)

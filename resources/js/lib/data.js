@@ -9,6 +9,10 @@ const navLinks = [
   name: "Contact Us",
   path: "/contact-us",
  },
+//  {
+//     name:"Our Businesses",
+//     path:"/business",
+//  }
 ];
 
 const ourStory = [

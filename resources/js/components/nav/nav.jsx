@@ -4,8 +4,9 @@ import { jedlianBusinessesData } from "@/lib/homePageData";
 import MobileNavLinks from "./mobile-nav-links";
 import { NavigationMenuComponent } from "./navigation-menu-component";
 import { Link } from "@inertiajs/react";
+import { BusinessNavigation } from "./business-navigation";
 
-export default function Nav() {
+export default function Nav({businesses}) {
 
  return (
   <header className="sticky top-0 z-50">
@@ -24,9 +25,8 @@ export default function Nav() {
       navigationMenuTitle="Our Story"
       dropdownMenuItem={ourStory}
      />
-     <NavigationMenuComponent
-      navigationMenuTitle="Our Business"
-     dropdownMenuItem={jedlianBusinessesData}
+     <BusinessNavigation
+     businesses={businesses}
      />
      {navLinks.map((link, i) => (
       <Navlink

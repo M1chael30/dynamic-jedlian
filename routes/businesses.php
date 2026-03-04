@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\BusinessManagementController;
+use App\Http\Controllers\Home\BusinessController;
 use Illuminate\Support\Facades\Route;
+
+Route::get("/businesses/{business}", [BusinessController::class, 'index'])->name('business');
 
 Route::prefix('admin')->middleware(["auth"])->controller(BusinessManagementController::class)->group(function( ) {
     Route::get("/business-management", 'index')->name('business.management');
