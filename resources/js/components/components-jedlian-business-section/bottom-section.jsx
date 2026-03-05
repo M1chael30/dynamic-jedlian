@@ -66,14 +66,17 @@ export default function BottomSection({ business }) {
       viewport={{ once: true, amount: 0.3 }}
       className="w-full space-y-6 p-6 md:p-18 lg:px-48 lg:py-5"
     >
-      <motion.h1
-        variants={fadeVariants}
-        initial="hidden"
-        whileInView="show"
-        className="text-title capitalize bg-[radial-gradient(circle_at_center,#cfceaa,#c89116,#cfceaa)] bg-clip-text font-extrabold text-transparent"
-      >
-        {business?.category}
-      </motion.h1>
+      {
+        branches.length > 0 &&
+        <motion.h1
+          variants={fadeVariants}
+          initial="hidden"
+          whileInView="show"
+          className="text-title capitalize bg-[radial-gradient(circle_at_center,#cfceaa,#c89116,#cfceaa)] bg-clip-text font-extrabold text-transparent"
+        >
+          {business?.category}
+        </motion.h1>
+      }
       {content}
     </motion.div>
   );
