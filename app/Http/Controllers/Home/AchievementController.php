@@ -21,7 +21,7 @@ class AchievementController extends Controller
                 'achievements.achievement_descriptions:id,achievement_id,description_text'
             ])
             ->orderBy('year', 'desc')
-            ->get();
+            ->simplePaginate(5);
 
         return Inertia::render('Achievement/Achievement', [
             'periods' => $periods
