@@ -20,7 +20,7 @@ class BusinessController extends Controller
         ]);
 
         return Inertia::render("OurBusinesses/Business", [
-            "business"=> $business
+            "business" => $business
         ]);
     }
 }
