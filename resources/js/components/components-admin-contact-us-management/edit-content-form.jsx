@@ -32,8 +32,8 @@ export default function ContactUsEditContentForm({ item }) {
    return (
       <Dialog open={open} onOpenChange={setOpen}>
          <DialogTrigger asChild>
-            <Button variant={'ghost'}>
-               <PenIcon /> Edit
+            <Button variant={'link'}>
+               Edit
             </Button>
          </DialogTrigger>
          <DialogContent>

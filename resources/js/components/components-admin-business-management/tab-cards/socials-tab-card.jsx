@@ -3,7 +3,7 @@ import { TabsContent } from '@/components/ui/tabs';
 import { Button } from '../../ui/button';
 import CreateBusinessSocialForm from '../create-business-social-form';
 import EditBusinessSocialForm from '../edit-business-social-form';
-import { Link, router } from '@inertiajs/react';
+import { router } from '@inertiajs/react';
 import { toast } from 'sonner';
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '../../ui/item';
 import { Badge } from '../../ui/badge';

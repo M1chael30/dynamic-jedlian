@@ -35,8 +35,8 @@ export default function HomeStatsForm({ stat }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={'ghost'}>
-          <PenIcon />  Edit
+        <Button variant={'link'}>
+          Edit
         </Button>
       </DialogTrigger>
       <DialogContent>

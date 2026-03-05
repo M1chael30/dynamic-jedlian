@@ -127,6 +127,7 @@ export default function EditTitleForm({ achievement }) {
         type="button"
         onClick={handleUndoBtn}
         variant="outline"
+        disabled={processing}
        >
         <RotateCcwIcon /> Undo
        </Button>

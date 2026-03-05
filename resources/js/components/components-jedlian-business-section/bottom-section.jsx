@@ -49,7 +49,7 @@ export default function BottomSection({ business }) {
   } else if (business?.category === 'offices' && branches.length !== 0) {
     content = (
       <motion.div variants={fadeVariants} initial="hidden" whileInView="show">
-        <ul>
+        <ul className='list-disc space-y-3'>
           {branches.map((item, index) => (
             <li key={index}>{item.address}</li>
           ))}

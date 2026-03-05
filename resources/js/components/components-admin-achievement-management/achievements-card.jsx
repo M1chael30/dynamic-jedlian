@@ -5,7 +5,6 @@ import { Switch } from "../ui/switch";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Item, ItemActions, ItemContent, ItemDescription } from "../ui/item";
 import { AchievementDropdownMenu } from "./achievement-dropdown-menu";
-import { TrashIcon } from "lucide-react";
 import { toast } from "sonner";
 import EditDescriptionForm from "./edit-description-form";
 
@@ -55,11 +54,11 @@ export default function AchievementsCard({ achievement }) {
             </ItemContent>
             <ItemActions>
               <Button
-                variant={'ghost'}
+                variant={'link'}
                 className={'text-destructive-foreground'}
                 onClick={() => handleDelete(description?.id)}
               >
-                <TrashIcon className="size-4" /> Delete
+                Delete
               </Button>
               <Button variant={'ghost'} asChild>
                 <EditDescriptionForm key={description?.id} description={description} />

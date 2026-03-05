@@ -7,7 +7,6 @@ import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { useState } from 'react';
-import { PenIcon } from 'lucide-react';
 
 export default function EditDescriptionForm({ description }) {
  const [open, setOpen] = useState(false)
@@ -31,8 +30,8 @@ export default function EditDescriptionForm({ description }) {
  return (
   <Dialog open={open} onOpenChange={setOpen}>
    <DialogTrigger asChild>
-    <Button variant={'ghost'}>
-     <PenIcon className="size-4" /> Edit
+    <Button variant={'link'}>
+     Edit
     </Button>
    </DialogTrigger>
    <DialogContent>
@@ -60,7 +59,7 @@ export default function EditDescriptionForm({ description }) {
       </Button>
      </DialogFooter>
     </form>
-   </DialogContent> 
+   </DialogContent>
   </Dialog >
  );
 }

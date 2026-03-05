@@ -129,6 +129,7 @@ export default function CreateTitleForm({ period }) {
                                 type="button"
                                 onClick={handleUndoBtn}
                                 variant="outline"
+                                disabled={processing}
                             >
                                 <RotateCcwIcon /> Undo
                             </Button>
