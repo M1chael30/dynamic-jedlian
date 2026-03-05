@@ -28,10 +28,10 @@ class BusinessManagementController extends Controller
     public function show(Business $business)
     {
         $business->load([
-            'business_socials',
-            'business_sections',
-            'business_images',
-            'business_branches'
+            'business_socials:id,business_id,platform_name,url',
+            'business_sections:id,business_id,title,content',
+            'business_images:id,business_id,image_type,image_path',
+            'business_branches:id,business_id,address,google_map_embed'
         ]);
 
         return Inertia::render('Admin/Businesses/ShowBusiness', [
