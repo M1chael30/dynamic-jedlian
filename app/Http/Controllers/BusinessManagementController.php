@@ -87,8 +87,8 @@ class BusinessManagementController extends Controller
                 'required',
                 File::image()
                     ->types(['png', 'jpg', 'jpeg'])
-                    ->min('1kb')
-                    ->max('10mb')
+                    ->min(1) // 1kb
+                    ->max(5240) // 5mb
             ],
         ]);
 
