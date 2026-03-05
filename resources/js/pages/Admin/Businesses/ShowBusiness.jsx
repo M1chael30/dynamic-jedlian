@@ -1,6 +1,6 @@
 import AdminLayout from '../../../layouts/admin-layout';
 
-import { Link } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -15,28 +15,28 @@ export default function ShowBusiness({ business }) {
   const branches = business.business_branches;
   const images = business.business_images;
 
-  console.log(business)
-
-
   return (
-    <section className="mx-auto w-full max-w-3xl space-y-5 px-4 py-5">
-      <Button asChild>
-        <Link href={route('business.management')}>Back</Link>
-      </Button>
-      <div>{business.name}</div>
-      <Tabs defaultValue="sections" className="w-full">
-        <TabsList>
-          <TabsTrigger value="sections">Sections</TabsTrigger>
-          <TabsTrigger value="images">Images</TabsTrigger>
-          <TabsTrigger value="branches">Branches</TabsTrigger>
-          <TabsTrigger value="socials">Socials</TabsTrigger>
-        </TabsList>
-        <SectionsTabCard sections={sections} business={business} />
-        <ImagesTabsCard business={business} images={images} />
-        <BranchesTabsCard branches={branches} business={business} />
-        <SocialTabsCard business={business} socials={socials} />
-      </Tabs>
-    </section>
+    <>
+      <Head title={business?.name} />
+      <section className="mx-auto w-full max-w-3xl space-y-5 px-4 py-5">
+        <Button asChild>
+          <Link href={route('business.management')}>Back</Link>
+        </Button>
+        <div>{business.name}</div>
+        <Tabs defaultValue="sections" className="w-full">
+          <TabsList>
+            <TabsTrigger value="sections">Sections</TabsTrigger>
+            <TabsTrigger value="images">Images</TabsTrigger>
+            <TabsTrigger value="branches">Branches</TabsTrigger>
+            <TabsTrigger value="socials">Socials</TabsTrigger>
+          </TabsList>
+          <SectionsTabCard sections={sections} business={business} />
+          <ImagesTabsCard business={business} images={images} />
+          <BranchesTabsCard branches={branches} business={business} />
+          <SocialTabsCard business={business} socials={socials} />
+        </Tabs>
+      </section>
+    </>
   );
 }
 
