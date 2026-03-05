@@ -21,6 +21,7 @@ export default function BottomSection({ business }) {
           <CarouselContent>
             {branches?.map((item, index) => (
               <CarouselItem key={index}>
+<<<<<<< Updated upstream
                 <div className="flex flex-col justify-center space-y-4 overflow-hidden p-1 md:h-120">
                   {item?.google_map_embed ? (
                     <iframe
@@ -34,6 +35,16 @@ export default function BottomSection({ business }) {
                     <div className="flex h-full w-full items-center justify-center rounded-lg bg-zinc-800">No embedded Google Maps location.</div>
                   )}
 
+=======
+                <div className="p-1 overflow-hidden md:h-120 flex flex-col justify-center space-y-4">
+                  <iframe
+                    src={"https://www.google.com/maps/embed?pb=" + item?.google_map_embed}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full rounded-lg"
+                  ></iframe>
+>>>>>>> Stashed changes
                   <div className="text-center">
                     <p className="text-description">{item?.address}</p>
                   </div>
@@ -46,6 +57,7 @@ export default function BottomSection({ business }) {
         </Carousel>
       </motion.div>
     );
+<<<<<<< Updated upstream
   } else if (business?.category === 'offices' && branches.length !== 0) {
     content = (
       <motion.div variants={fadeVariants} initial="hidden" whileInView="show">
@@ -56,6 +68,16 @@ export default function BottomSection({ business }) {
         </ul>
       </motion.div>
     );
+=======
+  } else if (business?.category === 'offices') {
+    content = <motion.div variants={fadeVariants} initial="hidden" whileInView="show">
+      <ul>
+        {branches.map((item, index) => (
+          <li key={index}>{item.address}</li>
+        ))}
+      </ul>
+    </motion.div>;
+>>>>>>> Stashed changes
   }
 
   return (
