@@ -22,6 +22,7 @@ export default function BottomSection({ business }) {
             {branches?.map((item, index) => (
               <CarouselItem key={index}>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <div className="flex flex-col justify-center space-y-4 overflow-hidden p-1 md:h-120">
                   {item?.google_map_embed ? (
                     <iframe
@@ -36,6 +37,8 @@ export default function BottomSection({ business }) {
                   )}
 
 =======
+=======
+>>>>>>> Stashed changes
                 <div className="p-1 overflow-hidden md:h-120 flex flex-col justify-center space-y-4">
                   <iframe
                     src={"https://www.google.com/maps/embed?pb=" + item?.google_map_embed}
@@ -44,6 +47,9 @@ export default function BottomSection({ business }) {
                     referrerPolicy="no-referrer-when-downgrade"
                     className="w-full h-full rounded-lg"
                   ></iframe>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                   <div className="text-center">
                     <p className="text-description">{item?.address}</p>
