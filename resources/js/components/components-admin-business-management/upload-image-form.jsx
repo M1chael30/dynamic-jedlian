@@ -131,7 +131,7 @@ export default function UploadImageForm({ business, images }) {
             </Label>
             {errors && <FormError message={errors.image_path} />}
             {undoBtn && (
-              <Button type="button" onClick={handleUndoBtn} variant="outline">
+              <Button type="button" disabled={processing} onClick={handleUndoBtn} variant="outline">
                 <RotateCcwIcon /> Undo
               </Button>
             )}
