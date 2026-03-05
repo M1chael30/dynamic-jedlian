@@ -191,7 +191,7 @@ class BusinessManagementController extends Controller
         return back();
     }
 
-    public function deleteImage(Request $request, BusinessImage $image)
+    public function deleteImage(BusinessImage $image)
     {
         if ($image->image_path) {
             Storage::disk('public')->delete($image->image_path);
@@ -202,13 +202,13 @@ class BusinessManagementController extends Controller
         return back();
     }
 
-    public function deleteBranch(Request $request, BusinessBranch $branch)
+    public function deleteBranch(BusinessBranch $branch)
     {
         $branch->delete();
         return back();
     }
 
-    public function deleteSocial(Request $request, BusinessSocial $social)
+    public function deleteSocial(BusinessSocial $social)
     {
         $social->delete();
         return back();
