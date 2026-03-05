@@ -6,11 +6,11 @@ import { usePage } from '@inertiajs/react';
 
 export default function AppLayout({ children }) {
 
-const { businesses } = usePage().props
+    const { businesses } = usePage().props
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-            <N  av businesses={businesses}/>
+            <Nav businesses={businesses} />
             {children}
             <Footer />
             <Toaster position="top-right" duration={1000} />

@@ -17,7 +17,7 @@ export default function Home({homestats, businesses}) {
     >
      {/* front page image */}
      <img
-      src={'images/home-page-image.png'}
+      src={'/images/banners/home-page-image.png'}
       alt="Jedlian landing page image"
       className="w-full h-auto max-w-full object-contain"
      />

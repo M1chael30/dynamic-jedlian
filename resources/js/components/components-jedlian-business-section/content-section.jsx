@@ -1,14 +1,10 @@
 import { fadeRightVariants, fadeVariants, sectionVariants } from '@/lib/animations';
-import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import CustomButton from '../ui/custom-button';
 
 export default function ContentSection({ business }) {
   const sections = business.business_sections;
-  const socials = business.business_socials;
-  const branches = business.business_branches;
-  const images = business.business_images;
 
   return (
     <motion.div
@@ -44,15 +40,6 @@ export default function ContentSection({ business }) {
           </motion.div>
         )}
       </div>
-      {/* social icon */}
-      {/* <motion.div variants={fadeVariants} initial="hidden" whileInView="show" className="flex space-x-4">
-        {item?.socials &&
-          item.socials.map((item, index) => (
-            <Link href={item.socialLink} key={index}>
-              <item.icon size={32} />
-            </Link>
-          ))} */}
-      {/* </motion.div> */}
     </motion.div>
   );
 }

@@ -8,7 +8,7 @@ export default function ContactUs({ contactUsData }) {
                         <Head title="Contact Us" />
                         <section className="relative flex flex-col justify-center items-center p-7 max-w-7xl w-full mx-auto">
                                 <img
-                                        src={"images/business-page-img/bg-business-page.png"}
+                                        src={"/images/business-page-img/bg-business-page.png"}
                                         className="absolute inset-0 w-full h-full object-cover -z-10"
                                         alt="Background"
                                 />

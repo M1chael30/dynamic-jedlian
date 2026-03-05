@@ -1,48 +1,30 @@
 import TopSection from '../../components/components-jedlian-business-section/top-section'
 import ContentSection from '../../components/components-jedlian-business-section/content-section'
 import BottomSection from '../../components/components-jedlian-business-section/bottom-section'
+import { Head } from '@inertiajs/react';
 
 
 export default function Business({ business }) {
-  const sections = business.business_sections;
-  const socials = business.business_socials;
-  const branches = business.business_branches;
   const images = business.business_images;
 
-  // banner = images.image_path
-  // circleBanner = images.image_path
-
-  console.log(images)
-
   return (
-    <section className="relative mx-auto w-full max-w-7xl">
-      {/* image background */}
-      {/* <Image
-    fill
-    priority
-    src={bgBusinessPage}
-    draggable="false"
-    alt="Business page background image"
-    className="object-cover select-none"
-   /> */}
+    <>
+      <Head title={business?.name} />
+      <section className="relative mx-auto w-full max-w-7xl">
+        <img
+          src={"/images/business-page-img/bg-business-page.png"}
+          className="absolute inset-0 w-full h-full object-cover -z-10"
+          alt="Background"
+        />
+        <div className="relative z-10 flex flex-col">
+          {/* top section */}
+          <TopSection images={images} />
 
-      <div className="relative z-10 flex flex-col">
-        {/* top section */}
-        <TopSection images={images} />
-        {/* {sections.map((item, index)=>(
-          <div key={index}>
-            <h1>{item.title}</h1>
-            <p>{item.content}</p>
-          </div>
-        ))} */}
-        {/* <h1 className="capitalize">
-        {business.category}
-        </h1> */}
-
-        {/* content section */}
-        <ContentSection business={business} />
-        <BottomSection business={business}/>
-      </div>
-    </section>
+          {/* content section */}
+          <ContentSection business={business} />
+          <BottomSection business={business} />
+        </div>
+      </section>
+    </>
   );
 }
