@@ -73,7 +73,7 @@ export default function EditBusinessSectionForm({ section }) {
                     </DialogFooter>
                 </form>
             </DialogContent>
-        </Dialog >
+        </Dialog>
     );
 }
 
