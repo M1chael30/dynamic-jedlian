@@ -22,8 +22,8 @@ class AchievementManagementController extends Controller
                 'achievements.achievement_descriptions:id,achievement_id,description_text',
                 'achievements.achievement_image:id,achievement_id,image_filename'
             ])
-            ->latest()
-            ->get();
+            ->orderBy('year', 'desc')
+            ->simplePaginate(5);
 
         return Inertia::render('Admin/Achievements/AchievementManagement', [
             'periods' => $periods
