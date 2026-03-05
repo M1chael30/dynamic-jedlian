@@ -60,6 +60,7 @@ class BusinessManagementController extends Controller
 
     public function storeSection(Request $request)
     {
+        // dd($request);
         $fields = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
             'title' => ['nullable', 'string'],
@@ -150,6 +151,7 @@ class BusinessManagementController extends Controller
         $updated = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
             'title' => ['nullable', 'string'],
+            'order' => ['required', 'integer'],
             'content' => ['required', 'string']
         ]);
 

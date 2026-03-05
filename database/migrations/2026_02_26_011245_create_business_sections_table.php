@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
             $table->string('title')->nullable();
             $table->string('content');
+            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }

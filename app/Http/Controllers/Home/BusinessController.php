@@ -12,7 +12,8 @@ class BusinessController extends Controller
     {
         $business->load([
             'business_socials:id,business_id,platform_name,url',
-            'business_sections:id,business_id,title,content',
+            'business_sections' => fn($query) =>
+            $query->select('id','business_id','title','content','order')->orderBy('order'),
             'business_images' => fn($query) =>
             $query->select('id', 'business_id', 'image_type', 'image_path')
                 ->whereIn('image_type', ['circle_banner', 'banner']),

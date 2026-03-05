@@ -23,6 +23,9 @@ export default function SectionsTabCard({ sections, business }) {
     }
   }
 
+    const sectionCount = sections.length;
+
+
   return (
     <TabsContent value="sections">
       <Card className='bg-background border-none'>
@@ -48,7 +51,7 @@ export default function SectionsTabCard({ sections, business }) {
                   Delete
                 </Button>
                 <Button variant={'ghost'} asChild>
-                  <EditBusinessSectionForm key={business.id} section={section} />
+                  <EditBusinessSectionForm key={business.id} section={section} sectionCount ={sectionCount} />
                 </Button>
               </ItemActions>
             </Item>

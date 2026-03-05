@@ -1,79 +1,95 @@
 import { useForm } from '@inertiajs/react';
+import { useState } from 'react';
 import { toast } from 'sonner';
 import FormError from '../form-error';
 import Loading from '../loading';
+import TextInput from '../text-input';
 import { Button } from '../ui/button';
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
-import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
-import TextInput from '../text-input'
-import { useState } from 'react';
 
-export default function EditBusinessSectionForm({ section }) {
-    const [open, setOpen] = useState(false)
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
-    // console.log(section);
+export default function EditBusinessSectionForm({ section, sectionCount }) {
+  const [open, setOpen] = useState(false);
 
-    const { data, setData, errors, put, processing, isDirty } = useForm({
-        business_id: section?.business_id,
-        title: section?.title,
-        content: section?.content,
+  // console.log(section);
+
+  const { data, setData, errors, put, processing, isDirty } = useForm({
+    business_id: section?.business_id,
+    title: section?.title,
+    content: section?.content,
+    order: section?.order,
+  });
+
+  const updateBusinessSection = (e) => {
+    e.preventDefault();
+    put(route('business.update.section', section?.id), {
+      preserveScroll: true,
+      onSuccess: () => {
+        toast.success('Business section updated successfully');
+        setOpen(false);
+      },
     });
+  };
 
-    const updateBusinessSection = (e) => {
-        e.preventDefault();
-        put(route('business.update.section', section?.id), {
-            preserveScroll: true,
-            onSuccess: () => {
-                toast.success('Business section updated successfully');
-                setOpen(false);
-            },
-        });
-    };
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant={'link'}>Edit</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <form onSubmit={updateBusinessSection} className="space-y-6">
+          <DialogHeader>
+            <DialogTitle>Update business page sections</DialogTitle>
+          </DialogHeader>
 
-    return (
-        <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-                <Button variant={'link'}>Edit</Button>
-            </DialogTrigger>
-            <DialogContent>
-                <form onSubmit={updateBusinessSection} className="space-y-6">
-                    <DialogHeader>
-                        <DialogTitle>Update business page sections</DialogTitle>
-                    </DialogHeader>
+          <div className="space-y-3">
+            <TextInput
+              placeholder="Type title here"
+              labelTitle="Section Title"
+              value={data.title}
+              onChange={(e) => setData('title', e.target.value)}
+            />
+            <FormError message={errors.title} />
+            <Select className="w-full" id="select" value={data.order} onValueChange={(value) => setData('order', value)}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Business Category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {Array.from({ length: sectionCount }, (_, i) => (
+                    <SelectItem key={i + 1} value={(i + 1).toString()}>
+                      {i + 1}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
 
-                    <div className="space-y-3">
-                        <TextInput
-                            placeholder="Type title here"
-                            labelTitle="Section Title"
-                            value={data.title}
-                            onChange={(e) => setData('title', e.target.value)}
-                        />
-                        <FormError message={errors.title} />
-                    </div>
-
-                    <div className="space-y-3">
-                        <Label htmlFor="desc">Content</Label>
-                        <Textarea
-                            id="desc"
-                            className={'w-full'}
-                            placeholder="Type your content here..."
-                            value={data.content}
-                            onChange={(e) => setData('content', e.target.value)}
-                        />
-                        <FormError message={errors.content} />
-                    </div>
-                    <DialogFooter>
-                        <DialogClose asChild>
-                            <Button variant="outline">Cancel</Button>
-                        </DialogClose>
-                        <Button type="submit" disabled={processing || !isDirty}>
-                            {processing ? <Loading title="Loading" /> : 'Update'}
-                        </Button>
-                    </DialogFooter>
-                </form>
-            </DialogContent>
-        </Dialog >
-    );
+          <div className="space-y-3">
+            <Label htmlFor="desc">Content</Label>
+            <Textarea
+              id="desc"
+              className={'w-full'}
+              placeholder="Type your content here..."
+              value={data.content}
+              onChange={(e) => setData('content', e.target.value)}
+            />
+            <FormError message={errors.content} />
+          </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+            </DialogClose>
+            <Button type="submit" disabled={processing || !isDirty}>
+              {processing ? <Loading title="Loading" /> : 'Update'}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
 }
-
