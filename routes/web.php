@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 
+
 Route::prefix('admin')
     ->middleware(['auth'])
     ->controller(HomeManagementController::class)
@@ -26,3 +27,5 @@ require __DIR__ . '/profile.php';
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/admin.php';
+require __DIR__ . '/businesses.php';
+

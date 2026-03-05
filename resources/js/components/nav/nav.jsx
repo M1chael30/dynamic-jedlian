@@ -1,11 +1,13 @@
 import Navlink from "./nav-link";
 import { navLinks, ourStory } from "../../lib/data";
-import { jedlianBusinessesData } from "@/lib/homePageData";
 import MobileNavLinks from "./mobile-nav-links";
 import { NavigationMenuComponent } from "./navigation-menu-component";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
+import { BusinessNavigation } from "./business-navigation";
 
-export default function Nav() {
+export default function Nav({ businesses }) {
+
+ const page = usePage().component
 
  return (
   <header className="sticky top-0 z-50">
@@ -13,7 +15,7 @@ export default function Nav() {
     {/* logo */}
     <Link href={route("home")}>
      <img
-      src={"images/HOLDINGS-LOGO2.png"}
+      src={"/storage/business_logo/HOLDINGS-LOGO2.png"}
       alt=""
       className="w-33 h-10 object-cover select-none"
      />
@@ -24,22 +26,21 @@ export default function Nav() {
       navigationMenuTitle="Our Story"
       dropdownMenuItem={ourStory}
      />
-     <NavigationMenuComponent
-      navigationMenuTitle="Our Business"
-     dropdownMenuItem={jedlianBusinessesData}
+     <BusinessNavigation
+      businesses={businesses}
      />
      {navLinks.map((link, i) => (
       <Navlink
        key={i}
        link={link.name}
        href={link.path}
-      // variant={link.path === pathName ? "active" : "link"}
+       customClassName={link.component === page && 'underline'}
       />
      ))}
     </div>
     {/* mobile nav links mobile view only*/}
     <div className="ml-auto items-center gap-2 md:hidden flex">
-     <MobileNavLinks />
+     <MobileNavLinks businesses={businesses} />
     </div>
    </div>
   </header>

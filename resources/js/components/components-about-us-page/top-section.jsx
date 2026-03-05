@@ -7,7 +7,7 @@ export default function TopSection() {
    animate={{ opacity: 1 }}
   >
    <img
-    src={"images/bannerAboutUs.png"}
+    src={"/images/banners/bannerAboutUs.png"}
     alt="Banner Casa Jedliana"
     className="w-full h-auto max-w-full object-contain select-none"
    />

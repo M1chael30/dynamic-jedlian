@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Businesses\Business;
 use App\Models\User;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
@@ -49,10 +50,16 @@ class HandleInertiaRequests extends Middleware
                     ? $request->user()->only('id', 'name', 'email')
                     : null,
             ],
+
             'ziggy' => fn(): array => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+
+            'businesses' => fn() => Business::query()
+                ->select('id', 'name')
+                ->orderBy('id')
+                ->get(),
         ];
     }
 }

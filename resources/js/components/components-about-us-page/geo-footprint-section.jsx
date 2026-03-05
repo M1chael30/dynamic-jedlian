@@ -1,64 +1,33 @@
-import { motion } from "motion/react";
-import {
-       containerVariants,
-       fadeRightSlowVariants,
-       fadeVariants,
-} from "../../lib/animations";
+import { motion } from 'motion/react';
+import { containerVariants, fadeRightSlowVariants, fadeVariants } from '../../lib/animations';
 
-export default function GeoFootPrintSection() {
-       return (
-              <section className="flex flex-col items-center justify-center">
-                     <div className="grid py-5 md:grid-cols-2">
-                            <motion.div
-                                   variants={fadeVariants}
-                                   initial="hidden"
-                                   whileInView="show"
-                                   className="flex items-center justify-center"
-                            >
-                                   <img
-                                          draggable="false"
-                                          src={"images/geo-footprint.png"}
-                                          alt="pilipinas"
-                                          className="
-      w-full h-auto md:w-auto max-w-full object-contain select-none
-      "
-                                   />
-                            </motion.div>
-                            <motion.div
-                                   variants={containerVariants}
-                                   className="flex flex-col justify-center items-center mx-5"
-                            >
-                                   <motion.h1
-                                          variants={fadeRightSlowVariants}
-                                          initial="hidden"
-                                          whileInView="show"
-                                          className="text-title font-extrabold text-center md:text-left
-             bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)]
-             text-transparent bg-clip-text
-            "
-                                   >
-                                          Our Geographic Footprint
-                                   </motion.h1>
-                                   <motion.div
-                                          variants={fadeRightSlowVariants}
-                                          initial="hidden"
-                                          whileInView="show"
-                                          className="h-1 w-full bg-[#c89116] my-3"
-                                   />
-                                   <motion.p
-                                          variants={fadeRightSlowVariants}
-                                          initial="hidden"
-                                          whileInView="show"
-                                          className="text-description text-center md:text-left p-5 "
-                                   >
-                                          Our company has successfully achieved major advancements in the ongoing
-                                          development of our projects. As a result, we are proud to have established
-                                          a prominent foothold in various regions in Luzon. This momentum showcases
-                                          our widespread reach and strong presence, proving our capacity to deliver
-                                          impressive results.
-                                   </motion.p>
-                            </motion.div>
-                     </div>
-              </section>
-       );
+export default function GeoFootPrintSection({ data }) {
+  return (
+    <section className="flex flex-col items-center justify-center">
+      <div className="grid py-5 md:grid-cols-2">
+        <motion.div variants={fadeVariants} initial="hidden" whileInView="show" className="flex items-center justify-center">
+          <img
+            draggable="false"
+            src={'images/geo-footprint.png'}
+            alt="pilipinas"
+            className="h-auto w-full max-w-full object-contain select-none md:w-auto"
+          />
+        </motion.div>
+        <motion.div variants={containerVariants} className="mx-5 flex flex-col items-center justify-center">
+          <motion.h1
+            variants={fadeRightSlowVariants}
+            initial="hidden"
+            whileInView="show"
+            className="text-title bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] bg-clip-text text-center font-extrabold text-transparent md:text-left"
+          >
+            Our Geographic Footprint
+          </motion.h1>
+          <motion.div variants={fadeRightSlowVariants} initial="hidden" whileInView="show" className="my-3 h-1 w-full bg-[#c89116]" />
+          <motion.p variants={fadeRightSlowVariants} initial="hidden" whileInView="show" className="text-description p-5 text-center md:text-left">
+            {data[2].content}
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  );
 }

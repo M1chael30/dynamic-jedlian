@@ -4,7 +4,7 @@ import PersonWidgetMobile from "./person-widget.mobile";
 import { motion } from "motion/react";
 import { containerVariants } from "../../lib/animations";
 
-export default function LeadersSection() {
+export default function LeadersSection({data}) {
 
   return (
     <motion.div 
@@ -15,7 +15,7 @@ export default function LeadersSection() {
           image={person.image}
           name={person.name}
           position={person.position}
-          content={person.textContent}
+          content={data[0].content}
           isReverse={index % 2 === 0}
           banner={person.banner}
         />
@@ -26,7 +26,7 @@ export default function LeadersSection() {
           image={person.mobileImage}
           name={person.name}
           position={person.position}
-          content={person.textContent}
+          content={data[1].content}
         />
       ))}
     </motion.div>

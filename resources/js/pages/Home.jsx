@@ -5,7 +5,7 @@ import CorporateResponsibilitySection from "@/components/components-corporate-re
 import { motion } from "motion/react";
 import { Head } from "@inertiajs/react";
 
-export default function Home({homestats}) {
+export default function Home({homestats, businesses}) {
  return (
   <>
    <Head title="Home" />
@@ -17,14 +17,14 @@ export default function Home({homestats}) {
     >
      {/* front page image */}
      <img
-      src={'images/home-page-image.png'}
+      src={'/images/banners/home-page-image.png'}
       alt="Jedlian landing page image"
       className="w-full h-auto max-w-full object-contain"
      />
     </motion.div>
     {/* contents */}
     <HomeStatsSection data={homestats}/>
-    <JedlianBusinessesSection />
+    <JedlianBusinessesSection data={businesses}/>
     <CorporateResponsibilitySection />
    </section>
   </>

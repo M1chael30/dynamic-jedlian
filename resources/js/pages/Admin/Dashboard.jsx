@@ -44,19 +44,19 @@ export default function Dashboard({ pages }) {
                         </TableHeader>
                         <TableBody>
                             <TableRow>
-                                <TableCell>Geronie</TableCell>
+                                <TableCell>Michael</TableCell>
                                 <TableCell>Inedit yung business page</TableCell>
                                 <TableCell>Update</TableCell>
                                 <TableCell>medyo kanina lang</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>Geronie</TableCell>
+                                <TableCell>Michael</TableCell>
                                 <TableCell>Inalis yung inedit kanina sa business page</TableCell>
                                 <TableCell>Update</TableCell>
                                 <TableCell>kanina lang</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>Geronie</TableCell>
+                                <TableCell>Michael</TableCell>
                                 <TableCell>Inedit uli yung business page</TableCell>
                                 <TableCell>Update</TableCell>
                                 <TableCell>kaninang kanina lang</TableCell>
