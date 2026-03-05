@@ -8,6 +8,7 @@ use App\Models\Businesses\BusinessImage;
 use App\Models\Businesses\BusinessSection;
 use App\Models\Businesses\BusinessSocial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Illuminate\Validation\Rule;
@@ -52,6 +53,8 @@ class BusinessManagementController extends Controller
 
         Business::create($fields);
 
+        Cache::forget('navbar_businesses');
+
         return redirect()->route('business.management');
     }
 
@@ -81,11 +84,11 @@ class BusinessManagementController extends Controller
                     ),
             ],
             'image_path' => [
-                'mimes:png,jpg',
                 'required',
                 File::image()
+                    ->types(['png', 'jpg', 'jpeg'])
                     ->min('1kb')
-                    ->max('3mb'),
+                    ->max('10mb')
             ],
         ]);
 
@@ -146,7 +149,7 @@ class BusinessManagementController extends Controller
     {
         $updated = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'title' => ['required', 'string'],
+            'title' => ['nullable', 'string'],
             'content' => ['required', 'string']
         ]);
 
