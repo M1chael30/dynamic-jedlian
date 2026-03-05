@@ -6,6 +6,7 @@ use App\Models\Businesses\Business;
 use App\Models\User;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
 
@@ -56,10 +57,13 @@ class HandleInertiaRequests extends Middleware
                 'location' => $request->url(),
             ],
 
-            'businesses' => fn() => Business::query()
-                ->select('id', 'name')
-                ->orderBy('id')
-                ->get(),
+            'businesses' => fn() => Cache::rememberForever(
+                'navbar_businesses',
+                fn() => Business::query()
+                    ->select('id', 'name')
+                    ->orderBy('id')
+                    ->get()
+            ),
         ];
     }
 }
