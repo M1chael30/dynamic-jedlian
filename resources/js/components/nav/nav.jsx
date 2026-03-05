@@ -9,8 +9,6 @@ export default function Nav({ businesses }) {
 
  const page = usePage().component
 
- console.log(page)
-
  return (
   <header className="sticky top-0 z-50">
    <div className="flex h-16 shrink-0 bg-background items-center px-4 mx-auto max-w-7xl w-full">
@@ -32,14 +30,12 @@ export default function Nav({ businesses }) {
       businesses={businesses}
      />
      {navLinks.map((link, i) => (
-      <>
-       <Navlink
-        key={i}
-        link={link.name}
-        href={link.path}
-        customClassName={link.component === page && 'underline'}
-       />
-      </>
+      <Navlink
+       key={i}
+       link={link.name}
+       href={link.path}
+       customClassName={link.component === page && 'underline'}
+      />
      ))}
     </div>
     {/* mobile nav links mobile view only*/}
