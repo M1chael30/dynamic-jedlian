@@ -39,7 +39,7 @@ export default function Nav({businesses}) {
     </div>
     {/* mobile nav links mobile view only*/}
     <div className="ml-auto items-center gap-2 md:hidden flex">
-     <MobileNavLinks />
+     <MobileNavLinks businesses={businesses} />
     </div>
    </div>
   </header>

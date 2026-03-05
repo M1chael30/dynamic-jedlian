@@ -10,7 +10,7 @@ const { businesses } = usePage().props
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-            <Nav businesses={businesses}/>
+            <N  av businesses={businesses}/>
             {children}
             <Footer />
             <Toaster position="top-right" duration={1000} />

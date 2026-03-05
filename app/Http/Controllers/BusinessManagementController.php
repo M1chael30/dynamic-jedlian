@@ -59,7 +59,7 @@ class BusinessManagementController extends Controller
     {
         $fields = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
-            'title' => ['required', 'string'],
+            'title' => ['nullable', 'string'],
             'content' => ['required', 'string']
         ]);
 

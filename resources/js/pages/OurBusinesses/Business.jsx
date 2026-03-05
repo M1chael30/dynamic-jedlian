@@ -9,7 +9,10 @@ export default function Business({ business }) {
   const branches = business.business_branches;
   const images = business.business_images;
 
-  console.log(business)
+  // banner = images.image_path
+  // circleBanner = images.image_path
+
+  console.log(images)
 
   return (
     <section className="relative mx-auto w-full max-w-7xl">
@@ -25,7 +28,7 @@ export default function Business({ business }) {
 
       <div className="relative z-10 flex flex-col">
         {/* top section */}
-        {/* <TopSection imgBanner={item?.imgBanner} imgCircle={item?.imgCircleBanner} /> */}
+        <TopSection images={images} />
         {/* {sections.map((item, index)=>(
           <div key={index}>
             <h1>{item.title}</h1>
@@ -38,8 +41,6 @@ export default function Business({ business }) {
 
         {/* content section */}
         <ContentSection business={business} />
-        {/* branches or offices */}
-        {/* {content} */}
         <BottomSection business={business}/>
       </div>
     </section>

@@ -5,7 +5,7 @@ import CorporateResponsibilitySection from "@/components/components-corporate-re
 import { motion } from "motion/react";
 import { Head } from "@inertiajs/react";
 
-export default function Home({homestats}) {
+export default function Home({homestats, businesses}) {
  return (
   <>
    <Head title="Home" />
@@ -24,7 +24,7 @@ export default function Home({homestats}) {
     </motion.div>
     {/* contents */}
     <HomeStatsSection data={homestats}/>
-    <JedlianBusinessesSection />
+    <JedlianBusinessesSection data={businesses}/>
     <CorporateResponsibilitySection />
    </section>
   </>

@@ -14,7 +14,7 @@ export default function ButtonCards({ img, alt, onClick, className }) {
      className
     )}
    >
-    <img src={img} alt={alt} className="aspect-video object-cover" />
+    <img src={`/storage/${img}`} alt={alt} className="aspect-video object-cover" />
    </div>
   </motion.div>
  );

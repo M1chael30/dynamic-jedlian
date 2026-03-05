@@ -16,19 +16,18 @@ export default function ContentSection({ business }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
-      className="flex flex-col space-y-12 p-4 md:p-18 lg:px-48 lg:py-5"
+      className="flex flex-col p-4 md:p-18 lg:px-48 lg:py-5"
     >
-      {/* top section */}
       <motion.h1
         variants={fadeRightVariants}
         initial="hidden"
         animate="show"
-        className="text-title bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] bg-clip-text py-10 font-bold text-transparent"
+        className="text-title bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] bg-clip-text pt-10 font-bold text-transparent"
       >
         {business?.name}
       </motion.h1>
       {sections.map((item, index) => (
-        <div className="space-y-2" key={index}>
+        <div className="space-y-2 pb-12" key={index}>
           <motion.h1 variants={fadeVariants} initial="hidden" whileInView="show" className="text-subtitle font-bold">
             {item?.title}
           </motion.h1>
@@ -45,7 +44,6 @@ export default function ContentSection({ business }) {
           </motion.div>
         )}
       </div>
-      
       {/* social icon */}
       {/* <motion.div variants={fadeVariants} initial="hidden" whileInView="show" className="flex space-x-4">
         {item?.socials &&

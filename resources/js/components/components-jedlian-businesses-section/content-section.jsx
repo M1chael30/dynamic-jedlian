@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import CustomButton from "../ui/custom-button";
 
 export default function ContentSection({ item }) {
+    const images = item.business_images
+    let logo = images.find((img) => img.image_type === 'logo')?.image_path;
  return (
   <AnimatePresence mode="wait">
    <motion.section
@@ -19,7 +21,7 @@ export default function ContentSection({ item }) {
      variants={fadeRightVariants}
      className="w-full md:w-1/2"
     >
-     <img src={item.img} alt={item.alt} className="object-cover rounded-xl" />
+     <img src={`/storage/${logo}`}  alt="No image provided." className="object-cover rounded-xl min-h-100 max-h-100 w-full"/>
     </motion.div>
 
     {/* Content */}
@@ -28,7 +30,7 @@ export default function ContentSection({ item }) {
       variants={fadeRightVariants}
       className="text-title font-bold max-w-[15ch]"
      >
-      {item.title}
+      {item.name}
      </motion.h1>
 
      <motion.p
