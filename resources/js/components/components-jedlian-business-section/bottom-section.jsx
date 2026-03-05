@@ -1,6 +1,6 @@
 import Autoplay from 'embla-carousel-autoplay';
 import { motion } from 'framer-motion';
-import { fadeRightVariants, fadeVariants, sectionVariants } from '../../lib/animations';
+import { fadeVariants, sectionVariants } from '../../lib/animations';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
 
 export default function BottomSection({ business }) {
@@ -72,7 +72,7 @@ export default function BottomSection({ business }) {
         whileInView="show"
         className="text-title capitalize bg-[radial-gradient(circle_at_center,#cfceaa,#c89116,#cfceaa)] bg-clip-text font-extrabold text-transparent"
       >
-            {business?.category}
+        {business?.category}
       </motion.h1>
       {content}
     </motion.div>
