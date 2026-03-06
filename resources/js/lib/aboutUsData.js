@@ -1,9 +1,9 @@
-import ceo from '/public/images/ceoImage.png';
-import banner1 from '/public/images/ceoLabel.png';
-import coo from '/public/images/cooImage.png';
-import banner2 from '/public/images/cooLabel.png';
-import ceoMobile from '/public/images/maamEdithaMobile.png';
-import cooMobile from '/public/images/sirChristianMobile.png';
+import ceo from '/public/images/aboutus-page-img/ceoImage.png';
+import banner1 from '/public/images/aboutus-page-img/ceoLabel.png';
+import coo from '/public/images/aboutus-page-img/cooImage.png';
+import banner2 from '/public/images/aboutus-page-img/cooLabel.png';
+import ceoMobile from '/public/images/aboutus-page-img/maamEdithaMobile.png';
+import cooMobile from '/public/images/aboutus-page-img/sirChristianMobile.png';
 
 const companyLeadersData = [
   {
@@ -12,8 +12,6 @@ const companyLeadersData = [
     mobileImage: ceoMobile,
     name: 'Editha Galang',
     position: 'CEO/President',
-    textContent:
-      "Jedlian Holdings Inc. is a diversified parent company that oversees and strategically manages five thriving business enterprises, each contributing to the organization's continued growth and reputation for excellence: Jedlian Communication, Jedlian Construction, Jedlian Gasoline, Jedlian Drugstore, and Casa Jedliana Hotel and Resort.",
     banner: banner1,
   },
   {
@@ -22,8 +20,6 @@ const companyLeadersData = [
     mobileImage: cooMobile,
     name: 'Christian Galang',
     position: 'COO/Co-founder',
-    textContent:
-      'Built on a strong foundation in telecommunications, the company expanded into construction, hospitality, energy, and healthcare—delivering quality, innovation, and value across industries. United by a commitment to excellence, Jedlian Holdings continues to drive sustainable growth and long-term impact.',
     banner: banner2,
   },
 ];
