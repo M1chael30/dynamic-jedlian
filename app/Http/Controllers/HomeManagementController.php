@@ -27,6 +27,11 @@ class HomeManagementController extends Controller
 
         $homestat->update($updated);
 
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Home stats updated.'
+        ]);
+
         return redirect()->route('home.management');
     }
 }

@@ -55,6 +55,11 @@ class BusinessManagementController extends Controller
 
         Cache::forget('navbar_businesses');
 
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New business created.'
+        ]);
+
         return redirect()->route('business.management');
     }
 
@@ -67,6 +72,11 @@ class BusinessManagementController extends Controller
         ]);
 
         BusinessSection::create($fields);
+
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New business section created.'
+        ]);
 
         return redirect()->route('business.show', $fields['business_id']);
     }
@@ -103,6 +113,11 @@ class BusinessManagementController extends Controller
             ]);
         }
 
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New business ' . $fields['image_type'] . ' image created.'
+        ]);
+
         return redirect()->route('business.show', $fields['business_id']);
     }
 
@@ -113,7 +128,14 @@ class BusinessManagementController extends Controller
             'address' => ['required', 'string'],
             'google_map_embed' => ['nullable', 'string'],
         ]);
+
         BusinessBranch::create($fields);
+
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New business branch created.'
+        ]);
+
         return redirect()->route('business.show', $fields['business_id']);
     }
 
@@ -126,6 +148,11 @@ class BusinessManagementController extends Controller
         ]);
 
         BusinessSocial::create($fields);
+
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New business social created.'
+        ]);
 
         return redirect()->route('business.show', $fields['business_id']);
     }
@@ -142,6 +169,11 @@ class BusinessManagementController extends Controller
 
         $business->update($updated);
 
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Business updated.'
+        ]);
+
         return redirect()->route('business.management');
     }
 
@@ -154,6 +186,11 @@ class BusinessManagementController extends Controller
         ]);
 
         $section->update($updated);
+
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Business section updated.'
+        ]);
 
         return redirect()->route('business.show', $updated['business_id']);
     }
@@ -168,6 +205,11 @@ class BusinessManagementController extends Controller
 
         $branch->update($updated);
 
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Business branch updated.'
+        ]);
+
         return redirect()->route('business.show', $updated['business_id']);
     }
 
@@ -181,6 +223,11 @@ class BusinessManagementController extends Controller
 
         $social->update($updated);
 
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Business social updated.'
+        ]);
+
         return redirect()->route('business.show', $updated['business_id']);
     }
 
@@ -188,6 +235,12 @@ class BusinessManagementController extends Controller
     public function deleteSection(BusinessSection $section)
     {
         $section->delete();
+
+        auth()->user()->logs()->create([
+            'action' => 'Delete',
+            'description' => 'Business section deleted.'
+        ]);
+
         return back();
     }
 
@@ -199,18 +252,35 @@ class BusinessManagementController extends Controller
 
         $image->delete();
 
+        auth()->user()->logs()->create([
+            'action' => 'Delete',
+            'description' => 'Business image deleted.'
+        ]);
+
         return back();
     }
 
     public function deleteBranch(BusinessBranch $branch)
     {
         $branch->delete();
+
+        auth()->user()->logs()->create([
+            'action' => 'Delete',
+            'description' => 'Business branch deleted.'
+        ]);
+
         return back();
     }
 
     public function deleteSocial(BusinessSocial $social)
     {
         $social->delete();
+
+        auth()->user()->logs()->create([
+            'action' => 'Delete',
+            'description' => 'Business social deleted.'
+        ]);
+
         return back();
     }
 }
