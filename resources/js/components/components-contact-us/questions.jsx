@@ -15,14 +15,19 @@ export default function Questions() {
       initial="hidden"
       whileInView="show"
     >
-      <Accordion type="single" collapsible className="w-full" defaultValue="">
-        {faqData.map((item, index) => (
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full"
+        defaultValue=""
+      >
+        {
+          faqData.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
             <AccordionTrigger>
               <motion.p
                 variants={fadeVariants}
-                className="bg-[radial-gradient(circle_at_75%,#c89116,#cfceaa)]
-      text-transparent bg-clip-text font-extrabold text-description"
+                className="bg-[radial-gradient(circle_at_75%,#c89116,#cfceaa)] text-transparent bg-clip-text font-extrabold text-description"
               >
                 {item.question}
               </motion.p>

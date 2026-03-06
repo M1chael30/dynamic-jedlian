@@ -1,5 +1,6 @@
-import { corporateValuesVariants, itemVariants } from "../../lib/animations";
+import { corporateValuesVariants } from "../../lib/animations";
 import { motion } from "motion/react";
+import { cn } from '../../lib/utils'
 
 export default function CorporateValuesButton({
   children,
@@ -9,14 +10,12 @@ export default function CorporateValuesButton({
   return (
     <motion.button
       variants={corporateValuesVariants}
-      // animate={{ scale: 1 }}
-      // whileHover={{ scale: 1.05 }}
-      className={` rounded-full
-                    w-30 h-30
-                    flex justify-center items-center
-                    hover:bg-yellow-400 duration-500
-                    ${customClassName} lg:w-37 lg:h-37
-                    `}
+      className={
+        cn(
+          'rounded-full w-30 h-30 flex justify-center items-center hover:bg-yellow-400 duration-500 lg:w-37 lg:h-37',
+          customClassName
+        )
+      }
       onClick={onClick}
     >
       {children}

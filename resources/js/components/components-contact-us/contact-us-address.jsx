@@ -23,8 +23,7 @@ export default function ContactUsAddress({ contactUsData }) {
                         </motion.div>
                         <motion.div
                                 variants={fadeVariants}
-                                className="bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)]
-           text-transparent bg-clip-text flex items-center gap-2 justify-center "
+                                className="bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] text-transparent bg-clip-text flex items-center gap-2 justify-center "
                         >
                                 <FaMapMarkerAlt className="text-[#c89116] text-xl hidden md:flex" />
                                 <p className="text-description text-center md:text-left">

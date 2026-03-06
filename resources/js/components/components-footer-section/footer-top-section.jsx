@@ -1,6 +1,5 @@
 import FooterList from "./footer-list";
 import { footerQuickLinks } from "../../lib/data";
-import { footerContactUs } from "../../lib/data";
 
 export default function FooterTopSection() {
  return (
@@ -12,7 +11,6 @@ export default function FooterTopSection() {
     draggable="false"
    />
    <FooterList title="Quick Links" list={footerQuickLinks} />
-   {/* <FooterList title="Contact Us" list={footerContactUs} /> */}
   </section>
  );
 }

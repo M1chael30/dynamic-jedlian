@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import CorporateValuesButton from "./corporate-values-button";
 import { corporateValuesButtonsData } from "../../lib/corporateGovernanceData";
 import CorporateValuesContent from "./corporate-values-content";
-
 import { containerVariants } from "../../lib/animations";
 import { motion } from "motion/react";
+import { cn } from "../../lib/utils";
 
 
 export default function CorporateValues() {
@@ -25,6 +25,15 @@ export default function CorporateValues() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleActiveButtonClick = (index) => {
+    if (active === index) {
+      setExpand((prev) => !prev);
+    } else {
+      setActive(index);
+      setExpand(true);
+    }
+  }
+
   return (
     <section className={`hidden flex-col mt-12 md:flex`}>
       <div
@@ -35,36 +44,22 @@ export default function CorporateValues() {
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          className="grid grid-cols-2 items-center justify-center gap-x-40">
+          className="grid grid-cols-2 items-center justify-center gap-x-40"
+        >
           {corporateValuesButtonsData.map((item, index) => (
             <CorporateValuesButton
               key={item.id}
-              customClassName={`
-                ${expand && active === index
-                  ? "bg-gradient-to-b from-amber-400 to-yellow-100 scale-125"
-                  : "bg-gradient-to-b from-yellow-600 to-yellow-200"
-                }
-                ${item.id === 2
-                  ? "col-span-2 place-self-center"
-                  : ""
-                }
-                `}
-              // {
-              //   expand && active === item.id
-              //     ? "bg-gradient-to-b from-amber-400 to-yellow-100 scale-115"
-              //     : "bg-gradient-to-b from-yellow-600 to-yellow-200" &&
-              //   item.id === 2
-              //   ? "col-span-2 place-self-center"
-              //   : ""
-              // }
-              onClick={() => {
-                if (active === index) {
-                  setExpand((prev) => !prev);
-                } else {
-                  setActive(index);
-                  setExpand(true);
-                }
-              }}
+              customClassName={
+                cn(
+                  expand && active === index
+                    ? "bg-gradient-to-b from-amber-400 to-yellow-100 scale-125"
+                    : "bg-gradient-to-b from-yellow-600 to-yellow-200",
+                  item.id === 2
+                    ? "col-span-2 place-self-center"
+                    : ""
+                )
+              }
+              onClick={() => handleActiveButtonClick(index)}
             >
               <img
                 src={item.logo}
@@ -74,39 +69,6 @@ export default function CorporateValues() {
             </CorporateValuesButton>
           ))}
         </motion.div>
-        {/* <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          className="flex-wrap gap-5 justify-center md:flex hidden"
-        > */}
-        {/* {corporateValuesButtonsData.map((item, index) => (
-            <CorporateValuesButton
-              key={index}
-              customClassName={
-                expand && active === index
-                  ? "bg-gradient-to-b from-amber-400 to-yellow-100 scale-115"
-                  : " bg-gradient-to-b from-yellow-600 to-yellow-200"
-              }
-              onClick={() => {
-                if (active === index) {
-                  setExpand((prev) => !prev);
-                } else {
-                  setActive(index);
-                  setExpand(true);
-                }
-              }}
-            >
-              <Image
-                          draggable="false"
-                src={item.logo}
-                alt="logo"
-                className="w-20 h-20 md:w-25 md:h-25 select-none"
-              />
-            </CorporateValuesButton>
-          ))}
-        </motion.div>
-        */}
         <CorporateValuesContent
           objects={corporateValuesButtonsData}
           item={activeItem}
