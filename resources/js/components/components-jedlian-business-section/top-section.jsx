@@ -19,15 +19,24 @@ export default function TopSection({ images }) {
         <img
           src={`/storage/${banner}`}
           alt="No image provided"
-          className="h-100 w-full max-w-full object-cover select-none"
+          className="w-full h-auto max-w-full object-contain select-none"
         />
 
         {/* circle image on the top right */}
-        <img
-          src={`/storage/${circle}`}
-          alt="No image provided"
-          className="absolute top-0 right-0 w-22 object-contain select-none md:w-50"
-        />
+        <div className="absolute top-0 right-0 w-24 md:w-44">
+          <div className="relative">
+            <img
+              src="/images/business-page-img/circleBG.png"
+              alt="No image provided"
+              className="w-full select-none object-contain"
+            />
+            <img
+              src={`/storage/${circle}`}
+              alt="No image provided"
+              className="absolute top-0 right-0 w-18 md:w-32 object-contain select-none"
+            />
+          </div>
+        </div>
       </motion.div>
     </motion.div>
   );
