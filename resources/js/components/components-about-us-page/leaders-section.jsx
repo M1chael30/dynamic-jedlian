@@ -2,13 +2,12 @@ import { companyLeadersData } from "../../lib/aboutUsData";
 import PersonWidget from "./person-widget";
 import PersonWidgetMobile from "./person-widget.mobile";
 import { motion } from "motion/react";
-import { containerVariants } from "../../lib/animations";
 
-export default function LeadersSection({data}) {
+export default function LeadersSection({ data }) {
 
   return (
-    <motion.div 
-    className="space-y-10 px-10 flex flex-col items-center">
+    <motion.div
+      className="space-y-10 px-10 flex flex-col items-center">
       {companyLeadersData.map((person, index) => (
         <PersonWidget
           key={index}
