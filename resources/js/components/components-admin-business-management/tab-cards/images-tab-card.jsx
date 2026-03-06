@@ -46,7 +46,7 @@ export default function ImagesTabsCard({ business, images }) {
                   <img
                     src={`/storage/${image.image_path}`}
                     alt="business image"
-                    className="h-full w-full object-center object-cover"
+                    className="h-full w-full object-center object-contain"
                   />
                 </div>
               </CardContent>
