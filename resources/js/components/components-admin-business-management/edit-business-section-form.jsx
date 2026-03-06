@@ -53,7 +53,7 @@ export default function EditBusinessSectionForm({ section, sectionCount }) {
               onChange={(e) => setData('title', e.target.value)}
             />
             <FormError message={errors.title} />
-            <Select className="w-full" id="select" value={data.order} onValueChange={(value) => setData('order', value)}>
+            <Select value={data.order.toString()} onValueChange={(value) => setData('order', Number(value))}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Business Category" />
               </SelectTrigger>
