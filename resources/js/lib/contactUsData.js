@@ -1,3 +1,7 @@
+const contactsData = {
+  description: "We'd love to hear from you. Reach out to us for inquiries, partnerships, or business oppurtunities.",
+};
+
 const faqData = [
   {
     id: 0,
@@ -37,4 +41,4 @@ const faqData = [
   },
 ];
 
-export { faqData };
+export { contactsData, faqData };
