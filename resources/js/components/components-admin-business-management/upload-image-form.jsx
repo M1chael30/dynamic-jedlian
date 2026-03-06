@@ -123,7 +123,7 @@ export default function UploadImageForm({ business, images }) {
                   errors.image_path && 'ring-offset-background ring-2 ring-red-500 ring-offset-[3px]',
                 )}
               >
-                <AvatarImage className={'rounded-md'} src={image} />
+                <AvatarImage className={'rounded-md object-contain object-center'} src={image} />
                 <AvatarFallback className={'rounded-md'}>
                   <ImagesIcon />
                 </AvatarFallback>
