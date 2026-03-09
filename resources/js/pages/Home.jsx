@@ -6,18 +6,20 @@ import { motion } from "motion/react";
 import { Head } from "@inertiajs/react";
 
 export default function Home({homestats, businesses}) {
+
+
  return (
   <>
    <Head title="Home" />
    <section>
     <motion.div
-     initial={{ opacity: 0 }}
-     animate={{ opacity: 1, transition: { duration: 3 } }}
+    //  initial={{ opacity: 0, y: 220 }}
+    //  animate={{ opacity: 1, y: 0, transition: { duration: 3 } }} 
      className="w-full mx-auto max-w-7xl"
     >
      {/* front page image */}
      <img
-      src={'/images/banners/home-page-image.png'}
+      src={'/images/banners/home-page-image.gif'}
       alt="Jedlian landing page image"
       className="w-full h-auto max-w-full object-contain"
      />
