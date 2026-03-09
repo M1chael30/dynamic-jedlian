@@ -39,6 +39,11 @@ class AchievementManagementController extends Controller
 
         Period::create($fields);
 
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New achievement period created.'
+        ]);
+
         return redirect()->route('achievement.management');
     }
 
@@ -52,11 +57,11 @@ class AchievementManagementController extends Controller
                 'regex:/^\S{0,30}(\s+\S{1,30})*$/'
             ],
             'image_filename' => [
-                'mimes:png,jpg',
                 'required',
                 File::image()
-                    ->min('1kb')
-                    ->max('3mb')
+                    ->types(['png', 'jpg', 'jpeg'])
+                    ->min(1) // 1kb
+                    ->max(3024) // 3mb
             ],
         ]);
 
@@ -74,6 +79,11 @@ class AchievementManagementController extends Controller
                     'image_filename' => $path
                 ]);
             }
+
+            auth()->user()->logs()->create([
+                'action' => 'Create',
+                'description' => 'New achievement created.'
+            ]);
         });
 
         return redirect()->route('achievement.management');
@@ -93,14 +103,24 @@ class AchievementManagementController extends Controller
 
         AchievementDescription::create($fields);
 
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New achievement description created.'
+        ]);
+
         return redirect()->route('achievement.management');
     }
 
     /////////////////////////update/////////////////////////////
-    function updateAchievementVisibility(Request $request, Achievement $achievementVisiblity)
+    function updateAchievementVisibility(Achievement $achievementVisiblity)
     {
         $achievementVisiblity->update([
             'is_visible' => !$achievementVisiblity->is_visible
+        ]);
+
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Achievement visibility changed.'
         ]);
 
         return redirect()->route('achievement.management');
@@ -118,6 +138,11 @@ class AchievementManagementController extends Controller
         ]);
 
         $description->update($updated);
+
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Achievement description updated.'
+        ]);
 
         return redirect()->route('achievement.management');
     }
@@ -160,6 +185,11 @@ class AchievementManagementController extends Controller
                     'image_filename' => $path
                 ]);
             }
+
+            auth()->user()->logs()->create([
+                'action' => 'Update',
+                'description' => 'Achievement title updated.'
+            ]);
         });
 
         return redirect()->route('achievement.management');
@@ -169,7 +199,12 @@ class AchievementManagementController extends Controller
     {
         $description->delete();
 
-        return back()->with('success', 'Description deleted.');
+        auth()->user()->logs()->create([
+            'action' => 'Delete',
+            'description' => 'Achievement description deleted.'
+        ]);
+
+        return redirect()->route('achievement.management');
     }
 
     public function deleteAchievement(Achievement $achievement)
@@ -186,6 +221,13 @@ class AchievementManagementController extends Controller
             }
 
             $achievement->achievement_image()->delete();
+
+            auth()->user()->logs()->create([
+                'action' => 'Delete',
+                'description' => 'Achievement deleted.'
+            ]);
         });
+
+        return redirect()->route('achievement.management');
     }
 }

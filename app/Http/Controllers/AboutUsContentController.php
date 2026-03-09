@@ -23,6 +23,12 @@ class AboutUsContentController extends Controller
         ]);
 
         $content->update($updated);
+
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'About us content updated.'
+        ]);
+
         return redirect()->route('about_us.management');
     }
 }

@@ -37,6 +37,11 @@ class UserManagementController extends Controller
             'role' => 'admin',
         ]);
 
+        auth()->user()->logs()->create([
+            'action' => 'Create',
+            'description' => 'New user created.'
+        ]);
+
         return redirect()->route('user.index');
     }
 
@@ -54,12 +59,23 @@ class UserManagementController extends Controller
 
         $user->update($fields);
 
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'User info updated.'
+        ]);
+
         return redirect()->route('user.index');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
+
+        auth()->user()->logs()->create([
+            'action' => 'Delete',
+            'description' => 'User deleted.'
+        ]);
+
         return redirect()->route('user.index');
     }
 
@@ -71,6 +87,11 @@ class UserManagementController extends Controller
 
         $user->update([
             'password' => Hash::make('password123456789')
+        ]);
+
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'User password reset.'
         ]);
 
         return redirect()->route('user.index');

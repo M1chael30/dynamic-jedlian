@@ -27,6 +27,11 @@ class ContactUsManagementController extends Controller
             'content' => $fields['content']
         ]);
 
+        auth()->user()->logs()->create([
+            'action' => 'Update',
+            'description' => 'Contacts updated.'
+        ]);
+
         return redirect()->route('contact_us.management');
     }
 }
