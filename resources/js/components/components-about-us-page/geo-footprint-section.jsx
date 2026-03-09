@@ -13,7 +13,7 @@ export default function GeoFootPrintSection({ data }) {
         >
           <img
             draggable="false"
-            src={'images/geo-footprint.png'}
+            src={'/images/aboutus-page-img/geo-footprint.png'}
             alt="pilipinas"
             className="h-auto w-full max-w-full object-contain select-none md:w-auto"
           />
