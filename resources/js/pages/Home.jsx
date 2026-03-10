@@ -13,8 +13,6 @@ export default function Home({homestats, businesses}) {
    <Head title="Home" />
    <section>
     <motion.div
-    //  initial={{ opacity: 0, y: 220 }}
-    //  animate={{ opacity: 1, y: 0, transition: { duration: 3 } }} 
      className="w-full mx-auto max-w-7xl"
     >
      {/* front page image */}

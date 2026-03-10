@@ -22,6 +22,10 @@ export default function Nav({ businesses }) {
     </Link>
     {/* nav links */}
     <div className="ml-auto items-center gap-2 hidden md:flex">
+        <Navlink
+       link="Home"
+       href="/"
+      />
      <NavigationMenuComponent
       navigationMenuTitle="Our Story"
       dropdownMenuItem={ourStory}
