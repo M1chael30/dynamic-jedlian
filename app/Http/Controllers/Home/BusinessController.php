@@ -11,7 +11,7 @@ class BusinessController extends Controller
     public function index(Business $business)
     {
         $business->load([
-            'business_socials:id,business_id,platform_name,url',
+            'business_socials:id,business_id,platform_name,url,class',
             'business_sections' => fn($query) =>
             $query->select('id','business_id','title','content','order')->orderBy('order'),
             'business_images' => fn($query) =>

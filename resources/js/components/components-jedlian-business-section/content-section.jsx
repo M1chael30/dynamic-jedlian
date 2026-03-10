@@ -7,6 +7,7 @@ export default function ContentSection({ business }) {
   const sections = business.business_sections;
   const socials = business.business_socials;
 
+  console.log(socials)
   return (
     <motion.div
       variants={sectionVariants}
@@ -33,24 +34,20 @@ export default function ContentSection({ business }) {
           </motion.p>
         </div>
       ))}
-      <div className='flex gap-5'>
-        {socials ? 
-        <div>
-          <p>
-          Socials: 
-          </p>
-          <ul>
-          {socials.map((item, index)=>(
-            <li key={index}>
-              <a href={item.url}>
-              {item.platform_name}
-              </a>
-            </li>
-          ))}
+      {socials.length != 0 ? (
+        <div className="flex gap-4 text-xl">
+          <h1>Socials:</h1>
+          <ul className="flex gap-2 justify-center">
+            {socials.map((item, index) => (
+              <li key={index}>
+                <a href={item.url} target='_blank'>
+                  <i className={item.class} />
+                </a>
+              </li>
+            ))}
           </ul>
-        </div> : null}
-      </div>
-
+        </div>
+      ) : null}
       <div>
         {/* button  */}
         {business?.name === 'Casa Jedliana' && (

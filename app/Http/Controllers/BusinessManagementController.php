@@ -60,7 +60,7 @@ class BusinessManagementController extends Controller
 
     public function storeSection(Request $request)
     {
-        
+
         // dd($request);
         $fields = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
@@ -126,6 +126,16 @@ class BusinessManagementController extends Controller
             'platform_name' => ['required', 'string'],
             'url' => ['required', 'url']
         ]);
+
+        $iconClasses = [
+            'facebook' => 'fa-brands fa-facebook',
+            'instagram' => 'fa-brands fa-instagram',
+            'x' => 'fa-brands fa-x-twitter',
+            'tiktok' => 'fa-brands fa-tiktok',
+            'youtube' => 'fa-brands fa-youtube',
+        ];
+
+        $fields['class'] = $iconClasses[$fields['platform_name']];
 
         BusinessSocial::create($fields);
 

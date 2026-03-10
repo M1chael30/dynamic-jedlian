@@ -9,7 +9,8 @@ class BusinessSocial extends Model
     protected $fillable = [
         "business_id",
         "platform_name",  
-        "url"
+        "url",
+        "class"
     ];
 
     public function business()
