@@ -3,6 +3,7 @@ import LeadersSection from "@/components/components-about-us-page/leaders-sectio
 import GeoFootPrintSection from "@/components/components-about-us-page/geo-footprint-section";
 import QuoteSection from "@/components/components-about-us-page/quote-section";
 import { Head } from "@inertiajs/react";
+import CommunitySection from "../../components/components-about-us-page/community-section";
 
 export default function AboutUs({content}) {
  return (
@@ -11,8 +12,8 @@ export default function AboutUs({content}) {
    <section className="max-w-7xl w-full mx-auto">
     <TopSection />
     <LeadersSection data={content}/>
-    <div className="w-full bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] h-3 mt-10" />
     <GeoFootPrintSection data={content} />
+    <CommunitySection data={content}/>
     <QuoteSection />
    </section>
   </>
