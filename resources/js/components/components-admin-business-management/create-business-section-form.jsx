@@ -49,6 +49,7 @@ export default function CreateBusinessSectionForm({ business }) {
                             onChange={(e) => setData('title', e.target.value)}
                         />
                         <FormError message={errors.title} />
+
                     </div>
 
                     <div className="space-y-3">

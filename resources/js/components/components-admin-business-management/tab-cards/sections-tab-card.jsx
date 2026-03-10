@@ -1,11 +1,13 @@
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { TabsContent } from '@/components/ui/tabs';
-import { Item, ItemContent, ItemActions, ItemDescription, ItemTitle } from '@/components/ui/item';
+import { Item, ItemContent, ItemActions, ItemDescription } from '@/components/ui/item';
 
 
 import EditBusinessSectionForm from '../edit-business-section-form';
 import CreateBusinessSectionForm from '../create-business-section-form';
 import { Button } from '../../ui/button';
+import { TrashIcon } from 'lucide-react';
 import { router } from '@inertiajs/react';
 import { toast } from 'sonner';
 
@@ -36,8 +38,10 @@ export default function SectionsTabCard({ sections, business }) {
           {sections.map((section, index) => (
             <Item key={index} variant="outline" size="sm">
               <ItemContent>
-                <ItemTitle>{section?.title}</ItemTitle>
+                <div className='flex flex-col gap-3'>
+                <h1 className='text-lg'>{section?.title}</h1>
                 <ItemDescription>{section?.content}</ItemDescription>
+                </div>
               </ItemContent>
               <ItemActions>
                 <Button
@@ -48,7 +52,7 @@ export default function SectionsTabCard({ sections, business }) {
                   Delete
                 </Button>
                 <Button variant={'ghost'} asChild>
-                  <EditBusinessSectionForm key={business.id} section={section} />
+                  <EditBusinessSectionForm key={business.id} section={section} sections={sections} />
                 </Button>
               </ItemActions>
             </Item>

@@ -9,7 +9,7 @@ class BusinessSection extends Model
     protected $fillable = [
         "business_id",
         "title",
-        "content"
+        "content",
     ];
 
     public function business()

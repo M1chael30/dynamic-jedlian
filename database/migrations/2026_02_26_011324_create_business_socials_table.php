@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
             $table->string('platform_name');
+            $table->string('class');
             $table->string('url');
             $table->timestamps();
         });
