@@ -10,7 +10,6 @@ class BusinessSection extends Model
         "business_id",
         "title",
         "content",
-        "order"
     ];
 
     public function business()

@@ -35,19 +35,8 @@ export default function EditBusinessSocialForm({ social }) {
             <DialogContent>
                 <form onSubmit={updateBusinessSocial} className="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Update social media platform</DialogTitle>
+                        <DialogTitle>Update social media platform link</DialogTitle>
                     </DialogHeader>
-
-                    <div className="space-y-3">
-                        <TextInput
-                            placeholder="Type platform name here"
-                            labelTitle="Platform name"
-                            labelName="Platform name"
-                            value={data.platform_name}
-                            onChange={(e) => setData('platform_name', e.target.value)}
-                        />
-                        <FormError message={errors.platform_name} />
-                    </div>
 
                     <div className="space-y-3">
                         <TextInput

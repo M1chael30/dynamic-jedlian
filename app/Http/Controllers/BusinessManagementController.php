@@ -154,32 +154,12 @@ class BusinessManagementController extends Controller
         $updated = $request->validate([
             'business_id' => ['required', 'exists:businesses,id'],
             'title' => ['nullable', 'string'],
-            'order' => ['required', 'integer'],
             'content' => ['required', 'string']
         ]);
-
-        $oldOrder = $section->order;
-        $newOrder = $updated['order'];
-
-        if ($oldOrder != $newOrder) {
-
-            if ($newOrder > $oldOrder) {
-                // moving DOWN
-                BusinessSection::where('business_id', $section->business_id)
-                    ->whereBetween('order', [$oldOrder + 1, $newOrder])
-                    ->decrement('order');
-            } else {
-                // moving UP
-                BusinessSection::where('business_id', $section->business_id)
-                    ->whereBetween('order', [$newOrder, $oldOrder - 1])
-                    ->increment('order');
-            }
-        }
 
         $section->update([
             'title' => $updated['title'],
             'content' => $updated['content'],
-            'order' => $newOrder
         ]);
 
         return redirect()->route('business.show', $updated['business_id']);

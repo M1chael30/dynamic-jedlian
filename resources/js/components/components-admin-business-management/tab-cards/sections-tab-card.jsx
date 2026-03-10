@@ -38,14 +38,9 @@ export default function SectionsTabCard({ sections, business }) {
           {sections.map((section, index) => (
             <Item key={index} variant="outline" size="sm">
               <ItemContent>
-                <div className='flex gap-7'>
-                <div className='flex items-center justify-center'>
-                  <h1 className='text-xl text-zinc-700'>{section?.order}</h1>
-                </div>
-                <div>
-                <ItemDescription>{section?.title}</ItemDescription>
+                <div className='flex flex-col gap-3'>
+                <h1 className='text-lg'>{section?.title}</h1>
                 <ItemDescription>{section?.content}</ItemDescription>
-                </div>
                 </div>
               </ItemContent>
               <ItemActions>
@@ -57,7 +52,7 @@ export default function SectionsTabCard({ sections, business }) {
                   Delete
                 </Button>
                 <Button variant={'ghost'} asChild>
-                  <EditBusinessSectionForm key={business.id} section={section} sectionCount={sections.length} />
+                  <EditBusinessSectionForm key={business.id} section={section} sections={sections} />
                 </Button>
               </ItemActions>
             </Item>

@@ -27,14 +27,14 @@ export default function SocialTabsCard({ business, socials }) {
         <CardHeader>
           <CardTitle>Socials</CardTitle>
           <CardAction>
-            <CreateBusinessSocialForm key={business.id} business={business} />
+            <CreateBusinessSocialForm key={business.id} business={business} socials={socials} />
           </CardAction>
         </CardHeader>
         <CardContent className="p-0 space-y-3">
           {socials.map((social, index) => (
             <Item key={index} variant="outline" size="sm">
               <ItemContent>
-                <ItemTitle>{social.platform_name}</ItemTitle>
+                <ItemTitle className={'capitalize'}>{social.platform_name}</ItemTitle>
                 <ItemDescription>
                   <Badge variant={'outline'}>{social.url} </Badge>
                 </ItemDescription>

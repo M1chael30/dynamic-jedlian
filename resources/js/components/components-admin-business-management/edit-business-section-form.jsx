@@ -11,7 +11,7 @@ import { Textarea } from '../ui/textarea';
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
-export default function EditBusinessSectionForm({ section, sectionCount }) {
+export default function EditBusinessSectionForm({ section, sections }) {
   const [open, setOpen] = useState(false);
 
   // console.log(section);
@@ -20,8 +20,11 @@ export default function EditBusinessSectionForm({ section, sectionCount }) {
     business_id: section?.business_id,
     title: section?.title,
     content: section?.content,
-    order: section?.order,
   });
+
+  const sectionCount = sections.length;
+    const unavailableNumber = new Set(sections.map((s) => s.order));
+
 
   const updateBusinessSection = (e) => {
     e.preventDefault();
@@ -53,22 +56,7 @@ export default function EditBusinessSectionForm({ section, sectionCount }) {
               onChange={(e) => setData('title', e.target.value)}
             />
             <FormError message={errors.title} />
-            <Select value={data.order.toString()} onValueChange={(value) => setData('order', Number(value))}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Business Category" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {Array.from({ length: sectionCount }, (_, i) => (
-                    <SelectItem key={i + 1} value={(i + 1).toString()}>
-                      {i + 1}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
           </div>
-
           <div className="space-y-3">
             <Label htmlFor="desc">Content</Label>
             <Textarea

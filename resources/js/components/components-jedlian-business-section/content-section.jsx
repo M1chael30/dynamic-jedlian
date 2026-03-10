@@ -5,6 +5,7 @@ import CustomButton from '../ui/custom-button';
 
 export default function ContentSection({ business }) {
   const sections = business.business_sections;
+  const socials = business.business_socials;
 
   return (
     <motion.div
@@ -32,6 +33,24 @@ export default function ContentSection({ business }) {
           </motion.p>
         </div>
       ))}
+      <div className='flex gap-5'>
+        {socials ? 
+        <div>
+          <p>
+          Socials: 
+          </p>
+          <ul>
+          {socials.map((item, index)=>(
+            <li key={index}>
+              <a href={item.url}>
+              {item.platform_name}
+              </a>
+            </li>
+          ))}
+          </ul>
+        </div> : null}
+      </div>
+
       <div>
         {/* button  */}
         {business?.name === 'Casa Jedliana' && (
