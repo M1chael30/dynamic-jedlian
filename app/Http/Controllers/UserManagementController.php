@@ -86,7 +86,7 @@ class UserManagementController extends Controller
         ]);
 
         $user->update([
-            'password' => Hash::make('password123456789')
+            'password' => Hash::make($user['email'])
         ]);
 
         auth()->user()->logs()->create([

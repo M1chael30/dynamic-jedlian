@@ -24,7 +24,7 @@ export default function AdminNav() {
                 <div className="ml-auto space-x-5">
                     <Button variant={page === 'Admin/Profile/Profile' ? 'secondary' : 'ghost'} asChild>
                         <Link href={route('profile.index')}>
-                            Welcome! {user?.name}
+                            Welcome, {user?.name}!
                         </Link>
                     </Button>
                     <Button variant={page === 'Admin/Users/UserManagement' ? 'secondary' : 'ghost'} asChild>
