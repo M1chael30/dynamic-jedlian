@@ -10,7 +10,8 @@ Route::prefix('admin')->middleware(["auth"])->controller(BusinessManagementContr
     Route::get("/business-management", 'index')->name('business.management');
     Route::get('/business-management/{business}','show')->name('business.show');
     Route::post("/business-management/business/store", 'storeBusiness')->name('business.store');
-    Route::put("/business-management/business/{business}/store", 'updateBusiness')->name('business.update');
+    Route::put("/business-management/business/{business}/update", 'updateBusiness')->name('business.update');
+    Route::delete("/business-management/business/{business}/delete", 'deleteBusiness')->name('business.delete');
 
     Route::post('/business-management/section/store', 'storeSection')->name('business.store.section');
     Route::post('/business-management/image/store', 'storeImage')->name('business.store.image');

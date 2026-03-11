@@ -249,6 +249,17 @@ class BusinessManagementController extends Controller
     }
 
     /////////////////////////////Delete/////////////////////////////////////
+
+    public function deleteBusiness(Business $business) {
+        $business->delete();
+        auth()->user()->logs()->create([
+            'action' => 'Delete',
+            'description' => 'Business deleted.'
+        ]);
+
+        return back();
+
+    }
     public function deleteSection(BusinessSection $section)
     {
         $section->delete();

@@ -1,14 +1,26 @@
-import { Head, Link } from '@inertiajs/react';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../components/ui/table';
-import AdminLayout from '../../../layouts/admin-layout';
-import { Button } from '../../../components/ui/button';
+import { Head, Link, router } from '@inertiajs/react';
 import AddBusinessForm from '../../../components/components-admin-business-management/add-business-form';
 import EditBusinessForm from '../../../components/components-admin-business-management/edit-business-form';
+import { Button } from '../../../components/ui/button';
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '../../../components/ui/item';
-import { TrashIcon } from 'lucide-react';
-
+import AdminLayout from '../../../layouts/admin-layout';
+import { toast } from 'sonner';
 
 export default function BusinessesManagement({ businesses }) {
+
+
+    function handleDeleteSection(id) {
+      if (confirm('Are you sure you want to delete this business? ')) {
+        router.delete(route('business.delete', id), {
+          preserveScroll: true,
+          onSuccess: () => {
+            toast.success('Business deleted successfully');
+          },
+        });
+      }
+    }
+  
+
   return (
     <>
       <Head title="Manage Businesses" />
@@ -26,9 +38,7 @@ export default function BusinessesManagement({ businesses }) {
           {businesses.map((business, index) => (
             <Item key={index} variant="outline">
               <ItemContent>
-                <ItemTitle>
-                  {business.name}
-                </ItemTitle>
+                <ItemTitle>{business.name}</ItemTitle>
                 <ItemDescription>{business.description}</ItemDescription>
               </ItemContent>
               <ItemActions>
@@ -36,6 +46,9 @@ export default function BusinessesManagement({ businesses }) {
                   <Link href={route('business.show', business.id)}>View</Link>
                 </Button>
                 <EditBusinessForm key={business.id} business={business} />
+                <Button variant={'link'} className={'text-destructive-foreground'} onClick={() => handleDeleteSection(business?.id)}>
+                  Delete
+                </Button>
               </ItemActions>
             </Item>
           ))}
