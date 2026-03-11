@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        $this->call(
+            [
+                BusinessSeeder::class,
+                AchievementSeeder::class
+            ]);
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
@@ -118,32 +124,6 @@ class DatabaseSeeder extends Seeder
                 'content' => "!1m18!1m12!1m3!1d3014.47053122983!2d120.98509809999999!3d15.4465586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339729e1c706f4ad%3A0xd0edade06adaa587!2sJedlian%20Communication%20Inc.%20Head%20Office!5e1!3m2!1sen!2sph!4v1771990793283!5m2!1sen!2sph"
             ],
         ]);
-        Business::factory()->createMany([
-            [
-                "name" => "Jedlian Communication",
-                "description" => "Specializing in cutting-edge telecommunications technology, JEDLIAN COMMUNICATIONS at the forefront of providing seamless connectivity solutions for businesses and individuals.",
-                "category" => "offices",
-            ],
-            [
-                "name" => "Jedlian Construction",
-                "description" => "JEDLIAN Construction is a trusted leader in construction, delivering excellence across residential, commercial, and government projects.",
-                "category" => "branches",
-            ],
-            [
-                "name" => "Jedlian Gasoline",
-                "description" => "Jedlian Gasoline is committed to delivering premium-quality fuel that powers optimal performance and dependable operation for every engine.",
-                "category" => "branches",
-            ],
-            [
-                "name" => "Jedlian Drugstore",
-                "description" => "Jedlian Drugstore provides a comprehensive range of pharmaceutical products and wellness services, dedicated to supporting the health and well-being of the community.",
-                "category" => "branches",
-            ],
-            [
-                "name" => "Casa Jedliana",
-                "description" => "Nestled in a scenic location, Casa Jedliana Hotel and Resort delivers exceptional hospitality with luxurious accommodations and premium amenities, perfect for both leisure and business travelers.",
-                "category" => "branches",
-            ],
-        ]);
+  
     }
 }

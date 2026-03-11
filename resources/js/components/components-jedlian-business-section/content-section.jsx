@@ -34,6 +34,15 @@ export default function ContentSection({ business }) {
           </motion.p>
         </div>
       ))}
+            <div className="mb-5">
+        {/* button  */}
+        {business?.name === 'Casa Jedliana' && (
+          <motion.div variants={fadeVariants} whileInView="show" initial="hidden">
+            <CustomButton icon={<ArrowRight size={18} />} buttonText="Learn more about casa" buttonHref="https://casajedliana.com/" target="_blank"/>
+          </motion.div>
+        )}
+      </div>
+
       {socials.length != 0 ? (
         <div className="flex gap-4 text-xl">
           <h1>Socials:</h1>
@@ -48,14 +57,6 @@ export default function ContentSection({ business }) {
           </ul>
         </div>
       ) : null}
-      <div>
-        {/* button  */}
-        {business?.name === 'Casa Jedliana' && (
-          <motion.div variants={fadeVariants} whileInView="show" initial="hidden">
-            <CustomButton icon={<ArrowRight size={18} />} buttonText="Learn more about casa" buttonHref="https://casajedliana.com/" />
-          </motion.div>
-        )}
-      </div>
     </motion.div>
   );
 }

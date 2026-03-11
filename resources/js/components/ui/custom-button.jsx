@@ -3,6 +3,7 @@ import { Link } from "@inertiajs/react";
 export default function CustomButton({
   buttonText = "Hover me",
   buttonHref = "#",
+  target="",
   icon,
 }) {
   return (
@@ -24,7 +25,7 @@ export default function CustomButton({
           group-hover:text-background
         "
       >
-        <Link href={buttonHref} className="flex items-center gap-2 text-sm">
+        <Link href={buttonHref} target={target} className="flex items-center gap-2 text-sm">
           {buttonText} {icon}
         </Link>
       </span>
