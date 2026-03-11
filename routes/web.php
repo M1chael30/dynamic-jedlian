@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Home\HomePageController;
 use App\Http\Controllers\HomeManagementController;
+use App\Http\Middleware\EnsureUserIsAdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 //render home page
@@ -10,7 +11,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('home');
 
 
 Route::prefix('admin')
-    ->middleware(['auth'])
+    ->middleware(['auth', EnsureUserIsAdminMiddleware::class])
     ->controller(HomeManagementController::class)
     ->group(function () {
         Route::get('/home-management', 'index')->name('home.management');

@@ -69,6 +69,9 @@ export default function CreateUserForm() {
        onChange={(e) => setData('email', e.target.value)}
       />
       <FormError message={errors.email} />
+      <p className='text-muted-foreground text-sm'>
+       The default password is user email.
+      </p>
      </div>
      <DialogFooter>
       <DialogClose asChild>

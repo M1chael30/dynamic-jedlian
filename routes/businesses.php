@@ -2,13 +2,14 @@
 
 use App\Http\Controllers\BusinessManagementController;
 use App\Http\Controllers\Home\BusinessController;
+use App\Http\Middleware\EnsureUserIsAdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/businesses/{business}", [BusinessController::class, 'index'])->name('business');
 
-Route::prefix('admin')->middleware(["auth"])->controller(BusinessManagementController::class)->group(function( ) {
+Route::prefix('admin')->middleware(["auth", EnsureUserIsAdminMiddleware::class])->controller(BusinessManagementController::class)->group(function () {
     Route::get("/business-management", 'index')->name('business.management');
-    Route::get('/business-management/{business}','show')->name('business.show');
+    Route::get('/business-management/{business}', 'show')->name('business.show');
     Route::post("/business-management/business/store", 'storeBusiness')->name('business.store');
     Route::put("/business-management/business/{business}/update", 'updateBusiness')->name('business.update');
     Route::delete("/business-management/business/{business}/delete", 'deleteBusiness')->name('business.delete');

@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\UserManagementController;
+use App\Http\Middleware\EnsureUserIsAdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')
- ->middleware(['auth'])
+ ->middleware(['auth', EnsureUserIsAdminMiddleware::class])
  ->controller(UserManagementController::class)
  ->group(function () {
   Route::get('/user-management', 'index')->name('user.index');

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AchievementManagementController;
 use App\Http\Controllers\Home\AchievementController as AchievementPageController;
+use App\Http\Middleware\EnsureUserIsAdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,7 +11,7 @@ Route::get('/achievements', [AchievementPageController::class, 'index'])->name('
 
 // achivement management
 Route::prefix('admin')
-    ->middleware(['auth'])
+    ->middleware(['auth', EnsureUserIsAdminMiddleware::class])
     ->controller(AchievementManagementController::class)
     ->group(function () {
         Route::get('/achievement-management', 'index')->name('achievement.management');
