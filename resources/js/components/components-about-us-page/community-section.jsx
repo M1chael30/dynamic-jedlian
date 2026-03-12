@@ -12,7 +12,7 @@ export default function GeoFootPrintSection({ data }) {
             whileInView="show"
             className="bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] bg-clip-text text-center text-4xl font-extrabold text-transparent md:text-right"
           >
-            Empowering Communities Through Innovation
+            {data[3].title}
           </motion.h1>
           <motion.div variants={fadeRightSlowVariants} initial="hidden" whileInView="show" className="my-3 h-1 w-full bg-[#c89116]" />
           <motion.p variants={fadeRightSlowVariants} initial="hidden" whileInView="show" className="text-description p-5 text-center md:text-right">
