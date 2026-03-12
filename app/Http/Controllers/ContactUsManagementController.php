@@ -20,12 +20,11 @@ class ContactUsManagementController extends Controller
     public function update(Request $request, ContactUs $contactUs)
     {
         $fields = $request->validate([
+            'title' => ['required'],
             'content' => ['required'],
         ]);
 
-        $contactUs->update([
-            'content' => $fields['content']
-        ]);
+        $contactUs->update($fields);
 
         auth()->user()->logs()->create([
             'action' => 'Update',

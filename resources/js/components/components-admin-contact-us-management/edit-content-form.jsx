@@ -7,7 +7,6 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { useState } from 'react';
-import { PenIcon } from 'lucide-react';
 
 export default function ContactUsEditContentForm({ item }) {
    const [open, setOpen] = useState(false)
@@ -46,7 +45,6 @@ export default function ContactUsEditContentForm({ item }) {
                      labelTitle={'Title'}
                      labelName={'title'}
                      placeholder={'Title'}
-                     disabled
                      value={data.title}
                      onChange={(e) => setData('title', e.target.value)}
                   />
