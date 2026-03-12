@@ -12,6 +12,8 @@ class AboutUsContent extends Model
 
     protected $fillable = [
         'title',
-        'content'
+        'position',
+        'content',
+        'image_path',
     ];
 }

@@ -1,22 +1,25 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar'
+import { Image } from 'lucide-react';
 
-export default function PersonWidgetMobile({ image, name, position, content }) {
+export default function PersonWidgetMobile({ image, title, content, position }) {
     return (
-        <Card className={'grid w-full border border-yellow-600 py-0 sm:w-100 md:hidden'}>
+        <Card className={'grid w-full border border-yellow-600 py-0 sm:w-100 lg:hidden'}>
             <CardHeader className="justify-center rounded-t-xl pt-5">
-                <img
-                    src={image}
-                    alt={'boss'}
-                    className="h-50 w-50 rounded-full border border-yellow-600 shadow-xs"
-                />
+                <Avatar className={'size-35 ring-3 ring-amber-500'}>
+                    <AvatarImage src={image} className={'object-cover object-top'} />
+                    <AvatarFallback>
+                        <Image size={28} />
+                    </AvatarFallback>
+                </Avatar>
             </CardHeader>
             <CardContent>
                 <CardTitle className={'text-center text-xl'}>
                     <div
                         className="bg-[radial-gradient(circle_at_75%,#c89116,#c89116,#cfceaa)] bg-clip-text text-transparent"
                     >
-                        <h1>{name}</h1>
-                        <h1>{position}</h1>
+                        <h1>{title}</h1>
+                        <p className='text-sm'>{position}</p>
                     </div>
                 </CardTitle>
                 <CardDescription>

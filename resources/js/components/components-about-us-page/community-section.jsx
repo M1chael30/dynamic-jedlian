@@ -23,7 +23,11 @@ export default function GeoFootPrintSection({ data }) {
         <motion.div variants={fadeVariants} initial="hidden" whileInView="show" className="order-1 flex items-center justify-center md:order-2">
           <img
             draggable="false"
-            src={'/images/aboutus-page-img/communityGrid.png'}
+            src={
+              data[3].image_path ?
+                `/storage/${data[3].image_path}` :
+                '/images/aboutus-page-img/communityGrid.png'
+            }
             alt="pilipinas"
             className="h-auto w-full max-w-full object-contain select-none md:w-auto"
           />

@@ -30,7 +30,7 @@ export default function Login() {
             <section className="flex min-h-svh w-full items-center justify-center p-6 md:p-10 flex-col gap-4">
                 <div className="aspect-video w-40 flex items-center">
                     <Link href={route('home')}>
-                        <img src="/images/business_logo/HOLDINGS-LOGO2.png" alt="Holdings logo" className="w-full h-full" />
+                        <img src="/storage/business_logo/HOLDINGS-LOGO2.png" alt="Holdings logo" className="w-full h-full" />
                     </Link>
                 </div>
                 <Card className={"w-full max-w-sm"}>

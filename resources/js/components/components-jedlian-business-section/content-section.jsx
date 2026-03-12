@@ -7,7 +7,6 @@ export default function ContentSection({ business }) {
   const sections = business.business_sections;
   const socials = business.business_socials;
 
-  console.log(socials)
   return (
     <motion.div
       variants={sectionVariants}

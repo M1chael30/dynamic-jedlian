@@ -1,8 +1,8 @@
 import ceo from '/public/images/aboutus-page-img/ceoImage.png';
-import banner1 from '/public/images/aboutus-page-img/ceoLabel.png';
 import coo from '/public/images/aboutus-page-img/cooImage.png';
-import banner2 from '/public/images/aboutus-page-img/cooLabel.png';
+import banner1 from '/public/images/aboutus-page-img/leftRibbon.png';
 import ceoMobile from '/public/images/aboutus-page-img/maamEdithaMobile.png';
+import banner2 from '/public/images/aboutus-page-img/rightRibbon.png';
 import cooMobile from '/public/images/aboutus-page-img/sirChristianMobile.png';
 
 const companyLeadersData = [

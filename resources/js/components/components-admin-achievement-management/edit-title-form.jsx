@@ -115,13 +115,7 @@ export default function EditTitleForm({ achievement }) {
         </AvatarFallback>
        </Avatar>
       </Label>
-      {errors &&
-       <FormError message={
-        errors.image_filename &&
-        'The image field is required.'
-       } />
-      }
-
+      <FormError message={errors.image_filename} /> }
       {undoBtn && (
        <Button
         type="button"
