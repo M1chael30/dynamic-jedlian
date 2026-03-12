@@ -1,11 +1,12 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 export default function CustomButton({
   buttonText = "Hover me",
   buttonHref = "#",
   target="",
   icon,
-}) {
+})
+{
   return (
     <button
       className="

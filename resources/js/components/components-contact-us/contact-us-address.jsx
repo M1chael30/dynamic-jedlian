@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { containerVariants, fadeVariants } from "../../lib/animations";
 
 export default function ContactUsAddress({ contactUsData }) {
-        const companyLocation = contactUsData[3]
+        const companyLocation = contactUsData[4]
         return (
                 <motion.div
                         variants={containerVariants}

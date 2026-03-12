@@ -24,13 +24,14 @@ class DatabaseSeeder extends Seeder
             [
                 BusinessSeeder::class,
                 AchievementSeeder::class
-            ]);
+            ]
+        );
 
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('123456789'),
-        ]);
+            ]);
 
         Page::factory()->createMany([
             [
@@ -120,10 +121,13 @@ class DatabaseSeeder extends Seeder
                 'content' => "8:00am - 5:00pm"
             ],
             [
+                'title' => "Facebook",
+                'content' => "https://www.facebook.com/profile.php?id=100094395693803"
+            ],
+            [
                 'title' => "Purok 1, Barangay Tagpos, Santa Rosa, Nueva Ecija",
                 'content' => "!1m18!1m12!1m3!1d3014.47053122983!2d120.98509809999999!3d15.4465586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339729e1c706f4ad%3A0xd0edade06adaa587!2sJedlian%20Communication%20Inc.%20Head%20Office!5e1!3m2!1sen!2sph!4v1771990793283!5m2!1sen!2sph"
             ],
         ]);
-  
     }
 }

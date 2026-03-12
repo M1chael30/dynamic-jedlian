@@ -29,7 +29,7 @@ export default function ContactUsManagement({ contactUsData }) {
        </CardHeader>
        <CardContent>
         {
-         item?.id === 4 && (
+         item?.id === 5 && (
           <div className="aspect-video w-full rounded-xl bg-muted overflow-hidden">
            <iframe
             src={`https://www.google.com/maps/embed?pb=${item?.content}`}
@@ -42,7 +42,7 @@ export default function ContactUsManagement({ contactUsData }) {
           </div>
          )
         }
-        <CardDescription className={'truncate'}>{item?.id !== 4 && item?.content}</CardDescription>
+        <CardDescription className={'truncate'}>{item?.id !== 5 && item?.content}</CardDescription>
        </CardContent>
       </Card>
      ))
