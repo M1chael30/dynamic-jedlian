@@ -37,7 +37,7 @@ export default function ContentSection({ business }) {
         {/* button  */}
         {business?.name === 'Casa Jedliana' && (
           <motion.div variants={fadeVariants} whileInView="show" initial="hidden">
-            <CustomButton icon={<ArrowRight size={18} />} buttonText="Learn more about casa" buttonHref="https://casajedliana.com/" target="_blank"/>
+            <CustomButton icon={<ArrowRight size={18} />} buttonText="Learn more about Casa" buttonHref="https://casajedliana.com/" target="_blank"/>
           </motion.div>
         )}
       </div>

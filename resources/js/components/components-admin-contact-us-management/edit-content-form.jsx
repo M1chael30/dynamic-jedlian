@@ -45,6 +45,7 @@ export default function ContactUsEditContentForm({ item }) {
                      labelTitle={'Title'}
                      labelName={'title'}
                      placeholder={'Title'}
+                     // disabled
                      value={data.title}
                      onChange={(e) => setData('title', e.target.value)}
                   />

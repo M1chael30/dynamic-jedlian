@@ -1,12 +1,12 @@
-import { router } from "@inertiajs/react";
-import { Button } from "../ui/button";
-import { Label } from "../ui/label";
-import { Switch } from "../ui/switch";
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
-import { Item, ItemActions, ItemContent, ItemDescription } from "../ui/item";
-import { AchievementDropdownMenu } from "./achievement-dropdown-menu";
-import { toast } from "sonner";
-import EditDescriptionForm from "./edit-description-form";
+import { router } from '@inertiajs/react';
+import { toast } from 'sonner';
+import { Button } from '../ui/button';
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
+import { Item, ItemActions, ItemContent, ItemDescription } from '../ui/item';
+import { Label } from '../ui/label';
+import { Switch } from '../ui/switch';
+import { AchievementDropdownMenu } from './achievement-dropdown-menu';
+import EditDescriptionForm from './edit-description-form';
 
 export default function AchievementsCard({ achievement }) {
   function handleDelete(id) {
@@ -16,33 +16,25 @@ export default function AchievementsCard({ achievement }) {
         onSuccess: () => {
           toast.success('Achivement description deleted successfully');
         },
-      })
+      });
     }
   }
 
   function handleVisibility() {
-    router.put(route('achievement.update.visibility', achievement?.id), {}, { preserveScroll: true })
+    router.put(route('achievement.update.visibility', achievement?.id), {}, { preserveScroll: true });
   }
 
   return (
     <Card>
       <CardHeader className={'space-y-4'}>
-        <CardTitle className={'text-lg'}>
-          Achievement: {achievement?.title}
-        </CardTitle>
+        <CardTitle className={'text-lg'}>Achievement: {achievement?.title}</CardTitle>
         <CardDescription>
           <div className="flex items-center space-x-2">
-            <Switch
-              id="is_visible"
-              className={'cursor-pointer'}
-              checked={achievement?.is_visible}
-              onCheckedChange={handleVisibility} />
-            <Label htmlFor="is_visible">
-              Visible to public website?
-            </Label>
+            <Switch id="is_visible" className={'cursor-pointer'} checked={achievement?.is_visible} onCheckedChange={handleVisibility} />
+            <Label htmlFor="is_visible">Visible to public website?</Label>
           </div>
         </CardDescription>
-        <CardAction className={'space-x-3 flex items-center'}>
+        <CardAction className={'flex items-center space-x-3'}>
           <AchievementDropdownMenu achievement={achievement} />
         </CardAction>
       </CardHeader>
@@ -53,11 +45,7 @@ export default function AchievementsCard({ achievement }) {
               <ItemDescription>{description?.description_text}</ItemDescription>
             </ItemContent>
             <ItemActions>
-              <Button
-                variant={'link'}
-                className={'text-destructive-foreground'}
-                onClick={() => handleDelete(description?.id)}
-              >
+              <Button variant={'link'} className={'text-destructive-foreground'} onClick={() => handleDelete(description?.id)}>
                 Delete
               </Button>
               <Button variant={'ghost'} asChild>
@@ -66,11 +54,10 @@ export default function AchievementsCard({ achievement }) {
             </ItemActions>
           </Item>
         ))}
-        <div className="aspect-video w-full rounded-xl bg-muted overflow-hidden">
-          <img
-            src={`/storage/${achievement?.achievement_image.image_filename}`} alt="achievement imge" className="object-center h-full w-full" />
-        </div>
+          <div className="bg-muted aspect-video w-full overflow-hidden rounded-xl">
+            <img src={`/storage/${achievement?.achievement_image.image_filename}`} alt="achievement imge" className="h-full w-full object-center" />
+          </div>
       </CardContent>
     </Card>
-  )
+  );
 }
