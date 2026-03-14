@@ -3,7 +3,7 @@ import { Pagination, PaginationContent, PaginationItem } from './ui/pagination';
 import { Button } from './ui/button';
 import { router } from '@inertiajs/react';
 
-export default function PaginationLinks({ prev_page_url, next_page_url }) {
+export default function PaginationLinks({ prev_page_url, next_page_url, loadOnly }) {
     return (
         <Pagination>
             <PaginationContent>
@@ -24,7 +24,7 @@ export default function PaginationLinks({ prev_page_url, next_page_url }) {
                         size="icon"
                         variant="ghost"
                         disabled={!next_page_url}
-                        onClick={() => router.get(next_page_url, {}, { preserveScroll: true })}
+                        onClick={() => router.get(next_page_url, {}, { preserveScroll: true, only: loadOnly })}
                     >
                         <ChevronRightIcon className="h-4 w-4" />
                     </Button>

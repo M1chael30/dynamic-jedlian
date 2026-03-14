@@ -13,6 +13,7 @@ export default function Achievements({ periods }) {
                 <PaginationLinks
                     prev_page_url={periods?.prev_page_url}
                     next_page_url={periods?.next_page_url}
+                    loadOnly={['periods']}
                 />
             </section>
         </>

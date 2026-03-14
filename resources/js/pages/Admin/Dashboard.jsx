@@ -39,6 +39,7 @@ export default function Dashboard({ pages, logs }) {
                     <PaginationLinks
                         prev_page_url={logs?.prev_page_url}
                         next_page_url={logs?.next_page_url}
+                        loadOnly={['logs']}
                     />
                 </div>
             </section>
