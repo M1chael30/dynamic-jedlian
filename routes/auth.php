@@ -4,6 +4,11 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'index'])->name('login');
-    Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('admin.login');
+
+    // login
+    Route::get('/login', [AuthController::class, 'index'])
+        ->name('login');
+
+    // authenticate
+    Route::post('/login', [AuthController::class, 'authenticate']);
 });
