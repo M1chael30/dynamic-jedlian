@@ -29,16 +29,8 @@ export default function QuoteSection() {
 
         {/* Right section */}
         <motion.div variants={fadeRightVariants} className="w-full md:w-full space-y-5">
-          <p className="text-sm">
-            Through your leadership, this company has not only thrived but also become a beacon of hope for those who dare to dream big.
-          </p>
-          <p className="text-sm">
-            Because you did not falter nor weaken in faith, many people have been blessed. Because you bravely faced all challenges, here we are on
-            our way to greatness.
-          </p>
-          <p className="text-sm">
-            Thank you for being the pillar of strength and source of inspiration to many. A man, that inspires us through his life by his living
-            testimony of God's favor and abundant blessing.
+          <p className="text-description text-zinc-200">
+Dreams have the potential to change our lives. When we believe in ourselves and bravely take steps toward our goals, even the biggest dreams can become possible. With courage, determination, and perseverance, what once seemed impossible can turn into reality.
           </p>
         </motion.div>
       </div>

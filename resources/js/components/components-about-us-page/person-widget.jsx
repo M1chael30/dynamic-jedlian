@@ -10,13 +10,13 @@ export default function PersonWidget({ data, isReverse }) {
     >
       <img
         src={data.image_path}
-        alt={'boss'}
+        alt={'No image provided.'}
         className={cn(
-          'hidden h-158 w-140 rounded-2xl bg-red-100 object-cover shadow-xl select-none md:flex',
+          'hidden h-158 w-140 rounded-2xl bg-zinc-800 object-cover shadow-xl select-none md:flex',
           isReverse ? '' : 'order-last'
         )}
-      />
-      <div className="mt-20">
+      /> 
+      <div className="mt-5">
         {/*Content*/}
         <div className="relative w-full flex items-center justify-center overflow-hidden">
           {/* The "Background" Image */}

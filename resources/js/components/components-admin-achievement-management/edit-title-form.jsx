@@ -115,7 +115,7 @@ export default function EditTitleForm({ achievement }) {
         </AvatarFallback>
        </Avatar>
       </Label>
-      <FormError message={errors.image_filename} /> }
+      <FormError message={errors.image_filename} />
       {undoBtn && (
        <Button
         type="button"

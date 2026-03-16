@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('123456789'),
-            ]);
+        ]);
 
         Page::factory()->createMany([
             [
@@ -86,24 +86,20 @@ class DatabaseSeeder extends Seeder
 
         AboutUsContent::factory()->createMany([
             [
-                'title' => 'CEO description',
-                'content' => "Jedlian Holdings Inc. is a diversified parent company that oversees and strategically manages five thriving business enterprises, each contributing to the organization's continued growth and reputation for excellence: Jedlian Communication, Jedlian Construction, Jedlian Gasoline, Jedlian Drugstore, and Casa Jedliana Hotel and Resort."
+                'title' => 'Editha Galang',
+                'content' => "She stood beside her husband from the start, through struggles, risks, and humble beginnings. With dedication and quiet strength, she helped build the business step by step, inspiring growth and fostering a culture of care. A woman of integrity and heart, her partnership and leadership turned a simple dream into lasting success."
             ],
             [
-                'title' => 'COO description',
-                "content" => "Built on a strong foundation in telecommunications, the company expanded into construction, hospitality, energy, and healthcare—delivering quality, innovation, and value across industries. United by a commitment to excellence, Jedlian Holdings continues to drive sustainable growth and long-term impact."
+                'title' => 'Christian Galang',
+                "content" => "Through his leadership, this company has thrived and become a beacon of hope. He faced challenges bravely, never faltering in faith, blessing many along the way. A pillar of strength and inspiration, his life and testimony of God’s favor continue to guide and uplift us all."
             ],
             [
                 "title" => "Geo footprint",
-                "content" => "Our company has successfully achieved major advancements in the ongoing development of our projects. As a result, we are proud to have established a prominent foothold in various regions in Luzon. This momentum showcases our widespread reach and strong presence, proving our capacity to deliver impressive results."
+                "content" => "Our company has successfully achieved major advancements in the ongoing development of our projects. As a result, we are proud to have established a prominent foothold in various regions in Central and North Luzon. This momentum showcases our widespread reach and strong presence, proving our capacity to deliver impressive results."
             ],
             [
-                "title" => "Community",
-                "content" => "With over 20 years of experience, we have built a legacy of delivering trusted and innovative solutions across multiple industries.
-            Supported by a talented team of 700+ professionals, we drive excellence in every operation, ensuring quality and reliability for our
-            clients. Our 26 strategically located branches and offices across Regions I, II, III, and CAR enable us to serve communities nationwide
-            efficiently. Backed by a strong financial capacity exceeding ₱1 billion in NFCC, we are fully equipped to undertake large-scale, long-term
-            projects with confidence and stability."
+                "title" => "Inspiring Growth, Empowering Lives",
+                "content" => "For over 20 years, we have worked to uplift communities by turning innovative ideas into meaningful impact. With a dedicated team of 700+ professionals and 26 strategically located branches across Regions I, II, III, and CAR, we remain close to the communities we serve. Backed by over ₱1 billion in NFCC, we are equipped to take on ambitious projects that improve lives, create opportunities, and build a sustainable future."
             ]
         ]);
 

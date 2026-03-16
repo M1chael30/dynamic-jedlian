@@ -53,7 +53,7 @@ const missionVisionData = [
  {
   title: "vision",
   description:
-   "Coupled and inspired by our vision, to become a leader in providing a complete and full range of solutions to meet our customers’ needs.",
+   "Driven by our goal to lead the industry, we aim to provide a complete range of solutions that meet our customers’ requirements.",
   icon: BsEyeFill,
  },
 ];

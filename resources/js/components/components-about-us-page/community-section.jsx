@@ -10,7 +10,7 @@ export default function GeoFootPrintSection({ data }) {
             variants={fadeRightSlowVariants}
             initial="hidden"
             whileInView="show"
-            className="bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] bg-clip-text text-center text-4xl font-extrabold text-transparent md:text-right"
+            className="bg-[radial-gradient(circle_at_center,#c89116,#c89116,#cfceaa)] bg-clip-text text-center text-4xl font-extrabold text-transparent md:text-5xl md:text-right"
           >
             {data[3].title}
           </motion.h1>
@@ -26,7 +26,7 @@ export default function GeoFootPrintSection({ data }) {
             src={
               data[3].image_path ?
                 `/storage/${data[3].image_path}` :
-                '/images/aboutus-page-img/communityGrid.png'
+                '/images/empty.png'
             }
             alt="pilipinas"
             className="h-auto w-full max-w-full object-contain select-none md:w-auto"
