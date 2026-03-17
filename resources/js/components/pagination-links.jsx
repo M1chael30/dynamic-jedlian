@@ -1,27 +1,35 @@
-import { Link } from '@inertiajs/react';
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { Pagination, PaginationContent, PaginationItem } from './ui/pagination';
 import { Button } from './ui/button';
+import { router } from '@inertiajs/react';
 
-export default function PaginationLinks({ links }) {
+export default function PaginationLinks({ prev_page_url, next_page_url, loadOnly }) {
     return (
-        <div className="flex w-full justify-end">
-            <div className="flex items-center justify-between gap-2">
-                {links &&
-                    links.map((link, index) =>
-                        link.url ? (
-                            <Button key={index} asChild size={'sm'} variant={link.active ? 'outline' : 'ghost'}>
-                                <Link
-                                    preserveScroll
-                                    dangerouslySetInnerHTML={{ __html: link.label }}
-                                    href={link.url}
-                                    prefetch="click"
-                                    cacheFor={'1m'}
-                                />
-                            </Button>
-                        ) : (
-                            <Button dangerouslySetInnerHTML={{ __html: link.label }} key={index} size={'sm'} variant={'ghost'} />
-                        ),
-                    )}
-            </div>
-        </div>
+        <Pagination>
+            <PaginationContent>
+                <PaginationItem>
+                    <Button
+                        aria-label="Go to previous page"
+                        size="icon"
+                        variant="ghost"
+                        disabled={!prev_page_url}
+                        onClick={() => router.get(prev_page_url, {}, { preserveScroll: true })}
+                    >
+                        <ChevronLeftIcon className="h-4 w-4" />
+                    </Button>
+                </PaginationItem>
+                <PaginationItem>
+                    <Button
+                        aria-label="Go to next page"
+                        size="icon"
+                        variant="ghost"
+                        disabled={!next_page_url}
+                        onClick={() => router.get(next_page_url, {}, { preserveScroll: true, only: loadOnly })}
+                    >
+                        <ChevronRightIcon className="h-4 w-4" />
+                    </Button>
+                </PaginationItem>
+            </PaginationContent>
+        </Pagination>
     );
 }

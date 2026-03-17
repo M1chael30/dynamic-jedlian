@@ -8,7 +8,7 @@ export default function FooterBottomSection() {
    <div className="flex items-center gap-3 flex-col md:flex-row">
     <ul className="flex space-x-3 text-2xl text-muted-foreground">
      <li>
-      <Link href="https://www.facebook.com/profile.php?id=100094395693803">
+      <Link href="https://www.facebook.com/profile.php?id=100094395693803" target="_blank">
        <CiFacebook />
       </Link>
      </li>

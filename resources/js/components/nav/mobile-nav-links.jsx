@@ -10,10 +10,10 @@ import { ChartNoAxesGantt } from "lucide-react";
 import { Button } from "../ui/button";
 import Navlink from "./nav-link";
 import { navLinks, ourStory } from "../../lib/data";
-// import { jedlianBusinessesData } from "@/lib/homePageData";
 import { NavigationMenuComponent } from "./navigation-menu-component";
+import { BusinessNavigation } from "./business-navigation";
 
-export default function MobileNavLinks() {
+export default function MobileNavLinks({ businesses }) {
 
  return (
   <Sheet>
@@ -35,16 +35,16 @@ export default function MobileNavLinks() {
       navigationMenuTitle="Our Story"
       dropdownMenuItem={ourStory}
      />
-     <NavigationMenuComponent
+     <BusinessNavigation
       navigationMenuTitle="Our Business"
-      // dropdownMenuItem={jedlianBusinessesData}
+      businesses={businesses}
      />
      {navLinks.map((link, i) => (
       <Navlink
        key={i}
        link={link.name}
        href={link.path}
-       // variant={link.path === pathName ? "active" : "link"}
+      // variant={link.path === pathName ? "active" : "link"}
       />
      ))}
     </div>

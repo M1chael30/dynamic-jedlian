@@ -2,11 +2,11 @@ import { PiTargetFill } from "react-icons/pi";
 import { BsEyeFill } from "react-icons/bs";
 
 //logo imports
-import customerFocusedLogo from "@/public/images/logos-corporate-values/icons/customer-focused.png";
-import innovativeLogo from "@/public/images/logos-corporate-values/icons/innovative.png";
-import godCenteredLogo from "@/public/images/logos-corporate-values/icons/god-centered.png";
-import integrityLogo from "@/public/images/logos-corporate-values/icons/integrity.png";
-import teamworkLogo from "@/public/images/logos-corporate-values/icons/teamwork.png";
+import customerFocusedLogo from "/public/images/logos-corporate-values/icons/customer-focused.png";
+import innovativeLogo from "/public/images/logos-corporate-values/icons/innovative.png";
+import godCenteredLogo from "/public/images/logos-corporate-values/icons/god-centered.png";
+import integrityLogo from "/public/images/logos-corporate-values/icons/integrity.png";
+import teamworkLogo from "/public/images/logos-corporate-values/icons/teamwork.png";
 
 const corporateValuesButtonsData = [
  {
@@ -47,13 +47,13 @@ const missionVisionData = [
  {
   title: "mission",
   description:
-   "To provide a highly reliable quality work and services while consistently adapting to a fast-paced changing technological industry.",
+   "To provide highly reliable quality work and services while consistently adapting to a fast-paced changing industry.",
   icon: PiTargetFill,
  },
  {
   title: "vision",
   description:
-   "Coupled and inspired with our vision, to become the leader in providing a complete and full range of services to meet our customer's requirements.",
+   "Driven by our goal to lead the industry, we aim to provide a complete range of solutions that meet our customers’ requirements.",
   icon: BsEyeFill,
  },
 ];

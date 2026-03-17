@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Businesses\Business;
 use App\Models\User;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
 
@@ -45,12 +47,23 @@ class HandleInertiaRequests extends Middleware
             'name' => config('app.name'),
             'quote' => ['message' => trim($message), 'author' => trim($author)],
             'auth' => [
-                'user' => $request->user(),
+                'user' => fn() => $request->user()
+                    ? $request->user()->only('id', 'name', 'email')
+                    : null,
             ],
+
             'ziggy' => fn(): array => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+
+            'businesses' => fn() => Cache::rememberForever(
+                'navbar_businesses',
+                fn() => Business::query()
+                    ->select('id', 'name')
+                    ->orderBy('id')
+                    ->get()
+            ),
         ];
     }
 }

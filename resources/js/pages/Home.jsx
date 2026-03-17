@@ -1,6 +1,32 @@
+import JedlianBusinessesSection from "@/components/components-jedlian-businesses-section/jedlian-businesses-section";
+import HomeStatsSection from "@/components/components-home-stats-section/home-stats-section";
+import CorporateResponsibilitySection from "@/components/components-corporate-responsibility-section/corporate-responsibility-section";
 
-export default function Home() {
-    return (
-        <div className="mx-auto flex min-h-screen w-full items-center justify-center">Home</div>
-    );
+import { motion } from "motion/react";
+import { Head } from "@inertiajs/react";
+
+export default function Home({homestats, businesses}) {
+
+
+ return (
+  <>
+   <Head title="Home" />
+   <section>
+    <motion.div
+     className="w-full mx-auto max-w-7xl"
+    >
+     {/* front page image */}
+     <img
+      src={'/images/banners/home-page-image.gif'}
+      alt="Jedlian landing page image"
+      className="w-full h-auto max-w-full object-contain"
+     />
+    </motion.div>
+    {/* contents */}
+    <HomeStatsSection data={homestats}/>
+    <JedlianBusinessesSection data={businesses}/>
+    <CorporateResponsibilitySection />
+   </section>
+  </>
+ );
 }
