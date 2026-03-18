@@ -13,7 +13,7 @@ export default function PaginationLinks({ prev_page_url, next_page_url, loadOnly
                         size="icon"
                         variant="ghost"
                         disabled={!prev_page_url}
-                        onClick={() => router.get(prev_page_url, {}, { preserveScroll: true })}
+                        onClick={() => router.get(prev_page_url, {}, { preserveScroll: true, only: loadOnly })}
                     >
                         <ChevronLeftIcon className="h-4 w-4" />
                     </Button>
