@@ -12,6 +12,7 @@ export default function BusinessesManagement({ businesses }) {
     function handleDeleteSection(id) {
       if (confirm('Are you sure you want to delete this business? ')) {
         router.delete(route('business.delete', id), {
+          only: ['businesses'],
           preserveScroll: true,
           onSuccess: () => {
             toast.success('Business deleted successfully');

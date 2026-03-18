@@ -41,6 +41,7 @@ export default function EditTitleForm({ achievement }) {
 
   post(route('achievement.update.title', achievement?.id), {
    preserveScroll: true,
+   only: ['periods'],
    onSuccess: () => {
     toast.success('Achievement updated successfully');
     setOpen(false)

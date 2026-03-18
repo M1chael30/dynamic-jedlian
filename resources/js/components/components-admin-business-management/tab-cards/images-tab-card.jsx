@@ -10,6 +10,7 @@ export default function ImagesTabsCard({ business, images }) {
     if (confirm('Are you sure you want to delete?')) {
       router.delete(route('business.delete.image', id), {
         preserveScroll: true,
+        only: ['business'],
         onSuccess: () => {
           toast.success('Image deleted successfully');
         },

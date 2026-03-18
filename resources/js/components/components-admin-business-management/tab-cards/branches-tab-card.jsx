@@ -14,6 +14,7 @@ export default function BranchesTabsCard({ business, branches }) {
     if (confirm('Are you sure you want to delete? ')) {
       router.delete(route('business.delete.branch', id), {
         preserveScroll: true,
+        only: ['business'],
         onSuccess: () => {
           toast.success('Business branch deleted successfully');
         },

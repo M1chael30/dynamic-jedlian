@@ -21,6 +21,7 @@ export default function ContactUsEditContentForm({ item }) {
 
       put(route('contact_us.update', item?.id), {
          preserveScroll: true,
+         only: ['contactUsData'],
          onSuccess: () => {
             toast.success('Content Updated Successfully');
             setOpen(false);

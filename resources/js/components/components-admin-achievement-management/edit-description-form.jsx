@@ -20,6 +20,7 @@ export default function EditDescriptionForm({ description }) {
 
   put(route('achievement.update.description', description?.id), {
    preserveScroll: true,
+   only: ['periods'],
    onSuccess: () => {
     toast.success('Achievement Description Updated Successfully');
     setOpen(false);

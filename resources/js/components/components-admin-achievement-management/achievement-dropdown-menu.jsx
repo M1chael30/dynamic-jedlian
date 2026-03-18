@@ -18,6 +18,7 @@ export function AchievementDropdownMenu({ achievement }) {
   if (confirm(`Are you sure you want to delete ${achievement?.title}?`)) {
    router.post(route('achievement.delete.title', achievement?.id), {}, {
     preserveScroll: true,
+    only: ['periods'],
     onSuccess: () => {
      toast.success('Achievement delete successfully');
     },

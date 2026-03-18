@@ -21,6 +21,7 @@ export default function CreateDescriptionForm({ achievement }) {
 
         post(route('achievement.store.description'), {
             preserveScroll: true,
+            only: ['periods'],
             onSuccess: () => {
                 reset();
                 toast.success('Achievement Description Created Successfully');

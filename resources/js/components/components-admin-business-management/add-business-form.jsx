@@ -39,6 +39,7 @@ export default function AddBusinessForm() {
 
     post(route('business.store'), {
       preserveScroll: true,
+      only: ['businesses'],
       onSuccess: () => {
         reset();
         toast.success('Business Created Successfully');

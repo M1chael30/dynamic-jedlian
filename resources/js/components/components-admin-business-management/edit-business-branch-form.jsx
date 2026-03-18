@@ -21,6 +21,7 @@ export default function EditBusinessBranchForm({ branch }) {
         e.preventDefault();
         put(route('business.update.branch', branch?.id), {
             preserveScroll: true,
+            only: ['business'],
             onSuccess: () => {
                 toast.success('Business Branch Updated Successfully');
                 setOpen(false);

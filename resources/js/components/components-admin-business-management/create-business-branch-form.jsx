@@ -23,6 +23,7 @@ export default function CreateBusinessBranchForm({ business }) {
         e.preventDefault();
         post(route('business.store.branch'), {
             preserveScroll: true,
+            only: ['business'],
             onSuccess: () => {
                 reset();
                 toast.success('Business Branch Created Successfully');

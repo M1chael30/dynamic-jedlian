@@ -5,7 +5,6 @@ import HomeStatsForm from '../../../components/components-admin-home-stats/edit-
 import { Card, CardAction, CardContent, CardFooter, CardHeader, CardTitle } from '../../../components/ui/card';
 
 export default function HomeManagement({ stats }) {
-  console.log(stats);
   return (
     <>
       <Head title="Manage Home" />

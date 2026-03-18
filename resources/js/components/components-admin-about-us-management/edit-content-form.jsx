@@ -37,6 +37,7 @@ export default function AboutUsEditContentForm({ content }) {
 
       post(route('update.about_us_content', content?.id), {
          preserveScroll: true,
+         only: ['content'],
          onSuccess: () => {
             toast.success('Content Updated Successfully');
             setOpen(false)

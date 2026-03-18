@@ -12,6 +12,7 @@ export default function AchievementsCard({ achievement }) {
   function handleDelete(id) {
     if (confirm('Are you sure you want to delete? ')) {
       router.delete(route('achievement.delete.description', id), {
+        only: ['periods'],
         preserveScroll: true,
         onSuccess: () => {
           toast.success('Achivement description deleted successfully');

@@ -31,6 +31,7 @@ export default function CreatePeriodForm() {
 
         post(route('achievement.store.period'), {
             preserveScroll: true,
+            only: ['periods'],
             onFinish: () => reset(),
             onSuccess: () => {
                 reset();

@@ -22,6 +22,7 @@ export default function CreateBusinessSectionForm({ business }) {
         e.preventDefault();
         post(route('business.store.section',), {
             preserveScroll: true,
+            only: ['business'],
             onSuccess: () => {
                 reset();
                 toast.success('Business Section Updated Successfully');

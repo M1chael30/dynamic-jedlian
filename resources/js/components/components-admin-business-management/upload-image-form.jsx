@@ -48,6 +48,7 @@ export default function UploadImageForm({ business, images }) {
     setData('business_id', business?.id);
 
     post(route('business.store.image'), {
+      only: ['business'],
       preserveScroll: true,
       forceFormData: true,
       onSuccess: () => {

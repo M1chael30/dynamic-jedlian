@@ -30,6 +30,7 @@ export default function EditBusinessSectionForm({ section, sections }) {
     e.preventDefault();
     put(route('business.update.section', section?.id), {
       preserveScroll: true,
+      only: ['business'],
       onSuccess: () => {
         toast.success('Business section updated successfully');
         setOpen(false);

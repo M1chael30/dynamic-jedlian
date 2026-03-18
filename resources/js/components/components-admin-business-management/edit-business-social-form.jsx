@@ -20,6 +20,7 @@ export default function EditBusinessSocialForm({ social }) {
         e.preventDefault();
         put(route('business.update.social', social?.id), {
             preserveScroll: true,
+            only: ['business'],
             onSuccess: () => {
                 toast.success('Business Social Updated Successfully');
                 setOpen(false);

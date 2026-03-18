@@ -41,6 +41,7 @@ export default function CreateTitleForm({ period }) {
 
         post(route('achievement.store.title'), {
             preserveScroll: true,
+            only: ['periods'],
             onSuccess: () => {
                 reset();
                 toast.success('Achievement Created Successfully');

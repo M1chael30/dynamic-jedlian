@@ -25,6 +25,7 @@ export default function HomeStatsForm({ stat }) {
     //  setData('id', stat.id);
 
     put(route('update.homestat', stat?.id), {
+      only: ['stats'],
       onFinish: () => {
         toast.success('Achievement Description Updated Successfully');
         //   reset();

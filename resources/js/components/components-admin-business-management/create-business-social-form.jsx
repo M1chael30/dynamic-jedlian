@@ -33,6 +33,7 @@ export default function CreateBusinessSocialForm({ business, socials }) {
     e.preventDefault();
     post(route('business.store.social'), {
       preserveScroll: true,
+      only: ['business'],
       onSuccess: () => {
         reset();
         toast.success('Business Social Created Successfully');

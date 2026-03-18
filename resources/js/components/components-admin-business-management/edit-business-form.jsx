@@ -33,6 +33,7 @@ export default function EditBusinessForm({ business }) {
 
     put(route('business.update', business.id), {
       preserveScroll: true,
+      only: ['businesses'],
       onSuccess: () => {
         toast.success('Business Updated Successfully');
         setOpen(false);
