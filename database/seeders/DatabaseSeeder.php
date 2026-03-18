@@ -87,10 +87,12 @@ class DatabaseSeeder extends Seeder
         AboutUsContent::factory()->createMany([
             [
                 'title' => 'Editha Galang',
+                'position' => 'CEO/Chairwoman',
                 'content' => "She stood beside her husband from the start, through struggles, risks, and humble beginnings. With dedication and quiet strength, she helped build the business step by step, inspiring growth and fostering a culture of care. A woman of integrity and heart, her partnership and leadership turned a simple dream into lasting success."
             ],
             [
                 'title' => 'Christian Galang',
+                'position' => 'COO/Chairman',
                 "content" => "Through his leadership, this company has thrived and become a beacon of hope. He faced challenges bravely, never faltering in faith, blessing many along the way. A pillar of strength and inspiration, his life and testimony of God’s favor continue to guide and uplift us all."
             ],
             [
