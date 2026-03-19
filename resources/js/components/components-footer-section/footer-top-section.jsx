@@ -8,7 +8,7 @@ export default function FooterTopSection() {
   <section className="flex justify-around border-b-2 border-b-muted px-3 py-4 w-full max-w-7xl mx-auto">
     <Link href="/">
    <img
-    src="/storage/business_logo/HOLDINGS-LOGO2.png"
+         src="/images/business_logo/HOLDINGS-LOGO2.png"
     alt=""
     className="w-70 h-20 aspect-video object-cover hidden md:block select-none"
     draggable="false"
