@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 import { cn } from '../../lib/utils';
 
 export default function PersonWidget({ data, isReverse }) {
+
+  console.log(data)
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -11,45 +13,37 @@ export default function PersonWidget({ data, isReverse }) {
       <img
         src={data.image_path}
         alt={'No image provided.'}
-        className={cn(
-          'hidden h-158 w-140 rounded-2xl bg-zinc-800 object-cover shadow-xl select-none md:flex',
-          isReverse ? '' : 'order-last'
-        )}
-      /> 
+        className={cn('hidden h-158 w-140 rounded-2xl bg-zinc-800 object-cover shadow-xl select-none md:flex', isReverse ? '' : 'order-last')}
+      />
       <div className="mt-5">
         {/*Content*/}
-        <div className="relative w-full flex items-center justify-center overflow-hidden">
+        <div className="relative flex w-full items-center justify-center overflow-hidden">
           {/* The "Background" Image */}
           <img
-            src={
-              isReverse ?
-                '/images/aboutus-page-img/rightRibbon.png' :
-                '/images/aboutus-page-img/leftRibbon.png'
-            }
+            src={isReverse ? '/images/aboutus-page-img/rightRibbon.png' : '/images/aboutus-page-img/leftRibbon.png'}
             alt="background ribbon"
-            className="absolute inset-0 w-full h-full select-none z-0"
+            className="absolute inset-0 z-0 h-full w-full select-none"
             draggable="false"
           />
 
           {/* The Content (sitting on top) */}
           <div className="relative z-10 p-6 text-center">
-            <h2 className="text-2xl font-bold uppercase tracking-widest text-primary-foreground">
-              {data.title}
-            </h2>
-            <p className="mt-2 max-w-md text-primary-foreground">
-              {data.position}
-            </p>
+            <h2 className="text-primary-foreground text-2xl font-bold tracking-widest uppercase">{data.title}</h2>
+            <p className="text-primary-foreground mt-2 max-w-md">{data.position}</p>
           </div>
         </div>
         <div
           className={cn(
-            'max-h-md relative rounded-xl border-2 border-t-0 border-amber-300 md:rounded-none break-words',
-            isReverse ? 'md:rounded-br-lg md:border-l-0 md:mr-10' : 'md:rounded-bl-lg md:border-r-0 md:ml-10',
+            'max-h-md relative rounded-xl border-2 border-t-0 border-amber-300 break-words md:rounded-none',
+            isReverse ? 'md:mr-10 md:rounded-br-lg md:border-l-0' : 'md:ml-10 md:rounded-bl-lg md:border-r-0',
           )}
         >
           {/*text*/}
           <div className="hidden md:flex" />
-          <p className="text-xl h-auto p-10 text-gray-300">{data.content}</p>
+          <div className='p-10'>
+          {data.quote && <p className="text-lg pb-5 italic text-gray-300">{data.quote}</p>}
+          <p className="h-auto text-xl text-gray-300">{data.content}</p>
+          </div>
         </div>
       </div>
     </motion.div>

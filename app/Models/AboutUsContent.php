@@ -14,6 +14,7 @@ class AboutUsContent extends Model
         'title',
         'position',
         'content',
+        'quote',
         'image_path',
     ];
 }

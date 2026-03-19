@@ -93,7 +93,8 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Christian Galang',
                 'position' => 'COO/Chairman',
-                "content" => "Through his leadership, this company has thrived and become a beacon of hope. He faced challenges bravely, never faltering in faith, blessing many along the way. A pillar of strength and inspiration, his life and testimony of God’s favor continue to guide and uplift us all."
+                "quote" => "“The power of dreams is realized when one has the courage to pursue them.”",
+                "content" => "Through Christian Galang’s leadership, the company has thrived and become a beacon of hope for dreamers. His strong faith and courage in every challenge have blessed many and led the company toward greatness. Thank you for being a pillar of strength."
             ],
             [
                 "title" => "Geo footprint",

@@ -13,7 +13,7 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        $content = AboutUsContent::select('id', 'title', 'content', 'image_path', 'position')->latest()->get();
+        $content = AboutUsContent::select('id', 'title', 'content', 'image_path', 'position', 'quote')->latest()->get();
         return Inertia::render('Admin/AboutUs/AboutUsManagement', [
             'content' => $content
         ]);
@@ -25,6 +25,7 @@ class AboutUsController extends Controller
             'title' => 'required|string|regex:/^\S{0,30}(\s+\S{1,30})*$/',
             'position' => 'nullable|string|regex:/^\S{0,30}(\s+\S{1,30})*$/',
             'content' => 'required|string|regex:/^\S{0,30}(\s+\S{1,30})*$/',
+            'quote' => 'nullable|string|regex:/^\S{0,30}(\s+\S{1,30})*$/',
             'image_path' => [
                 'nullable',
                 'mimes:png,jpg',

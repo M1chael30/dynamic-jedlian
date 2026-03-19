@@ -27,6 +27,7 @@ export default function AboutUsEditContentForm({ content }) {
    const { data, setData, errors, post, processing, isDirty, reset } = useForm({
       title: content.title,
       position: content.position,
+      quote: content.quote,
       content: content.content,
       image_path: '',
       _method: 'PUT'
@@ -71,6 +72,8 @@ export default function AboutUsEditContentForm({ content }) {
       }
    };
 
+   console.log(content)
+
    return (
       <Dialog open={open} onOpenChange={setOpen}>
          <DialogTrigger asChild>
@@ -96,6 +99,7 @@ export default function AboutUsEditContentForm({ content }) {
                   </div>
                   {
                      (content.id === 1 || content.id === 2) &&
+                     <>
                      <div className="space-y-3 mb-8">
                         <TextInput
                            labelName={'Position'}
@@ -106,6 +110,17 @@ export default function AboutUsEditContentForm({ content }) {
                         />
                         <FormError message={errors.position} />
                      </div>
+                     <div className="space-y-3 mb-8">
+                        <TextInput
+                           labelName={'Quote'}
+                           labelTitle={'Quote'}
+                           placeholder={'Quote'}
+                           value={data.quote}
+                           onChange={(e) => setData('quote', e.target.value)}
+                        />
+                        <FormError message={errors.position} />
+                     </div>
+                     </>
                   }
                   <div className="space-y-3 mb-8">
                      <Label htmlFor="desc">Content</Label>
