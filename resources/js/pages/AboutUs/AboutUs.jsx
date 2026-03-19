@@ -14,7 +14,6 @@ export default function AboutUs({content}) {
     <LeadersSection data={content}/>
     <GeoFootPrintSection data={content} />
     <CommunitySection data={content}/>
-    <QuoteSection />
    </section>
   </>
  );
