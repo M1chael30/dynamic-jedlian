@@ -3,7 +3,7 @@ import { containerVariants, fadeRightSlowVariants, fadeVariants } from '../../li
 
 export default function GeoFootPrintSection({ data }) {
   return (
-    <section className="flex min-h-150 flex-col items-center justify-center py-10">
+    <section className="flex flex-col items-center justify-center py-10">
       <div className="grid py-5 md:grid-cols-2 gap-10 md:gap-0">
         <motion.div variants={containerVariants} className="order-2 mx-5 flex flex-col items-center justify-center md:order-1">
           <motion.h1

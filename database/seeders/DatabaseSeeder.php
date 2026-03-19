@@ -88,13 +88,14 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Editha Galang',
                 'position' => 'CEO/Chairwoman',
-                'content' => "She stood beside her husband from the start, through struggles, risks, and humble beginnings. With dedication and quiet strength, she helped build the business step by step, inspiring growth and fostering a culture of care. A woman of integrity and heart, her partnership and leadership turned a simple dream into lasting success."
+                'content' => "She stood beside her husband from the start, through struggles, risks, and humble beginnings. With dedication and quiet strength, she helped build the business step by step, inspiring growth and fostering a culture of care. A woman of integrity and heart, her partnership and leadership turned a simple dream into lasting success. Her unwavering support and vision continue to shape the company’s future, leaving a legacy that will inspire generations to come."
             ],
             [
                 'title' => 'Christian Galang',
                 'position' => 'COO/Chairman',
                 "quote" => "“The power of dreams is realized when one has the courage to pursue them.”",
-                "content" => "Through Christian Galang’s leadership, the company has thrived and become a beacon of hope for dreamers. His strong faith and courage in every challenge have blessed many and led the company toward greatness. Thank you for being a pillar of strength."
+                "content" => "Through his leadership, this company has not only thrived but also become a beacon of hope for those who dare to dream big. Because he did not falter nor weaken in faith, many people have been blessed.
+Because he bravely faced all challenges, we now march our way to greatness. He became the pillar of strength and source of inspiration to many."
             ],
             [
                 "title" => "Geo footprint",

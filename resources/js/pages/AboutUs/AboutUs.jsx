@@ -9,7 +9,7 @@ export default function AboutUs({content}) {
  return (
   <>
    <Head title="About Us" />
-   <section className="max-w-7xl w-full mx-auto">
+   <section className="max-w-7xl w-full mx-auto space-y-15">
     <TopSection />
     <LeadersSection data={content}/>
     <GeoFootPrintSection data={content} />
