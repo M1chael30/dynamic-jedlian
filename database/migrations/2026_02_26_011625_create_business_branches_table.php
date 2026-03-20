@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
             $table->string('address');
-            $table->string('google_map_embed')->nullable();
+            $table->string('google_map_embed', 1000)->nullable();
             $table->timestamps();
         });
     }

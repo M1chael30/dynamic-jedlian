@@ -14,7 +14,7 @@ return new class extends Migration
             Schema::create('about_us_contents', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('content');
+            $table->string('content', 1000);
             $table->timestamps();
         });
     }
