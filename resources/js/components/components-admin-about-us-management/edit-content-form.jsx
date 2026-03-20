@@ -72,8 +72,6 @@ export default function AboutUsEditContentForm({ content }) {
       }
    };
 
-   console.log(content)
-
    return (
       <Dialog open={open} onOpenChange={setOpen}>
          <DialogTrigger asChild>

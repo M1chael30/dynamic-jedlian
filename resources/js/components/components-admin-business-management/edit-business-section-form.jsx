@@ -14,17 +14,11 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 export default function EditBusinessSectionForm({ section, sections }) {
   const [open, setOpen] = useState(false);
 
-  // console.log(section);
-
   const { data, setData, errors, put, processing, isDirty } = useForm({
     business_id: section?.business_id,
     title: section?.title,
     content: section?.content,
   });
-
-  const sectionCount = sections.length;
-    const unavailableNumber = new Set(sections.map((s) => s.order));
-
 
   const updateBusinessSection = (e) => {
     e.preventDefault();

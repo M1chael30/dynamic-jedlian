@@ -3,7 +3,6 @@ import { cn } from '../../lib/utils';
 
 export default function PersonWidget({ data, isReverse }) {
 
-  console.log(data)
   return (
     <motion.div
       initial={{ opacity: 0 }}
