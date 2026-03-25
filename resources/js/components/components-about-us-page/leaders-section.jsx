@@ -15,7 +15,7 @@ export default function LeadersSection({ data }) {
       {[data[0], data[1]].map((person, index) => (
         <PersonWidgetMobile
           key={index}
-          image={person.image_path}
+          image={`/storage/${person.image_path}`}
           title={person.title}
           position={person.position}
           content={person.content}
