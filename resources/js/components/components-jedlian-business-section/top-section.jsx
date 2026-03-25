@@ -26,7 +26,7 @@ export default function TopSection({ images }) {
   const banner = images.find((img) => img.image_type === 'banner')?.image_path;
   const circle = images.find((img) => img.image_type === 'circle_banner')?.image_path;
 
-  console.log(images)
+  // console.log(images)
 
   const logoImages = [jedlianCommunicationLogo, jedlianConstructionLogo, jedlianGasolineLogo, jedlianDrugstoreLogo, casaJedlianaLogo];
 
