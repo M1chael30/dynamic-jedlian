@@ -3,6 +3,8 @@ import { cn } from '../../lib/utils';
 
 export default function PersonWidget({ data, isReverse }) {
 
+  // console.log(data)
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -10,7 +12,7 @@ export default function PersonWidget({ data, isReverse }) {
       className={'mx-auto hidden w-full max-w-4xl min-w-70 items-center justify-center lg:grid lg:grid-cols-2'}
     >
       <img
-        src={data.image_path}
+        src={`/storage/${data.image_path}`}
         alt={'No image provided.'}
         className={cn('hidden h-158 w-140 rounded-2xl bg-zinc-800 object-cover shadow-xl select-none md:flex', isReverse ? '' : 'order-last')}
       />
