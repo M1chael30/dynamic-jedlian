@@ -17,12 +17,12 @@ export default function PersonWidgetMobile({ image, title, content, position, qu
         <CardTitle className={'text-center text-xl'}>
           <div className="bg-[radial-gradient(circle_at_75%,#c89116,#c89116,#cfceaa)] bg-clip-text text-transparent">
             <h1>{title}</h1>
-            <p className="text-sm">{position}</p>
+            <p className="text-sm pb-2">{position}</p>
           </div>
         </CardTitle>
         <CardDescription>
-          <div className="p-10">
-            <p className="pb-5 text-lg text-gray-300 italic">{quote}</p>
+          <div className="p-1">
+            <p className="text-xs text-center text-gray-300 italic">{quote}</p>
             <p className="h-auto p-5 text-center text-xs text-gray-300">{content}</p>
           </div>
         </CardDescription>
