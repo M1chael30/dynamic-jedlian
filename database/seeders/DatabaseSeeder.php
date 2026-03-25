@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
                 'position' => 'COO/Chairman',
                 "quote" => "“The power of dreams is realized when one has the courage to pursue them.”",
                 "content" => "Through his leadership, this company has not only thrived but also become a beacon of hope for those who dare to dream big. Because he did not falter nor weaken in faith, many people have been blessed.
-Because he bravely faced all challenges, we now march our way to greatness. He became the pillar of strength and source of inspiration to many."
+Because he bravely faced all challenges, we now head towards greatness. He became the pillar of strength and source of inspiration to many."
             ],
             [
                 "title" => "Geo footprint",
